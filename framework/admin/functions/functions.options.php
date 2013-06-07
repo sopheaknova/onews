@@ -142,7 +142,14 @@ $of_options[] = array( 	"name" 		=> "Custom Favicon",
 						"std" 		=> SP_BASE_URL . "favicon.ico",
 						"type" 		=> "upload"
 				); 
-				
+
+$of_options[] = array( 	"name" 		=> "Show Topbar",
+						"desc" 		=> "Choose if you want to show the topbar or not.",
+						"id" 		=> "show_topbar",
+						"std" 		=> 1,
+						"type" 		=> "switch"
+				);
+								
 $of_options[] = array( 	"name" 		=> "Tracking Code",
 						"desc" 		=> "Paste your Google Analytics (or other) tracking code here. This will be added into the footer template of your theme.",
 						"id" 		=> "google_analytics",
@@ -162,76 +169,69 @@ $of_options[] = array( 	"name" 		=> "Header Settings",
 						"type" 		=> "heading"
 				);	
 				
-$of_options[] = array( 	"name" 		=> "Show Topbar",
-						"desc" 		=> "Choose if you want to show the topbar or not.",
-						"id" 		=> "show_topbar",
+$of_options[] = array( 	"name" 		=> "Breaking News",
+						"desc" 		=> "Show/Hide breaking news",
+						"id" 		=> "breaking_news",
 						"std" 		=> 1,
 						"type" 		=> "switch"
-				);
+				);	
 
-$of_options[] = array( 	"name" 		=> "Show login/logout",
-						"desc" 		=> "Hide login/logout URL from the top bar",
-						"id" 		=> "topbar_login",
-						"std" 		=> 1,
-						"folds"		=> 1,
-						"type" 		=> "switch"
-				);
+$of_options[] = array( "name" => 'Breaking News Setting',
+					"desc" => "",
+					"id" => "introduction",
+					"std" => "<h3 style=\"margin: 0 0 10px;\">Breaking News Setting</h3>",
+					"icon" => true,
+					"type" => "info",
+					);			
+					
+$of_options[] = array( "name" => 'Breaking News Title',
+					"id" => "breaking_title",
+					"std" => "",
+					"type" => "text",
+					);
+					
+$of_options[] = array( "name" => 'Animation Effect',
+					"desc" => 'name of transition effect',
+					"id" => "breaking_effect",
+					"std" => "fade",
+					"type" => "select",
+					"options" => array(
+									'fade' 	=>	'Fade',
+									'slide'	=>	'Slide',
+									'ticker'=>	'Ticker'
+								)
+					);
+					
+$of_options[] = array( "name" => 'Animation Speed',
+					"id" => "breaking_speed",
+					"std" => "750",
+					"min" => "0",
+					"step"	=> "50",
+					"max" => "10000",
+					"type" => "sliderui"
+					);		
+					
+$of_options[] = array( "name" => 'Time between the fades',
+					"id" => "breaking_time",
+					"std" => "3500",
+					"min" => "0",
+					"step"	=> "50",
+					"max" => "10000",
+					"type" => "sliderui" 
+					);
+					
+$of_options[] = array( "name" => 'Number Of Posts To Show',
+					"id" => "breaking_number",
+					"std" => "",
+					"type" => "text",
+					);		
 
-$of_options[] = array( 	"name" 		=> "Hide register",
-						"desc" 		=> "Hide register URL from the top bar. If you are using the WooCommerce plugin, you need to active the register also in Woocommerce -> Settings -> Customer Accounts -> Allow unregistered users to register from My Account",
-						"id" 		=> "topbar_register",
-						"std" 		=> 1,
-						"fold" 		=> "topbar_login", /* the switch hook */
-						"type" 		=> "switch"
-				);				
-				
-$of_options[] = array( 	"name" 		=> "Show quick contact",
-						"desc" 		=> "Choose if you want to show quick contact or not.",
-						"id" 		=> "show_quick_contact",
-						"std" 		=> 1,
-						"folds"		=> 1,
-						"type" 		=> "switch"
-				);
-
-$of_options[] = array( 	"name" 		=> "Open time text",
-						"desc" 		=> "Enter label for open time",
-						"id" 		=> "open_time_txt",
-						"std" 		=> "OPEN DAILY: ",
-						"fold"		=> "show_quick_contact",
-						"type" 		=> "text"
-				);
-
-$of_options[] = array( 	"name" 		=> "Open time line 1",
-						"desc" 		=> "Show working itmes. e.g: from Monday to Saturday with time",
-						"id" 		=> "open_time_1",
-						"std" 		=> "Mon - Sat / 8:00 - 19:30",
-						"fold"		=> "show_quick_contact",
-						"type" 		=> "text"
-				);
-
-$of_options[] = array( 	"name" 		=> "Open time line 2",
-						"desc" 		=> "Show working itmes. e.g: Suday only with time",
-						"id" 		=> "open_time_2",
-						"std" 		=> "Sun / 9:00 - 14:00",
-						"fold"		=> "show_quick_contact",
-						"type" 		=> "text"
-				);
-
-$of_options[] = array( 	"name" 		=> "Call text",
-						"desc" 		=> "Enter call text",
-						"id" 		=> "call_text",
-						"std" 		=> "CALL NOW!",
-						"fold"		=> "show_quick_contact",
-						"type" 		=> "text"
-				);
-				
-$of_options[] = array( 	"name" 		=> "Phone number",
-						"desc" 		=> "Enter phone number of shop",
-						"id" 		=> "phone_number",
-						"std" 		=> " 04 72 800 233",
-						"fold"		=> "show_quick_contact",
-						"type" 		=> "text"
-				);				
+$of_options[] = array( "name" => 'Breaking News Categories',
+					"id" => "breaking_cat",
+					"std" => "",
+					"type" => "select",
+					"options" => $of_categories,
+					);																																	
 				
 				
 //Feature Slide
@@ -271,113 +271,94 @@ $of_options[] = array( "name" => 'timeout',
 					);				
 
 
-//Shop				
-$of_options[] = array( 	"name" 		=> "Shop Options",
+//Post Setting	
+			
+$of_options[] = array( 	"name" 		=> "Article Settings",
 						"type" 		=> "heading"
 				);
 
-$of_options[] = array( 	"name" 		=> "Shop Page",
-						"desc" 		=> "",
-						"id" 		=> "shop_page",
-						"std" 		=> "<h3 style=\"margin: 0 0 10px;\">Shop Page</h3>",
-						"icon" 		=> true,
-						"type" 		=> "info"
-				);
-
-$of_options[] = array( 	"name" 		=> "Number of products to show",
-						"desc" 		=> "Select the number of products to show on the pages. Set 0 to show all products.",
-						"id" 		=> "shop_products_per_page",
-						"std" 		=> "8",
-						"min" 		=> "0",
-						"step"		=> "3",
-						"max" 		=> "100",
-						"type" 		=> "sliderui" 
-				);				
-
-$of_options[] = array( 	"name" 		=> "Style for products list",
-						"desc" 		=> "Select the style for the products list.",
-						"id" 		=> "shop_products_style",
+$of_options[] = array( 	"name" 		=> "Time format",
+						"desc" 		=> "Time format for blog posts",
+						"id" 		=> "time_format",
 						"std" 		=> "traditional",
-						"type" 		=> "select",
+						"type" 		=> "radio",
 						"options" 	=> array(
-											'ribbon' => __( 'Ribbon', 'sptheme_admin' ),
-											'traditional' => __( 'Traditional', 'sptheme_admin' ), 
-									   ), 
+										"traditional"	=>	"Traditinal",
+										"modern"		=>	"Time Ago Format"
+									)
 				);
-				
-$of_options[] = array( 	"name" 		=> "Title position",
-						"desc" 		=> "Select the position of the title. You can say if put it inside the thumbnail or below the image.",
-						"id" 		=> "shop_title_position",
-						"std" 		=> "traditional",
-						"type" 		=> "select",
-						"options" 	=> array(
-											'inside-thumb' => __( 'Inside the thumbnail', 'sptheme_admin' ),
-											'below-thumb' => __( 'Below the thumbnail', 'sptheme_admin' ),
-									   )
-				);									
 
-$of_options[] = array( 	"name" 		=> "Border thumbnail",
-						"desc" 		=> "Select if you want to show a border on thumbnail.",
-						"id" 		=> "shop_border_thumbnail",
-						"std" 		=> 0,
-						"type" 		=> "switch"
-				);				
-
-$of_options[] = array( 	"name" 		=> "Shadow thumbnail",
-						"desc" 		=> "Select if you want to show a shadow on thumbnail.",
-						"id" 		=> "shop_shadow_thumbnail",
+$of_options[] = array( 	"name" 		=> "Breadcrumbs Settings",
+						"desc" 		=> "Show/Hide breadcrumb menu",
+						"id" 		=> "breadcrumbs",
 						"std" 		=> 1,
 						"type" 		=> "switch"
 				);
 
-$of_options[] = array( 	"name" 		=> "Show name",
-						"desc" 		=> "Select if you want to show a the price on the products list.",
-						"id" 		=> "shop_show_name",
+$of_options[] = array( "name" => 'Post Meta Settings',
+					"desc" => "",
+					"id" => "introduction",
+					"std" => "<h3>Post Meta Settings</h3>",
+					"icon" => true,
+					"type" => "info",
+					);
+				
+$of_options[] = array( 	"name" 		=> "Post Meta",
+						"desc" 		=> "Show/Hide post meta",
+						"id" 		=> "post_meta",
 						"std" 		=> 1,
+						"folds"		=> 1,
 						"type" 		=> "switch"
 				);
 				
-$of_options[] = array( 	"name" 		=> "Show price",
-						"desc" 		=> "Select if you want to show a the price on the products list.",
-						"id" 		=> "shop_show_price",
+	$of_options[] = array( 	"name" 		=> "Posted by",
+							"desc" 		=> "Show/Hide posted by",
+							"id" 		=> "posted_by",
+							"std" 		=> 1,
+							"fold"		=> "post_meta",
+							"type" 		=> "switch"
+					);
+				
+	$of_options[] = array( 	"name" 		=> "Date Meta",
+						"desc" 		=> "Show/Hide post date",
+						"id" 		=> "post_date",
 						"std" 		=> 1,
+						"fold"		=> "post_meta",
 						"type" 		=> "switch"
 				);
+				
+	$of_options[] = array( 	"name" 		=> "Categories Meta",
+						"desc" 		=> "Show/Hide categories",
+						"id" 		=> "post_categories",
+						"std" 		=> 1,
+						"fold"		=> "post_meta",
+						"type" 		=> "switch"
+				);
+				
+	$of_options[] = array( 	"name" 		=> "Comments Meta",
+						"desc" 		=> "Show/Hide comments",
+						"id" 		=> "post_comments",
+						"std" 		=> 1,
+						"fold"		=> "post_meta",
+						"type" 		=> "switch"
+				);		
+	
+	$of_options[] = array( 	"name" 		=> "Views Meta",
+						"desc" 		=> "Show/Hide views",
+						"id" 		=> "post_views",
+						"std" 		=> 1,
+						"fold"		=> "post_meta",
+						"type" 		=> "switch"
+				);
+				
+	$of_options[] = array( 	"name" 		=> "Tags Meta",
+						"desc" 		=> "Show/Hide tags",
+						"id" 		=> "post_tags",
+						"std" 		=> 1,
+						"fold"		=> "post_meta",
+						"type" 		=> "switch"
+				);																		
 
-$of_options[] = array( 	"name" 		=> "Show button details",
-						"desc" 		=> "Select if you want to show the button for product details.",
-						"id" 		=> "shop_show_button_details",
-						"std" 		=> 0,
-						"type" 		=> "switch"
-				);
-
-$of_options[] = array( 	"name" 		=> "Show rating",
-						"desc" 		=> "Select if you want to show the star rating, on the products list.",
-						"id" 		=> "shop_show_star_rating_loop",
-						"std" 		=> 0,
-						"type" 		=> "switch"
-				);
-				
-$of_options[] = array( 	"name" 		=> "Show button add to cart",
-						"desc" 		=> "Select if you want to show the purchase button.",
-						"id" 		=> "shop_show_button_add_to_cart",
-						"std" 		=> 1,
-						"type" 		=> "switch"
-				);
-				
-$of_options[] = array( 	"name" 		=> "Label button details",
-						"desc" 		=> "Select the text for the button for product details.",
-						"id" 		=> "shop_button_details_label",
-						"std" 		=> strtoupper( __( 'Details', 'sptheme_admin' )),
-						"type" 		=> "text"
-				);
-				
-$of_options[] = array( 	"name" 		=> "Label button add to cart",
-						"desc" 		=> "Select the text for the purchase button.",
-						"id" 		=> "shop_button_addtocart_label",
-						"std" 		=> strtoupper( __( 'Add to cart', 'sptheme_admin' )),
-						"type" 		=> "text"
-				);
 
 //Style				
 $of_options[] = array( 	"name" 		=> "Styling Options",

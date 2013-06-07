@@ -30,8 +30,12 @@ require_once( SP_BASE_DIR . 'framework/functions/aq_resizer.php');
 require_once( SP_BASE_DIR . 'framework/widgets/widgets.php' );
 
 // Add Admin Option
-//require_once( SP_BASE_DIR . 'framework/admin/index.php' );
+require_once( SP_BASE_DIR . 'framework/admin/index.php' );
 
 // Add metaboxes
 require_once( SP_BASE_DIR . 'framework/meta-box/class.php' );
 require_once( SP_BASE_DIR . 'framework/meta-box/meta-boxes.php' );
+
+// Addon custom functions
+require_once( SP_BASE_DIR . 'includes/breadcrumbs.php' );
+require_once( SP_BASE_DIR . 'includes/wp_list_comments.php' );

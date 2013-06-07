@@ -38,11 +38,11 @@ $meta_boxes[] = array(
 			'options'  => array(
 				//''     => '<img src="' . SP_BASE_URL . 'framework/assets/img/xcol.png" alt="' . __('Use theme default setting', 'sptheme_admin') . '" title="' . __('Use theme default setting', 'sptheme_admin') . '" />',
 				'1col' => '<img src="' . SP_BASE_URL . 'framework/assets/img/1col.png" alt="' . __('Fullwidth - No sidebar', 'sptheme_admin') . '" title="' . __('Fullwidth - No sidebar"', 'sptheme_admin') . ' />',
-				'2cl'  => '<img src="' . SP_BASE_URL . 'framework/assets/img/2cl.png" alt="' . __('Sidebar on the left', 'sptheme_admin') . '" title="' . __('Sidebar on the left', 'sptheme_admin') . '" />',
+				//'2cl'  => '<img src="' . SP_BASE_URL . 'framework/assets/img/2cl.png" alt="' . __('Sidebar on the left', 'sptheme_admin') . '" title="' . __('Sidebar on the left', 'sptheme_admin') . '" />',
 				'2cr'  => '<img src="' . SP_BASE_URL . 'framework/assets/img/2cr.png" alt="' . __('Sidebar on the right', 'sptheme_admin') . '" title="' . __('Sidebar on the right', 'sptheme_admin') . '" />',
 				//'3col' => '<img src="' . SP_BASE_URL . 'framework/assets/img/3col.png" alt="' . __('Sidebar on left and right', 'sptheme_admin') . '" title="' . __('Sidebar on left and right', 'sptheme_admin') . '" />'
 			),
-			'std'  => '2cl',
+			'std'  => '2cr',
 			'desc' => __('select the layout structure for this page.', 'sptheme_admin')
 		),
 		array(
@@ -55,54 +55,6 @@ $meta_boxes[] = array(
 	)
 );
 
-
-/* ---------------------------------------------------------------------- */
-/*	SLIDESHOW
-/* ---------------------------------------------------------------------- */
-
-$meta_boxes[] = array(
-	'id'       => 'slideshow-setting',
-	'title'    => __('Slideshow setting', 'sptheme_admin'),
-	'pages'    => array('sp_slideshow'),
-	'context'  => 'normal',
-	'priority' => 'high',
-	'fields'   => array(
-		array(
-			'name' => __('Slideshow link', 'sptheme_admin'),
-			'id'   => $prefix . 'slideshow_link',
-			'type' => 'text',
-			'std'  => '',
-			'desc' => 'Enter url/link for this slide. e.g: http://www.google.com/'
-		)
-	)
-);
-
-/* ---------------------------------------------------------------------- */
-/*	LOGO CLIENTS
-/* ---------------------------------------------------------------------- */
-
-$meta_boxes[] = array(
-	'id'       => 'logo-setting',
-	'title'    => __('Logo setting', 'sptheme_admin'),
-	'pages'    => array('sp_logos'),
-	'context'  => 'normal',
-	'priority' => 'high',
-	'fields'   => array(
-		array(
-			'name' => 'Logo image Upload',
-			'id'   => $prefix . "logos_img",
-			'type' => 'thickbox_image',
-		),
-		
-		array(
-			'name' => __('Logo link', 'sptheme_admin'),
-			'id'   => $prefix . 'logos_link',
-			'type' => 'text',
-			'std'  => '',
-			'desc' => 'Enter url/link for this slide. e.g: http://www.google.com/'
-		)
-	)
-);
 
 /* ---------------------------------------------------------------------- */
 /*	POST FORMAT: VIDEO

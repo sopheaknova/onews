@@ -105,3 +105,4 @@ class sp_widget_video extends WP_Widget {
 	   <?php 
     }
 } //end class
+?>

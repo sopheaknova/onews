@@ -107,7 +107,7 @@ class sp_widget_text_image extends WP_Widget {
 		$title = apply_filters('widget_title', $instance['title'] );
 		$link = esc_attr($instance['link']);
 		$txt = $instance['txt'];
-		$banner_img = aq_resize( $instance['image'], 282, 9999, true ); 
+		$banner_img = aq_resize( $instance['image'], 300, 9999, true ); 
 		
 		echo $before_widget;                   
 		

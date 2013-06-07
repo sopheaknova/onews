@@ -2,18 +2,19 @@
 ## widget_tabs
 
 class sp_widget_tabs extends WP_Widget {
-	function sp_widget_tabs() {
+	function __construct() {
 		
 		$id     = 'sp-widget-tabbed';
 		$prefix = THEME_NAME . ': ';
 		$name   = '<span>' . $prefix . __( 'Most Popular, Recent, Comments, Tags', 'sptheme_widget' ) . '</span>';
 		$widget_ops = array(
 			'classname'   => 'sp-widget-tabbed',
-			'description' => __( 'A widget that allows to view video to be added to a sidebar','sptheme_widget' )
+			'description' => __( 'A widget show most popular, recent acomment in tabs','sptheme_widget' )
 			);
 		$control_ops = array();
 
-		$this->WP_Widget( $id, $name, $widget_ops, $control_ops );
+		//$this->WP_Widget( $id, $name, $widget_ops, $control_ops );
+		parent::__construct( $id, $name, $widget_ops, $control_ops );
 	}
 	function widget( $args, $instance ) {
 		?>

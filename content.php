@@ -10,6 +10,7 @@
     <div class="entry-meta">
 
 		<?php echo sp_post_meta(); ?>
+        
     
     </div><!-- end .entry-meta -->
 

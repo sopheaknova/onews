@@ -213,16 +213,42 @@ if( !function_exists('sp_post_meta')) {
 
 	function sp_post_meta() {
 
-		global $post;
+		global $smof_data, $post;
 		
-		$output = '<span>' . __('By: ', 'sptheme_admin') . '</span>';
-		$output .= '<span class="title">' . get_the_author() . ' &mdash; </span>';
-		$output .= sp_posted_on() . ' &mdash; ';
-		$output .= '<span class="post-categories">' . __(' in: ', 'sptheme') . ' ' . get_the_category_list(', ') . '</span>';
+		if ($smof_data[ 'post_meta' ]) :
+		if( $smof_data[ 'posted_by' ] )
+			$output = '<span>' . __('Posted by:', 'sptheme_admin') . '</span><span class="title">' . get_the_author() . '</span><span>&mdash;</span>';
+			
+		if( $smof_data[ 'post_date' ] )
+			$output .=  sp_posted_on() . '<span>&mdash;</span>';
+		
+		if( $smof_data[ 'post_categories' ] )	
+			$output .= '<span class="post-categories">' . __(' in: ', 'sptheme') . ' ' . get_the_category_list(', ') . '</span><span>&mdash;</span>';
+		
+		if( $smof_data[ 'post_comments' ] )	
+			$output .= '<span class="post-comments">' . get_comments_popup_link( __( 'Leave a comment', 'sptheme' ), __( '1 Comment', 'sptheme' ), __( '% Comments', 'sptheme' ) ) . '</span><span>&mdash;</span>';
+			
+		if( $smof_data[ 'post_views' ] )	
+			$output .= sp_post_views();
 		
 		return $output;
+		
+		else: 
+		
+		return false;
+		
+		endif;
 	}
 
+}
+
+/*-----------------------------------------------------------------------------------*/
+# Buffer the output from comments_popup_link
+/*-----------------------------------------------------------------------------------*/
+function get_comments_popup_link( $zero = false, $one = false, $more = false, $css_class = '', $none = false ) {
+    ob_start();
+    comments_popup_link( $zero, $one, $more, $css_class, $none );
+    return ob_get_clean();
 }
 
 /* ---------------------------------------------------------------------- */
@@ -233,13 +259,108 @@ if( !function_exists('sp_posted_on')) {
 
 	function sp_posted_on() {
 
-		return sprintf( __( '<time datetime="%1$s" pubdate>%2$s</time>', 'sptheme' ),
+	global $smof_data, $post ;
+	
+	if( $smof_data[ 'time_format' ] == 'none' ){
+		return false;
+	}elseif( $smof_data[ 'time_format' ] == 'modern' ){	
+		$to = time();
+		$from = get_the_time('U') ;
+		
+		$diff = (int) abs($to - $from);
+		if ($diff <= 3600) {
+			$mins = round($diff / 60);
+			if ($mins <= 1) {
+				$mins = 1;
+			}
+			$since = sprintf(_n('%s min', '%s mins', $mins), $mins) .' '. __( 'ago' , 'sptheme' );
+		}
+		else if (($diff <= 86400) && ($diff > 3600)) {
+			$hours = round($diff / 3600);
+			if ($hours <= 1) {
+				$hours = 1;
+			}
+			$since = sprintf(_n('%s hour', '%s hours', $hours), $hours) .' '. __( 'ago' , 'sptheme' );
+		}
+		elseif ($diff >= 86400) {
+			$days = round($diff / 86400);
+			if ($days <= 1) {
+				$days = 1;
+				$since = sprintf(_n('%s day', '%s days', $days), $days) .' '. __( 'ago' , 'sptheme' );
+			}
+			elseif( $days > 29){
+				$since = get_the_time(get_option('date_format'));
+			}
+			else{
+				$since = sprintf(_n('%s day', '%s days', $days), $days) .' '. __( 'ago' , 'sptheme' );
+			}
+		}
+	}else{
+		$since = get_the_time(get_option('date_format'));
+	}
+	//echo '<span class="post-date">'.$since.'</span>';
+	
+	return sprintf( __( '<time datetime="%1$s" pubdate>%2$s</time>', 'sptheme' ),
 			esc_attr( get_the_date('c') ),
-			esc_html( get_the_date('M d Y') )
+			esc_html( $since )
 		);
-
+	
 	}
 
+}
+
+/*-----------------------------------------------------------------------------------*/
+/* Amount of Post viewed 
+/*-----------------------------------------------------------------------------------*/
+// function to display number of posts.
+function sp_post_views( $postID = '' ){
+	global $smof_data, $post;
+	
+	if( !$smof_data[ 'post_views' ] ) return false;
+
+	if( empty($postID) ) $postID = $post->ID ;
+	
+    $count_key = 'sp_post_views';
+    $count = get_post_meta($postID, $count_key, true);
+    if($count==''){
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+        $count = "0";
+    }
+    return '<span class="post-views">'.$count.' '.__( 'Views' , 'sptheme' ).'</span> ';
+}
+
+// function to count views.
+function sp_set_post_views() {
+	global $smof_data, $post;
+	
+	if( !$smof_data[ 'post_views' ] ) return false;
+
+	$postID = $post->ID ;
+    $count_key = 'sp_post_views';
+    $count = get_post_meta($postID, $count_key, true);
+    if($count==''){
+        $count = 0;
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+    }else{
+        $count++;
+        update_post_meta($postID, $count_key, $count);
+    }
+}
+
+
+// Add it to a column in WP-Admin 
+add_filter('manage_posts_columns', 'sp_posts_column_views');
+add_action('manage_posts_custom_column', 'sp_posts_custom_column_views',5,2);
+function sp_posts_column_views($defaults){
+    $defaults['sp_post_views'] = __('Views');
+    return $defaults;
+}
+function sp_posts_custom_column_views($column_name, $id){
+	if($column_name === 'sp_post_views'){
+        echo sp_post_views(get_the_ID());
+    }
 }
 
 /* ---------------------------------------------------------------------- */
@@ -482,7 +603,7 @@ function wp_last_posts($numberOfPosts = 5 , $thumb = true){
         </a>
     </div><!-- post-thumbnail /-->
 	<h3><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h3>
-	<?php //tie_get_score(); ?> <span class="date"><?php echo sp_posted_on(); ?></span>
+	<?php //tie_get_score(); ?> <div class="entry-meta"><?php echo sp_posted_on(); ?></div>
 </li>
 <?php endforeach; 
 	$post = $orig_post;
@@ -508,7 +629,7 @@ function wp_popular_posts($pop_posts = 5 , $thumb = true){
                     </a>
 				</div><!-- post-thumbnail /-->
 				<h3><a href="<?php echo get_permalink( $post->ID ) ?>" title="<?php echo the_title(); ?>"><?php echo the_title(); ?></a></h3>
-				<?php //tie_get_score(); ?> <span class="entry-meta"><?php echo sp_posted_on(); ?></span>
+				<?php //tie_get_score(); ?> <div class="entry-meta"><?php echo sp_posted_on(); ?></div>
 			</li>
 	<?php 
 		}
@@ -531,4 +652,30 @@ foreach ($comments as $comment) { ?>
 		<?php echo strip_tags($comment->comment_author); ?>: <?php echo wp_html_excerpt( $comment->comment_content, 60 ); ?>... </a>
 	</li>
 <?php } 
+}
+
+/*-----------------------------------------------------------------------------------*/
+/* Get Most Racent posts from Category
+/*-----------------------------------------------------------------------------------*/
+function sp_last_posts_cat($numberOfPosts = 5 , $thumb = true , $cats = 1){
+	global $post;
+	$orig_post = $post;
+	
+	$lastPosts = get_posts('category='.$cats.'&numberposts='.$numberOfPosts);
+	foreach($lastPosts as $post): setup_postdata($post);
+?>
+<li>
+	<?php if ( $thumb ) : ?>			
+		<div class="post-thumbnail">
+			<a href="<?php the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'sptheme' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+			<img src="<?php echo sp_post_image('sp-small') ?>" width="60" height="60" />
+            </a>
+		</div><!-- post-thumbnail /-->
+	<?php endif; ?>
+	<h3><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h3>
+	<?php //tie_get_score(); ?> <div class="entry-meta"><?php echo sp_posted_on(); ?></div>
+</li>
+<?php endforeach;
+	$post = $orig_post;
+	wp_reset_postdata();
 }

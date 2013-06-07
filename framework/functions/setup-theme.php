@@ -152,14 +152,14 @@ function sp_register_assets() {
 		/* Register our scripts -----------------------------------------------------*/
 		/*wp_deregister_script('jquery');
 		wp_register_script( 'jquery',   'http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js', array(), '1.8.2', false ); //use for online */
-		wp_register_script( 'modernizr_custom',  SP_BASE_URL . 'js/modernizr.custom.js', array(), SP_SCRIPTS_VERSION, false );
-		wp_register_script( 'video-js',          SP_BASE_URL . 'js/video-js.min.js', array(), SP_SCRIPTS_VERSION, false );
+		wp_register_script( 'modernizr_custom',  SP_BASE_URL . 'js/modernizr.custom.js', array('jquery'), SP_SCRIPTS_VERSION, false );
+		wp_register_script( 'video-js',          SP_BASE_URL . 'js/video-js.min.js', array('jquery'), SP_SCRIPTS_VERSION, false );
 		wp_register_script( 'selectivizr',       SP_BASE_URL . 'js/selectivizr-min.js', array('jquery'), SP_SCRIPTS_VERSION, true );
 		wp_register_script( 'audioplayerv1',     SP_BASE_URL . 'js/audioplayerv1.min.js', array('jquery'), SP_SCRIPTS_VERSION, true );
 
-		wp_register_script( 'cycle',     SP_BASE_URL . 'js/jquery.cycle.all.min.js', array(), SP_SCRIPTS_VERSION, true );
-		wp_register_script( 'easing',     SP_BASE_URL . 'js/jquery.easing-1.3.pack.js', array(), SP_SCRIPTS_VERSION, true );
-		wp_register_script( 'bxslider',     SP_BASE_URL . 'js/jquery.bxslider.min.js', array(), SP_SCRIPTS_VERSION, true );//scrollable plugin script 
+		wp_register_script( 'cycle',     SP_BASE_URL . 'js/jquery.cycle.all.min.js', array('jquery'), SP_SCRIPTS_VERSION, true );
+		wp_register_script( 'easing',     SP_BASE_URL . 'js/jquery.easing-1.3.pack.js', array('jquery'), SP_SCRIPTS_VERSION, true );
+		wp_register_script( 'validation',     SP_BASE_URL . 'js/validation.js', array('jquery'), SP_SCRIPTS_VERSION, true );//scrollable plugin script 
 	
 		// PrettyPhoto script
 		if( !WP_PRETTY_PHOTO_PLUGIN_ACTIVE ) {
@@ -201,7 +201,7 @@ function sp_enqueue_scripts() {
 		wp_enqueue_script('audioplayerv1');	
 		wp_enqueue_script('cycle');
 		wp_enqueue_script('easing');	
-		//wp_enqueue_script('bxslider'); //will use wp_enqueue_script() in shortcode is fired
+		wp_enqueue_script('validation');
 		
 		// For Internet Explorer
 		global $is_IE;
@@ -238,7 +238,7 @@ function sp_print_css_js() {
 			filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://themes.tielabs.com/jarida/wp-content/uploads/2013/03/DSC09005cc.jpg',sizingMethod='scale');
 			-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://themes.tielabs.com/jarida/wp-content/uploads/2013/03/DSC09005cc.jpg',sizingMethod='scale')";
 		}*/
-
+		</style>
 		<?php
 	}
 }

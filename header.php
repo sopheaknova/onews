@@ -27,7 +27,7 @@
 
 <div class="wrapper layout-2c">
 	
-    <?php if(!$smof_data['top_menu']): ?>
+    <?php if($smof_data['show_topbar']): ?>
     <div class="top-nav head_menu">
         <div class="container">
             <div class="search-block">
@@ -57,7 +57,7 @@
     </header>
     
     <?php $stick = ''; ?>
-	<?php if( $smof_data['stick_nav'] ) $stick = 'fixed-enabled' ?>
+	<?php //if( $smof_data['stick_nav'] ) $stick = 'fixed-enabled' ?>
     <nav id="main-nav" class="container clearfix <?php echo $stick; ?> ">
         <?php echo sp_main_navigation(); ?>
     </nav><!-- end #main-nav .container .clearfix -->

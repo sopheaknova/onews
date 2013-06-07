@@ -14,7 +14,7 @@ add_action( 'admin_enqueue_scripts', 'load_custom_wp_admin_style' );
 /* ---------------------------------------------------------------------- */
 function sp_widgets_init() {
 	
-	global $data;
+	global $smof_data;
 	
 	// Main Widget Area
 	register_sidebar(array(
@@ -27,7 +27,7 @@ function sp_widgets_init() {
 	));
 	
 	// Dynamic sidebar generate
-	$generate_sidebars = $data['sidebar_options']; 
+	$generate_sidebars = $smof_data['sidebar_options']; 
 	if($generate_sidebars){
 		foreach ($generate_sidebars as $sidebar) { 
 			if ( function_exists('register_sidebar') )
@@ -49,6 +49,7 @@ function sp_widgets_init() {
 	require_once ( SP_BASE_DIR . 'framework/widgets/widget-fb-likebox.php' );
 	require_once ( SP_BASE_DIR . 'framework/widgets/widget-subnav.php' );
 	require_once ( SP_BASE_DIR . 'framework/widgets/widget-tabbed.php' );
+	require_once ( SP_BASE_DIR . 'framework/widgets/widget-category.php' );
 	
 	// Register widgets
 	register_widget( 'sp_widget_text_image' );
@@ -56,6 +57,7 @@ function sp_widgets_init() {
 	register_widget( 'sp_widget_fb_likebox' );
 	register_widget( 'sp_widget_subnav' );
 	register_widget( 'sp_widget_tabs' );
+	register_widget( 'sp_widget_categort' );
 
 }
 add_action('widgets_init', 'sp_widgets_init');
