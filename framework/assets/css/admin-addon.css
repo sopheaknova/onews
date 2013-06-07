@@ -1,0 +1,119 @@
+/*
+*****************************************************
+* Admin CSS styles
+*****************************************************
+*/
+
+/*********************************************/
+/* widgets admin area styles                 */
+/*********************************************/
+
+	div[id*="sp-"] .widget-top {
+		margin-top: 0 !important;
+		background: #111 url(../img/gradient-top.png) repeat-x 50% !important;
+		color: #fff !important;
+		text-shadow: 0 -1px #000 !important;
+		-webkit-box-shadow: none !important;
+		   -moz-box-shadow: none !important;
+		        box-shadow: none !important;
+		border: 1px solid #000 !important;
+	}
+		div[id*="wm-"] .widget-top h4 {
+			height: 16px;
+			margin: -2px 0;
+			line-height: 16px;
+		}
+		div[id*="wm-"] .widget-top h4:before {
+			content: '';
+			display: inline-block;
+			width: 12px;
+			height: 12px;
+			margin: 2px 5px 2px 0;
+			background: url(../img/logos/admin-logo-white-small.png) no-repeat;
+			vertical-align: top;
+		}
+		div[id*="wm-"] .in-widget-title {color: #ddd !important}
+		div[id*="wm-contact-info"] textarea {width: 100%}
+
+	.custom-sidebar-name {
+		color: #f3f3f3 !important;
+		text-shadow: 0 -1px rgba(0,0,0, .33) !important;
+		background: #369 url(../img/gradient-top.png) repeat-x 50% !important;
+		box-shadow: none !important;
+	}
+		.custom-sidebar-name:hover h3 {color: #fff !important}
+
+
+/*********************************************/
+/* fancybox styles                           */
+/*********************************************/
+
+	#fancybox-outer {background: transparent !important}
+	#fancybox-content {border-color: transparent !important}
+	#fancybox-content.bg-on {border-color: #fff !important}
+
+	a.fancybox {position: relative}
+	a.fancybox:after {
+		content: '';
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		margin-left: 3px;
+		background: url(../img/zoom-in.png) no-repeat 50% 50%;
+		vertical-align: top;
+	}
+	.image-container a.fancybox:after {display: none}
+	
+/*********************************************/
+/* widgets admin area styles                 */
+/*********************************************/
+
+	.wm-desc {
+		font-family: Georgia, Times, serif;
+		font-size: 11px;
+		font-style: italic;
+		line-height: 1.25em;
+		color: #666;
+		padding-bottom: .65em !important;
+		border-bottom: 1px solid #ddd;
+	}
+
+	div[id*="wm-"] .widget-top {
+		margin-top: 0 !important;
+		background: #111 url(../img/gradient-top.png) repeat-x 50% !important;
+		color: #fff !important;
+		text-shadow: 0 -1px #000 !important;
+		-webkit-box-shadow: none !important;
+		   -moz-box-shadow: none !important;
+		        box-shadow: none !important;
+		border: 1px solid #000 !important;
+	}
+		div[id*="wm-"] .widget-top h4 {
+			height: 16px;
+			margin: -2px 0;
+			line-height: 16px;
+		}
+		div[id*="wm-"] .widget-top h4:before {
+			content: '';
+			display: inline-block;
+			width: 12px;
+			height: 12px;
+			margin: 2px 5px 2px 0;
+			background: url(../img/logos/admin-logo-white-small.png) no-repeat;
+			vertical-align: top;
+		}
+		div[id*="wm-"] .in-widget-title {color: #ddd !important}
+		div[id*="wm-contact-info"] textarea {width: 100%}
+
+	.custom-sidebar-name {
+		color: #f3f3f3 !important;
+		text-shadow: 0 -1px rgba(0,0,0, .33) !important;
+		background: #369 url(../img/gradient-top.png) repeat-x 50% !important;
+		box-shadow: none !important;
+	}
+		.custom-sidebar-name:hover h3 {color: #fff !important}
+
+	
+
+
+/* End of file */
