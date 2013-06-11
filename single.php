@@ -21,16 +21,36 @@
 			<article id="post-<?php the_ID(); ?>" <?php post_class('clearfix'); ?>>
 
 				<?php get_template_part( 'content', get_post_format() ); ?>
+                
+                <?php if( $smof_data[ 'post_tags' ] ) the_tags( '<p class="post-tag">'.__( 'Tagged with: ', 'sptheme' )  ,' ', '</p>'); ?>
+				<?php require_once( SP_BASE_DIR . 'includes/single-post-share.php' ); // Get Share Button template ?>
 
 			</article><!-- end .hentry -->
-            
-            <?php if( $smof_data[ 'post_tags' ] ) the_tags( '<p class="post-tag">'.__( 'Tagged with: ', 'sptheme' )  ,' ', '</p>'); ?>
-            
+		
+        <?php if( $smof_data[ 'post_nav' ] ): ?>				
+		<div class="post-navigation">
+			<div class="post-previous"><?php previous_post_link( '%link', '<span>'. __( 'Previous:', 'sptheme' ).'</span> %title' ); ?></div>
+			<div class="post-next"><?php next_post_link( '%link', '<span>'. __( 'Next:', 'sptheme' ).'</span> %title' ); ?></div>
+		</div><!-- .post-navigation -->
+		<?php endif; ?>
+        
+        <?php if( $smof_data[ 'post_authorbio' ] ): ?>		
+		<section id="author-box">
+			<div class="block-head">
+				<h3><?php _e( 'About', 'sptheme' ) ?> <?php the_author() ?> </h3>
+			</div>
+			<div class="post-listing">
+				<?php sp_author_box() ?>
+			</div>
+		</section><!-- #author-box -->
+        
+        <?php require_once( SP_BASE_DIR . 'includes/post-related.php' ); ?>
+        
+		<?php endif; ?>
+        
 		<?php endwhile; ?>
         
-        <?php edit_post_link( __( 'Edit', 'tie' ), '<span class="edit-link">', '</span>' ); ?>
-		
-		<?php comments_template( '', true ); ?>
+       <?php if ( comments_open() || '0' != get_comments_number() ) comments_template( '', true ); ?>
         
 		<?php if( $has_sidebar ): ?>
 

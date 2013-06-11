@@ -3,9 +3,9 @@
 	global $smof_data, $is_IE; 
 ?>
 <!DOCTYPE html>
-<!--[if IE 7]>                  <html class="ie7 no-js"  <?php language_attributes(); ?>     <![endif]-->
-<!--[if lte IE 8]>              <html class="ie8 no-js"  <?php language_attributes(); ?>     <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <html class="not-ie no-js" <?php language_attributes(); ?>>  <!--<![endif]-->
+<!--[if IE 7]>                  <html class="ie7 no-js"  <?php language_attributes(); ?> prefix="og: http://ogp.me/ns#">     <![endif]-->
+<!--[if lte IE 8]>              <html class="ie8 no-js"  <?php language_attributes(); ?> prefix="og: http://ogp.me/ns#">     <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="not-ie no-js" <?php language_attributes(); ?> prefix="og: http://ogp.me/ns#">  <!--<![endif]-->
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	
@@ -61,6 +61,12 @@
     <nav id="main-nav" class="container clearfix <?php echo $stick; ?> ">
         <?php echo sp_main_navigation(); ?>
     </nav><!-- end #main-nav .container .clearfix -->
+    
+    <?php if ( $smof_data[ 'breaking_news' ] ) : ?>
+    <section id="ticker-news" class="container clearfix">
+    <?php require_once( SP_BASE_DIR . 'includes/breaking-news.php' ); ?>
+    </section>
+    <?php endif; ?>
 
 
 

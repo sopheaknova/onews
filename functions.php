@@ -38,4 +38,4 @@ require_once( SP_BASE_DIR . 'framework/meta-box/meta-boxes.php' );
 
 // Addon custom functions
 require_once( SP_BASE_DIR . 'includes/breadcrumbs.php' );
-require_once( SP_BASE_DIR . 'includes/wp_list_comments.php' );
+require_once( SP_BASE_DIR . 'includes/wp-list-comments.php' );

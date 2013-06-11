@@ -179,24 +179,39 @@ if( !function_exists('sp_post_content')) {
 
 	function sp_post_content() {
 
-		global $post, $user_ID;
+		global $smof_data, $post, $user_ID;
 
 		get_currentuserinfo();
 
+		$output = '';
+		
 		if ( is_singular() ) {
 
 			$content = get_the_content();
 			$content = apply_filters( 'the_content', $content );
 			$content = str_replace( ']]>', ']]&gt;', $content );
 
-			$output = $content;
+			$output .= $content;
 
 			$output .= wp_link_pages( array( 'echo' => false ) );
 
 		} else {
-			$output = '<p>' . sp_excerpt_length(20) . '</p>';	
-			//$output = '<p>' . sp_excerpt_string_length(350) . '</p>';
-			$output .= '<a href="'.get_permalink().'" class="learn-more button">' . __( 'Read more »', 'sptheme' ) . '</a>';
+			
+			if ( $smof_data[ 'blog_display' ] !== 'none' ) {
+				//$output .= '<article class="item-list">';
+				if ( $smof_data[ 'blog_display' ] == 'thumbnail' ) {
+						if ( function_exists("has_post_thumbnail") && has_post_thumbnail() ) :	
+						$output .= '<div class="post-thumbnail">';
+						$output .= '<a href="'.get_permalink().'" title="' . __( 'Permalink to ', 'sptheme' ) . get_the_title() . '" rel="bookmark">';
+						$output .= '<img src="' . sp_post_image('sp-large') . '" /></a>';
+						//$output .= tie_get_score( true ); // show rate ui
+						$output .= '</div>';
+					endif;
+				}
+				$output .= '<p>' . sp_excerpt_string_length($smof_data[ 'archive_char_length' ]) . '</p>';
+				$output .= '<a href="'.get_permalink().'" class="learn-more button">' . __( 'Read more »', 'sptheme' ) . '</a>';
+				//$output .= '</article>';
+			}
 		}
 		
 		return $output;
@@ -213,11 +228,11 @@ if( !function_exists('sp_post_meta')) {
 
 	function sp_post_meta() {
 
-		global $smof_data, $post;
+		global $smof_data, $post, $user_ID;;
 		
 		if ($smof_data[ 'post_meta' ]) :
 		if( $smof_data[ 'posted_by' ] )
-			$output = '<span>' . __('Posted by:', 'sptheme_admin') . '</span><span class="title">' . get_the_author() . '</span><span>&mdash;</span>';
+			$output = '<span>' . __('Posted by:', 'sptheme_admin') . '</span><span class="title"><a href="' . get_author_posts_url( get_the_author_meta( 'ID' ) ) . '" title="' . sprintf( esc_attr__( 'View all posts by %s', 'sptheme' ), get_the_author() . '">' . get_the_author()) . '</a></span><span>&mdash;</span>';
 			
 		if( $smof_data[ 'post_date' ] )
 			$output .=  sp_posted_on() . '<span>&mdash;</span>';
@@ -225,11 +240,17 @@ if( !function_exists('sp_post_meta')) {
 		if( $smof_data[ 'post_categories' ] )	
 			$output .= '<span class="post-categories">' . __(' in: ', 'sptheme') . ' ' . get_the_category_list(', ') . '</span><span>&mdash;</span>';
 		
+		if ( comments_open() || ( '0' != get_comments_number() && !comments_open() ) ) :
 		if( $smof_data[ 'post_comments' ] )	
 			$output .= '<span class="post-comments">' . get_comments_popup_link( __( 'Leave a comment', 'sptheme' ), __( '1 Comment', 'sptheme' ), __( '% Comments', 'sptheme' ) ) . '</span><span>&mdash;</span>';
+		endif; // end show/hide comments	
+			
 			
 		if( $smof_data[ 'post_views' ] )	
-			$output .= sp_post_views();
+			$output .= sp_post_views() . '<span>&mdash;</span>';
+			
+		if( user_can( $user_ID, 'edit_posts' ) )
+			$output .= '<span class="edit-link"><a title="' . __('Edit Post', 'sptheme') . '" href="' . get_edit_post_link( $post->ID ) . '">' . __('Edit', 'sptheme') . '</a></span>';	
 		
 		return $output;
 		
@@ -678,4 +699,160 @@ function sp_last_posts_cat($numberOfPosts = 5 , $thumb = true , $cats = 1){
 <?php endforeach;
 	$post = $orig_post;
 	wp_reset_postdata();
+}
+
+/*-----------------------------------------------------------------------------------*/
+# Add user's social accounts
+/*-----------------------------------------------------------------------------------*/
+add_action( 'show_user_profile', 'tie_show_extra_profile_fields' );
+add_action( 'edit_user_profile', 'tie_show_extra_profile_fields' );
+function tie_show_extra_profile_fields( $user ) { ?>
+	<h3>Custom Author widget</h3>
+	<table class="form-table">
+		<tr>
+			<th><label for="author_widget_content">Custom Author widget content</label></th>
+			<td>
+				<textarea name="author_widget_content" id="author_widget_content" rows="5" cols="30"><?php echo esc_attr( get_the_author_meta( 'author_widget_content', $user->ID ) ); ?></textarea>
+				<br /><span class="description">Supports HTML and Shortcodes .</span>
+			</td>
+		</tr>
+	</table>
+	<h3><?php _e( 'Social Networking', 'sptheme' ) ?></h3>
+	<table class="form-table">
+		<tr>
+			<th><label for="google">Google + URL</label></th>
+			<td>
+				<input type="text" name="google" id="google" value="<?php echo esc_attr( get_the_author_meta( 'google', $user->ID ) ); ?>" class="regular-text" /><br />
+			</td>
+		</tr>
+		<tr>
+			<th><label for="twitter">Twitter Username</label></th>
+			<td>
+				<input type="text" name="twitter" id="twitter" value="<?php echo esc_attr( get_the_author_meta( 'twitter', $user->ID ) ); ?>" class="regular-text" /><br />
+			</td>
+		</tr>
+		<tr>
+			<th><label for="facebook">FaceBook URL</label></th>
+			<td>
+				<input type="text" name="facebook" id="facebook" value="<?php echo esc_attr( get_the_author_meta( 'facebook', $user->ID ) ); ?>" class="regular-text" /><br />
+			</td>
+		</tr>
+		<tr>
+			<th><label for="linkedin">linkedIn URL</label></th>
+			<td>
+				<input type="text" name="linkedin" id="linkedin" value="<?php echo esc_attr( get_the_author_meta( 'linkedin', $user->ID ) ); ?>" class="regular-text" /><br />
+			</td>
+		</tr>
+		<tr>
+			<th><label for="flickr">Flickr URL</label></th>
+			<td>
+				<input type="text" name="flickr" id="flickr" value="<?php echo esc_attr( get_the_author_meta( 'flickr', $user->ID ) ); ?>" class="regular-text" /><br />
+			</td>
+		</tr>
+		<tr>
+			<th><label for="youtube">YouTube URL</label></th>
+			<td>
+				<input type="text" name="youtube" id="youtube" value="<?php echo esc_attr( get_the_author_meta( 'youtube', $user->ID ) ); ?>" class="regular-text" /><br />
+			</td>
+		</tr>
+		<tr>
+			<th><label for="pinterest">Pinterest URL</label></th>
+			<td>
+				<input type="text" name="pinterest" id="pinterest" value="<?php echo esc_attr( get_the_author_meta( 'pinterest', $user->ID ) ); ?>" class="regular-text" /><br />
+			</td>
+		</tr>
+
+	</table>
+<?php }
+
+## Save user's social accounts
+add_action( 'personal_options_update', 'tie_save_extra_profile_fields' );
+add_action( 'edit_user_profile_update', 'tie_save_extra_profile_fields' );
+function tie_save_extra_profile_fields( $user_id ) {
+	if ( !current_user_can( 'edit_user', $user_id ) ) return false;
+	update_user_meta( $user_id, 'author_widget_content', $_POST['author_widget_content'] );
+	update_user_meta( $user_id, 'google', $_POST['google'] );
+	update_user_meta( $user_id, 'pinterest', $_POST['pinterest'] );
+	update_user_meta( $user_id, 'twitter', $_POST['twitter'] );
+	update_user_meta( $user_id, 'facebook', $_POST['facebook'] );
+	update_user_meta( $user_id, 'linkedin', $_POST['linkedin'] );
+	update_user_meta( $user_id, 'flickr', $_POST['flickr'] );
+	update_user_meta( $user_id, 'youtube', $_POST['youtube'] );
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*Author Box
+/*-----------------------------------------------------------------------------------*/
+function sp_author_box($avatar = true , $social = true ){
+	if( $avatar ) : ?>
+	<div class="author-avatar">
+		<?php echo get_avatar( get_the_author_meta( 'user_email' ), apply_filters( 'MFW_author_bio_avatar_size', 75 ) ); ?>
+	</div><!-- #author-avatar -->
+	<?php endif; ?>
+		<div class="author-description">
+			<?php the_author_meta( 'description' ); ?>
+		</div><!-- #author-description -->
+	<?php  if( $social ) :	?>	
+		<div class="author-social">
+			<?php if ( get_the_author_meta( 'url' ) ) : ?>
+			<a class="ttip" href="<?php the_author_meta( 'url' ); ?>" title="<?php the_author_meta( 'display_name' ); ?><?php _e( " 's site", 'sptheme' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/socialicons/site.png" alt="" /></a>
+			<?php endif ?>	
+			<?php if ( get_the_author_meta( 'twitter' ) ) : ?>
+			<a class="ttip" href="http://twitter.com/<?php the_author_meta( 'twitter' ); ?>" title="<?php the_author_meta( 'display_name' ); ?><?php _e( '  on Twitter', 'sptheme' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/socialicons/twitter.png" alt="" /></a>
+			<?php endif ?>	
+			<?php if ( get_the_author_meta( 'facebook' ) ) : ?>
+			<a class="ttip" href="<?php the_author_meta( 'facebook' ); ?>" title="<?php the_author_meta( 'display_name' ); ?> <?php _e( '  on Facebook', 'sptheme' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/socialicons/facebook.png" alt="" /></a>
+			<?php endif ?>
+			<?php if ( get_the_author_meta( 'google' ) ) : ?>
+			<a class="ttip" href="<?php the_author_meta( 'google' ); ?>" title="<?php the_author_meta( 'display_name' ); ?> <?php _e( '  on Google+', 'sptheme' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/socialicons/google_plus.png" alt="" /></a>
+			<?php endif ?>	
+			<?php if ( get_the_author_meta( 'linkedin' ) ) : ?>
+			<a class="ttip" href="<?php the_author_meta( 'linkedin' ); ?>" title="<?php the_author_meta( 'display_name' ); ?> <?php _e( '  on Linkedin', 'sptheme' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/socialicons/linkedin.png" alt="" /></a>
+			<?php endif ?>				
+			<?php if ( get_the_author_meta( 'flickr' ) ) : ?>
+			<a class="ttip" href="<?php the_author_meta( 'flickr' ); ?>" title="<?php the_author_meta( 'display_name' ); ?><?php _e( '  on Flickr', 'sptheme' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/socialicons/flickr.png" alt="" /></a>
+			<?php endif ?>	
+			<?php if ( get_the_author_meta( 'youtube' ) ) : ?>
+			<a class="ttip" href="<?php the_author_meta( 'youtube' ); ?>" title="<?php the_author_meta( 'display_name' ); ?><?php _e( '  on YouTube', 'sptheme' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/socialicons/youtube.png" alt="" /></a>
+			<?php endif ?>
+			<?php if ( get_the_author_meta( 'pinterest' ) ) : ?>
+			<a class="ttip" href="<?php the_author_meta( 'pinterest' ); ?>" title="<?php the_author_meta( 'display_name' ); ?><?php _e( '  on Pinterest', 'sptheme' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/socialicons/pinterest.png" alt="" /></a>
+			<?php endif ?>
+
+		</div>
+	<?php endif; ?>
+	<div class="clear"></div>
+	<?php
+}
+
+/*-----------------------------------------------------------------------------------*/
+/* Get Og Image of post
+/*-----------------------------------------------------------------------------------*/
+function sp_og_image() {
+	global $post ;
+	
+	if ( function_exists("has_post_thumbnail") && has_post_thumbnail() )
+		$post_thumb = sp_post_image('slider') ;
+	else{
+		$get_meta = get_post_custom($post->ID);
+		if( !empty( $get_meta["tie_video_url"][0] ) ){
+			$video_url = $get_meta["tie_video_url"][0];
+			$video_link = @parse_url($video_url);
+			if ( $video_link['host'] == 'www.youtube.com' || $video_link['host']  == 'youtube.com' ) {
+				parse_str( @parse_url( $video_url, PHP_URL_QUERY ), $my_array_of_vars );
+				$video =  $my_array_of_vars['v'] ;
+				$post_thumb ='http://img.youtube.com/vi/'.$video.'/0.jpg';
+			}
+			elseif( $video_link['host'] == 'www.vimeo.com' || $video_link['host']  == 'vimeo.com' ){
+				$video = (int) substr(@parse_url($video_url, PHP_URL_PATH), 1);
+				$url = 'http://vimeo.com/api/v2/video/'.$video.'.php';;
+				$contents = @file_get_contents($url);
+				$thumb = @unserialize(trim($contents));
+				$post_thumb = $thumb[0][thumbnail_large];
+			}
+		}
+	}
+	
+	if( isset($post_thumb) )
+		echo '<meta property="og:image" content="'. $post_thumb .'" />';
 }

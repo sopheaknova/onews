@@ -7,35 +7,9 @@
 	<div class="container">
 
 		<section id="main">
-        
-        <div class="page-header">
-
-			<?php if ( have_posts() ): ?>
-				
-				<h2 class="title">
-					<?php
-						if ( is_day() ) :
-							printf( __( 'Daily Archives: %s', 'sptheme' ), '<span>' . get_the_date() . '</span>' );
-						elseif ( is_month() ) :
-							printf( __( 'Monthly Archives: %s', 'sptheme' ), '<span>' . get_the_date( 'F Y' ) . '</span>' );
-						elseif ( is_year() ) :
-							printf( __( 'Yearly Archives: %s', 'sptheme' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
-						else :
-							_e( 'Archives', 'sptheme' );
-						endif;
-					?>
-				</h2>
-
-				<?php rewind_posts(); ?>
-				
-			<?php else: ?>
-			
-					<h1 class="page-title"><?php _e( 'Nothing Found', 'sptheme' ); ?></h1>
-
-			<?php endif; ?>
-
-		</div><!-- end .page-header -->
-
+		<div class="page-header">
+        <h2 class="title-mod"><?php printf( __( 'Search result for: %s', 'sptheme' ), '<span>' . get_search_query() . '</span>' ); ?></h2>
+        </div>
 
 		<?php if ( have_posts() ) : ?>
 
@@ -69,10 +43,15 @@
 
 			</section><!-- end #main -->
 
-			<?php get_sidebar(); ?>
+		<?php get_sidebar(); ?>
         
-    </div><!-- end .container.clearfix -->    
+    </div><!-- end .container -->    
 
-</section><!-- end #content -->
+</section><!-- end #content .clearfix -->
 
 <?php get_footer(); ?>
+
+
+
+
+

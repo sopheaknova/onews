@@ -1,39 +1,38 @@
 <?php get_header(); ?>
 
-<?php $has_sidebar = sp_check_page_layout(); ?>
+<div class="container clearfix"><?php sp_breadcrumbs() ?></div>
 
-<section id="content" class="clearfix sidebar-right">
+<section id="content" class="clearfix  sidebar-right">
 
 	<div class="container">
 
 		<section id="main">
-		
+        
         <div class="page-header">
 
 			<?php if ( have_posts() ): ?>
-			
-					<h2 class="title"><?php printf( __( 'Category Archives: %s', 'sptheme' ), '<span>' . single_cat_title( '', false ) . '</span>' ); ?></h2>
+				
+				<h2 class="title">
+					<?php
+						printf( __( 'Tag', 'sptheme' ), '<span>' . single_tag_title( '', false ) . '</span>' );
+					?>
+				</h2>
 
+				<?php rewind_posts(); ?>
+				
 			<?php else: ?>
 			
-					<h2 class="title"><?php _e( 'Nothing Found', 'sptheme' ); ?></h2>
+					<h1 class="page-title"><?php _e( 'Nothing Found', 'sptheme' ); ?></h1>
 
 			<?php endif; ?>
-					
-			<?php if( $smof_data[ 'category_rss' ] ): ?>
-			<a class="rss-cat-icon ttip" title="<?php _e( 'Feed Subscription', 'tie' ); ?>" href="<?php echo get_category_feed_link($category_id) ?>"><?php _e( 'Feed Subscription', 'sptheme' ); ?></a>
+            
+            <?php if( $smof_data[ 'tag_rss' ] ): ?>
+			<a class="rss-cat-icon tooltip" title="<?php _e( 'Feed Subscription', 'sptheme' ); ?>"  href="<?php echo  get_term_feed_link($tag_id , 'post_tag', "rss2") ?>"><?php _e( 'Feed Subscription', 'sptheme' ); ?></a>
 			<?php endif; ?>
             <div class="clear"></div>
-            
-            <?php
-			if( $smof_data[ 'category_desc' ] ):	
-				$category_description = category_description();
-				if ( ! empty( $category_description ) )
-				echo '<div class="clear"></div><div class="archive-meta">' . $category_description . '</div>';
-			endif;
-			?>
 
 		</div><!-- end .page-header -->
+
 
 		<?php if ( have_posts() ) : ?>
 

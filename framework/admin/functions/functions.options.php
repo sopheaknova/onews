@@ -186,11 +186,11 @@ $of_options[] = array( "name" => 'Breaking News Setting',
 					
 $of_options[] = array( "name" => 'Breaking News Title',
 					"id" => "breaking_title",
-					"std" => "",
+					"std" => "Breaking news: ",
 					"type" => "text",
 					);
 					
-$of_options[] = array( "name" => 'Animation Effect',
+/*$of_options[] = array( "name" => 'Animation Effect',
 					"desc" => 'name of transition effect',
 					"id" => "breaking_effect",
 					"std" => "fade",
@@ -218,11 +218,11 @@ $of_options[] = array( "name" => 'Time between the fades',
 					"step"	=> "50",
 					"max" => "10000",
 					"type" => "sliderui" 
-					);
+					);*/
 					
 $of_options[] = array( "name" => 'Number Of Posts To Show',
 					"id" => "breaking_number",
-					"std" => "",
+					"std" => "10",
 					"type" => "text",
 					);		
 
@@ -268,8 +268,105 @@ $of_options[] = array( "name" => 'timeout',
 					"id" => "cycle_timeout",
 					"std" => "5000",
 					"type" => "text",
-					);				
+					);
+					
+//Archives Setting									
+$of_options[] = array( 	"name" 		=> "Archives Settings",
+						"type" 		=> "heading"
+				);
 
+$of_options[] = array( "name" => 'General Settings',
+					"desc" => "",
+					"id" => "introduction",
+					"std" => "<h3>General Settings</h3>",
+					"icon" => true,
+					"type" => "info",
+					);
+					
+$of_options[] = array( 	"name" 		=> "Display format",
+						"desc" 		=> "Will appears in all archives page like categories, tag and search pages",
+						"id" 		=> "blog_display",
+						"std" 		=> "excerpt",
+						"type" 		=> "radio",
+						"options" 	=> array(
+										"thumbnail"	=>	"Featured image with Excerpt",
+										"excerpt"		=>	"With Excerpt",
+										"none"	=>	"Title only"
+									)
+				);					
+					
+/*$of_options[] = array( 	"name" 		=> "Show Socail Buttons",
+						"desc" 		=> "Show/Hide social icons of each post in archive page",
+						"id" 		=> "archives_socail",
+						"std" 		=> 0,
+						"type" 		=> "switch"
+				);*/
+				
+$of_options[] = array( "name" => "Excerpt Length",
+					"desc" => 'Enter character amount of each post in archive page',
+					"id" => "archive_char_length",
+					"std" => "40",
+					"type" => "text",
+					);
+					
+$of_options[] = array( "name" => 'Category Page Settings',
+					"desc" => "",
+					"id" => "introduction",
+					"std" => "<h3>Category Page Settings</h3>",
+					"icon" => true,
+					"type" => "info",
+					);
+					
+$of_options[] = array( 	"name" 		=> "Category Description",
+						"desc" 		=> "Show/Hide description of each categories",
+						"id" 		=> "category_desc",
+						"std" 		=> 1,
+						"type" 		=> "switch"
+				);
+
+$of_options[] = array( 	"name" 		=> "RSS Icon",
+						"desc" 		=> "Show/Hide RSS on category page",
+						"id" 		=> "category_rss",
+						"std" 		=> 1,
+						"type" 		=> "switch"
+				);
+				
+$of_options[] = array( "name" => 'Tag Page Settings',
+					"desc" => "",
+					"id" => "introduction",
+					"std" => "<h3>Tag Page Settings</h3>",
+					"icon" => true,
+					"type" => "info",
+					);
+
+$of_options[] = array( 	"name" 		=> "RSS Icon",
+						"desc" 		=> "Show/Hide RSS on Tag page",
+						"id" 		=> "tag_rss",
+						"std" 		=> 1,
+						"type" 		=> "switch"
+				);																							
+
+$of_options[] = array( "name" => 'Author Page Settings',
+					"desc" => "",
+					"id" => "introduction",
+					"std" => "<h3>Author Page Settings</h3>",
+					"icon" => true,
+					"type" => "info",
+					);
+				
+$of_options[] = array( 	"name" 		=> "Author Bio",
+						"desc" 		=> "Show/Hide author bio",
+						"id" 		=> "author_bio",
+						"std" 		=> 1,
+						"type" 		=> "switch"
+				);
+
+$of_options[] = array( 	"name" 		=> "RSS Icon",
+						"desc" 		=> "Show/Hide RSS on archive page",
+						"id" 		=> "author_rss",
+						"std" 		=> 1,
+						"type" 		=> "switch"
+				);				
 
 //Post Setting	
 			
@@ -277,16 +374,13 @@ $of_options[] = array( 	"name" 		=> "Article Settings",
 						"type" 		=> "heading"
 				);
 
-$of_options[] = array( 	"name" 		=> "Time format",
-						"desc" 		=> "Time format for blog posts",
-						"id" 		=> "time_format",
-						"std" 		=> "traditional",
-						"type" 		=> "radio",
-						"options" 	=> array(
-										"traditional"	=>	"Traditinal",
-										"modern"		=>	"Time Ago Format"
-									)
-				);
+$of_options[] = array( "name" => 'Article Elements',
+					"desc" => "",
+					"id" => "introduction",
+					"std" => "<h3>Article Elements</h3>",
+					"icon" => true,
+					"type" => "info",
+					);
 
 $of_options[] = array( 	"name" 		=> "Breadcrumbs Settings",
 						"desc" 		=> "Show/Hide breadcrumb menu",
@@ -294,6 +388,31 @@ $of_options[] = array( 	"name" 		=> "Breadcrumbs Settings",
 						"std" 		=> 1,
 						"type" 		=> "switch"
 				);
+									
+$of_options[] = array( 	"name" 		=> "Time format",
+						"desc" 		=> "Time format for blog posts",
+						"id" 		=> "time_format",
+						"std" 		=> "none",
+						"type" 		=> "radio",
+						"options" 	=> array(
+										"traditional"	=>	"Traditional",
+										"modern"		=>	"Time Ago Format"
+									)
+				);
+				
+$of_options[] = array( 	"name" 		=> "Post Author Box",
+						"desc" 		=> "Show/Hide author box",
+						"id" 		=> "post_authorbio",
+						"std" 		=> 1,
+						"type" 		=> "switch"
+				);	
+				
+$of_options[] = array( 	"name" 		=> "Next/Prev Article",
+						"desc" 		=> "Show/Hide next and previous button of article",
+						"id" 		=> "post_nav",
+						"std" 		=> 1,
+						"type" 		=> "switch"
+				);							
 
 $of_options[] = array( "name" => 'Post Meta Settings',
 					"desc" => "",
@@ -357,8 +476,114 @@ $of_options[] = array( 	"name" 		=> "Post Meta",
 						"std" 		=> 1,
 						"fold"		=> "post_meta",
 						"type" 		=> "switch"
-				);																		
+				);	
+				
+$of_options[] = array( "name" => 'Share Post Settings',
+					"desc" => "",
+					"id" => "introduction",
+					"std" => "<h3 style=\"margin: 0 0 10px;\">Share Post Settings</h3>",
+					"icon" => true,
+					"type" => "info",
+					);
+					
+$of_options[] = array( 	"name" 		=> "Share Post Buttons",
+						"desc" 		=> "Show/Hide post share",
+						"id" 		=> "share_post",
+						"std" 		=> 1,
+						"folds"		=> 1,
+						"type" 		=> "switch"
+				);
+				
+	$of_options[] = array( 	"name" 		=> "Tweet Button",
+							"desc" 		=> "Show/Hide tweet button share",
+							"id" 		=> "share_tweet",
+							"std" 		=> 1,
+							"fold"		=> "share_post",
+							"type" 		=> "switch"
+					);	
+	
+	$of_options[] = array( 	"name" 		=> "Twitter Username",
+							"desc" 		=> "Twitter Username (optional)",
+							"id" 		=> "share_twitter_username",
+							"std" 		=> "",
+							"fold"		=> "share_post",
+							"type" 		=> "text"
+					);				
+					
+	$of_options[] = array( 	"name" 		=> "Facebook Like Button",
+							"desc" 		=> "Show/Hide facebook like button",
+							"id" 		=> "share_facebook",
+							"std" 		=> 1,
+							"fold"		=> "share_post",
+							"type" 		=> "switch"
+					);
+	
+	$of_options[] = array( 	"name" 		=> "Google+ Button",
+							"desc" 		=> "Show/Hide Google+ button",
+							"id" 		=> "share_google",
+							"std" 		=> 1,
+							"fold"		=> "share_post",
+							"type" 		=> "switch"
+					);
+	
+	$of_options[] = array( 	"name" 		=> "Linkedin Button",
+							"desc" 		=> "Show/Hide linkedin button",
+							"id" 		=> "share_linkdin",
+							"std" 		=> 1,
+							"fold"		=> "share_post",
+							"type" 		=> "switch"
+					);
+					
+	$of_options[] = array( 	"name" 		=> "StumbleUpon Button",
+							"desc" 		=> "Show/Hide SumbleUpon button",
+							"id" 		=> "share_stumble",
+							"std" 		=> 1,
+							"fold"		=> "share_post",
+							"type" 		=> "switch"
+					);
+					
+	$of_options[] = array( 	"name" 		=> "Pinterest Button",
+							"desc" 		=> "Show/Hide Pinterest button",
+							"id" 		=> "share_pinterest",
+							"std" 		=> 1,
+							"fold"		=> "share_post",
+							"type" 		=> "switch"
+					);																																													
 
+$of_options[] = array( "name" => 'Related Posts Settings',
+					"desc" => "",
+					"id" => "introduction",
+					"std" => "<h3>Related Posts Settings</h3>",
+					"icon" => true,
+					"type" => "info",
+					);
+				
+	$of_options[] = array( 	"name" 		=> "Related Posts",
+							"desc" 		=> "Show/Hide related posts",
+							"id" 		=> "related_post",
+							"std" 		=> 1,
+							"folds"		=> 1,
+							"type" 		=> "switch"
+					);
+					
+	$of_options[] = array( 	"name" 		=> "Number of posts to show",
+							"id" 		=> "related_number",
+							"std" 		=> 3,
+							"fold"		=> "related_post",
+							"type" 		=> "text"
+					);		
+					
+	$of_options[] = array( 	"name" 		=> "Query Type",
+						"desc" 		=> "Show post that related to Category, Tag or Author",
+						"id" 		=> "related_query",
+						"std" 		=> "category",
+						"type" 		=> "radio",
+						"options" 	=> array(
+										"category"	=>	"Category",
+										"tag"		=>	"Tag",
+										"author"	=>	"Author"
+									)
+					);										
 
 //Style				
 $of_options[] = array( 	"name" 		=> "Styling Options",
