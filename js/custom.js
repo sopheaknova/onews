@@ -39,19 +39,19 @@ jQuery(document).ready(function($) {
 	/* ---------------------------------------------------------------------- */
 	/*	Dropdown menu navigation - TOP and MAIN menu
 	/* ---------------------------------------------------------------------- */
-	jQuery('#main-nav ul > li > ul, #main-nav ul > li > ul > li > ul, #main-nav ul > li > ul > li > ul> li > ul, .top-menu  ul > li > ul, .top-menu  ul > li > ul > li > ul, .top-menu  ul > li > ul > li > ul> li > ul ').parent('li').addClass('parent-list');
-	jQuery('.parent-list').find("a:first").append(' <span class="sub-indicator">&raquo;</span>');
+	$('#main-nav ul > li > ul, #main-nav ul > li > ul > li > ul, #main-nav ul > li > ul > li > ul> li > ul, .top-menu  ul > li > ul, .top-menu  ul > li > ul > li > ul, .top-menu  ul > li > ul > li > ul> li > ul ').parent('li').addClass('parent-list');
+	$('.parent-list').find("a:first").append(' <span class="sub-indicator">&raquo;</span>');
 
-	jQuery("#main-nav li , .top-menu li").each(function(){	
-		var $sublist = jQuery(this).find('ul:first');		
-		jQuery(this).hover(function(){	
+	$("#main-nav li , .top-menu li").each(function(){	
+		var $sublist = $(this).find('ul:first');		
+		$(this).hover(function(){	
 			$sublist.stop().css({overflow:"hidden", height:"auto", display:"none"}).slideDown(200, function(){
-				jQuery(this).css({overflow:"visible", height:"auto"});
+				$(this).css({overflow:"visible", height:"auto"});
 			});	
 		},
 		function(){	
 			$sublist.stop().slideUp(200, function()	{	
-				jQuery(this).css({overflow:"hidden", display:"none"});
+				$(this).css({overflow:"hidden", display:"none"});
 			});
 		});	
 	});
@@ -223,23 +223,23 @@ jQuery(document).ready(function($) {
 	/*	Toggle Content
 	/* ---------------------------------------------------------------------- */
 	
-	if ( jQuery( 'div.toggle-wrapper' ).length ) {
+	if ( $( 'div.toggle-wrapper' ).length ) {
 
 	(function() {
-		var toggleObject = jQuery( 'div.toggle-wrapper' );
+		var toggleObject = $( 'div.toggle-wrapper' );
 
 		toggleObject.each( function( item ) {
-			jQuery( this ).find( '> .toggle-heading' ).siblings().wrapAll( '<div class="toggle-content" />' );
+			$( this ).find( '> .toggle-heading' ).siblings().wrapAll( '<div class="toggle-content" />' );
 		} );
 
 	})();
 
-	jQuery( 'div.toggle-wrapper div.toggle-wrapper' ).not( '.active' ).find( '> div.toggle-content' ).hide();
-	jQuery( 'div.toggle-wrapper' ).find( '> div.toggle-content' ).slideUp();
-	jQuery( 'div.toggle-wrapper.active' ).find( '> div.toggle-content' ).slideDown();
+	$( 'div.toggle-wrapper div.toggle-wrapper' ).not( '.active' ).find( '> div.toggle-content' ).hide();
+	$( 'div.toggle-wrapper' ).find( '> div.toggle-content' ).slideUp();
+	$( 'div.toggle-wrapper.active' ).find( '> div.toggle-content' ).slideDown();
 
-	jQuery( '.toggle-heading' ).click( function() {
-		jQuery( this ).next( 'div.toggle-content' ).slideToggle().parent().toggleClass( 'active' );
+	$( '.toggle-heading' ).click( function() {
+		$( this ).next( 'div.toggle-content' ).slideToggle().parent().toggleClass( 'active' );
 	} );
 
 	} // /if toggle
@@ -311,79 +311,6 @@ jQuery(document).ready(function($) {
 		});
 
 	})();
-	
-	/* ---------------------------------------------------- */
-	/*	Scrollable Posts
-	/* ---------------------------------------------------- */
-	
-	if ( jQuery().bxSlider ) {
-		//only desktops and tablets
-		if ( 767 < browserWidth ) {
-			jQuery( '.scrollable' ).each( function( item ) {
-				var $this                = jQuery( this ),
-				    itemScrollableWidth  = $this.children().eq( 0 ).outerWidth( true ),
-				    itemScrollableMargin = itemScrollableWidth - $this.children().eq( 0 ).outerWidth(),
-				    scrollableColumns    = ( $this.data( 'columns' ) ) ? ( $this.data( 'columns' ) ) : ( 3 ),
-				    scrollableMove       = ( $this.hasClass( 'stack' ) ) ? ( scrollableColumns ) : ( 1 ),
-				    scrollablePause      = ( $this.data( 'time' ) ) ? ( $this.data( 'time' ) ) : ( 4000 );
-
-				$this.bxSlider( {
-						auto        : $this.hasClass( 'auto' ),
-						pause       : scrollablePause,
-						minSlides   : scrollableColumns,
-						maxSlides   : scrollableColumns,
-						slideWidth  : itemScrollableWidth,
-						slideMargin : itemScrollableMargin,
-						moveSlides  : scrollableMove,
-						pager       : false,
-						autoHover   : true,
-						useCSS      : false //this prevents CSS3 animation glitches in Chrome, but unfortunatelly adding a bit of overhead
-					} );
-			} );
-		} // /only desktop and tablets
-
-		if ( jQuery( '.wrap-testimonials-shortcode[data-time]' ).length ) {
-			(function() {
-				var testimonialsObject = jQuery( '.wrap-testimonials-shortcode[data-time] > div' );
-
-				testimonialsObject.each( function( item ) {
-					var $this = jQuery( this ),
-					    pause = $this.parent().data( 'time' ) + 500; //plus transition time
-					$this.bxSlider( {
-							pause          : pause,
-							auto           : true,
-							autoHover      : true,
-							controls       : false,
-							adaptiveHeight : true,
-							useCSS         : false //this prevents CSS3 animation glitches in Chrome, but unfortunatelly adding a bit of overhead
-						} );
-				} );
-
-			})();
-		} // /if testminonials
-
-		if ( jQuery( '.simple-slider[data-time]' ).length ) {
-			(function() {
-				var sliderObject = jQuery( '.simple-slider[data-time]' );
-
-				sliderObject.each( function( item ) {
-					var $this = jQuery( this ),
-					    pause = $this.data( 'time' ) + 500; //plus transition time
-					$this.bxSlider( {
-							pause          : pause,
-							auto           : true,
-							autoHover      : true,
-							controls       : true,
-							pager          : false,
-							adaptiveHeight : true,
-							useCSS         : false //this prevents CSS3 animation glitches in Chrome, but unfortunatelly adding a bit of overhead
-						} );
-				} );
-
-			})();
-		} // /if simple-slider
-
-	} // /bxSlider
 	
 	
 	/* ---------------------------------------------------- */

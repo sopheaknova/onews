@@ -236,6 +236,35 @@ function sp_print_css_js() {
 
 		<script type='text/javascript'>
         _V_.options.flash.swf = '<?php echo SP_BASE_URL; ?>js/video-js.swf';
+		
+		<?php if( $smof_data['stick_nav'] ): ?>
+		jQuery(document).ready(function($) {
+			
+			$(window).load(function(){
+			 //Header
+				var hedaerHeight = $('#main-nav').offset().top ;
+				var main = jQuery('.fixed-enabled');
+				$(window).scroll(function(){
+					HeaderScroll();
+				});
+				$(window).load(function(){
+					HeaderScroll();
+				});
+				function HeaderScroll(){
+					var scrollY=jQuery(window).scrollTop();
+					if(main.length>0){
+						if(scrollY > hedaerHeight+75){
+							main.stop().addClass('fixed-nav');
+						}else if(scrollY < hedaerHeight+75){
+							main.removeClass('fixed-nav');
+						}
+					}
+				}
+			});
+			
+		});
+		<?php endif; ?>
+		
         </script>
         
         <style type="text/css">

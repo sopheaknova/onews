@@ -204,7 +204,7 @@ if( !function_exists('sp_post_content')) {
 						$output .= '<div class="post-thumbnail">';
 						$output .= '<a href="'.get_permalink().'" title="' . __( 'Permalink to ', 'sptheme' ) . get_the_title() . '" rel="bookmark">';
 						$output .= '<img src="' . sp_post_image('sp-large') . '" /></a>';
-						//$output .= tie_get_score( true ); // show rate ui
+						//$output .= sp_get_score( true ); // show rate ui
 						$output .= '</div>';
 					endif;
 				}
@@ -247,10 +247,10 @@ if( !function_exists('sp_post_meta')) {
 			
 			
 		if( $smof_data[ 'post_views' ] )	
-			$output .= sp_post_views() . '<span>&mdash;</span>';
+			$output .= sp_post_views();
 			
 		if( user_can( $user_ID, 'edit_posts' ) )
-			$output .= '<span class="edit-link"><a title="' . __('Edit Post', 'sptheme') . '" href="' . get_edit_post_link( $post->ID ) . '">' . __('Edit', 'sptheme') . '</a></span>';	
+			$output .= '<span>&mdash;</span><span class="edit-link"><a title="' . __('Edit Post', 'sptheme') . '" href="' . get_edit_post_link( $post->ID ) . '">' . __('Edit', 'sptheme') . '</a></span>';	
 		
 		return $output;
 		
@@ -607,10 +607,18 @@ if ( ! function_exists( 'sp_string_length' ) ) {
 		}
 	} // /sp_pages
 
+
+/*-----------------------------------------------------------------------------------*/
+/* Embeded Audio/Sound from Soundcloud.com
+/*-----------------------------------------------------------------------------------*/
+function sp_soundcloud($url , $autoplay = 'false' ) {
+	return '<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url='.$url.'&amp;auto_play='.$autoplay.'&amp;show_artwork=true"></iframe>';
+}
+
 /*-----------------------------------------------------------------------------------*/
 /* Get Most Recent posts
 /*-----------------------------------------------------------------------------------*/
-function wp_last_posts($numberOfPosts = 5 , $thumb = true){
+function sp_last_posts($numberOfPosts = 5 , $thumb = true){
 	global $post;
 	$orig_post = $post;
 	
@@ -618,22 +626,49 @@ function wp_last_posts($numberOfPosts = 5 , $thumb = true){
 	foreach($lastPosts as $post): setup_postdata($post);
 ?>
 <li>
-    <div class="post-thumbnail">
+	<div class="post-thumbnail">
         <a href="<?php the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'sptheme' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
         <img src="<?php echo sp_post_image('sp-small') ?>" width="60" height="60" />
         </a>
     </div><!-- post-thumbnail /-->
+    
 	<h3><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h3>
-	<?php //tie_get_score(); ?> <div class="entry-meta"><?php echo sp_posted_on(); ?></div>
+	<?php //sp_get_score(); ?> <div class="entry-meta"><?php echo sp_posted_on(); ?></div>
 </li>
 <?php endforeach; 
 	$post = $orig_post;
 }
 
 /*-----------------------------------------------------------------------------------*/
+/* Get Random posts 
+/*-----------------------------------------------------------------------------------*/
+function sp_random_posts($numberOfPosts = 5 , $thumb = true){
+	global $post;
+	$orig_post = $post;
+
+	$lastPosts = get_posts('orderby=rand&numberposts='.$numberOfPosts);
+	foreach($lastPosts as $post): setup_postdata($post);
+?>
+<li>
+	<?php if ( $thumb ) : ?>			
+		<div class="post-thumbnail">
+			<a href="<?php the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'sptheme' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+			<img src="<?php echo sp_post_image('sp-small') ?>" width="60" height="60" />
+            </a>
+		</div><!-- post-thumbnail /-->
+	<?php endif; ?>
+	<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+	<?php //sp_get_score(); ?> <div class="entry-meta"><?php echo sp_posted_on(); ?></div>
+</li>
+<?php endforeach;
+	$post = $orig_post;
+}
+
+
+/*-----------------------------------------------------------------------------------*/
 /* Get Popular posts 
 /*-----------------------------------------------------------------------------------*/
-function wp_popular_posts($pop_posts = 5 , $thumb = true){
+function sp_popular_posts($pop_posts = 5 , $thumb = true){
 	global $wpdb , $post;
 	$orig_post = $post;
 	
@@ -644,13 +679,15 @@ function wp_popular_posts($pop_posts = 5 , $thumb = true){
 		foreach($posts as $post){
 		setup_postdata($post);?>
 			<li>
-				<div class="post-thumbnail">
+	            <div class="post-thumbnail">
 					<a href="<?php echo get_permalink( $post->ID ) ?>" title="<?php printf( __( 'Permalink to %s', 'sptheme' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 					<img src="<?php echo sp_post_image('sp-small') ?>" width="60" height="60" />
                     </a>
 				</div><!-- post-thumbnail /-->
+                
 				<h3><a href="<?php echo get_permalink( $post->ID ) ?>" title="<?php echo the_title(); ?>"><?php echo the_title(); ?></a></h3>
-				<?php //tie_get_score(); ?> <div class="entry-meta"><?php echo sp_posted_on(); ?></div>
+				<?php //sp_get_score(); ?> <div class="entry-meta"><?php echo sp_posted_on(); ?></div>
+               
 			</li>
 	<?php 
 		}
@@ -662,7 +699,7 @@ function wp_popular_posts($pop_posts = 5 , $thumb = true){
 /*-----------------------------------------------------------------------------------*/
 /* Get Most commented posts 
 /*-----------------------------------------------------------------------------------*/
-function most_commented($comment_posts = 5 , $avatar_size = 60){
+function sp_most_commented($comment_posts = 5 , $avatar_size = 60){
 $comments = get_comments('status=approve&number='.$comment_posts);
 foreach ($comments as $comment) { ?>
 	<li>
@@ -694,7 +731,7 @@ function sp_last_posts_cat($numberOfPosts = 5 , $thumb = true , $cats = 1){
 		</div><!-- post-thumbnail /-->
 	<?php endif; ?>
 	<h3><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h3>
-	<?php //tie_get_score(); ?> <div class="entry-meta"><?php echo sp_posted_on(); ?></div>
+	<?php //sp_get_score(); ?> <div class="entry-meta"><?php echo sp_posted_on(); ?></div>
 </li>
 <?php endforeach;
 	$post = $orig_post;
@@ -704,9 +741,9 @@ function sp_last_posts_cat($numberOfPosts = 5 , $thumb = true , $cats = 1){
 /*-----------------------------------------------------------------------------------*/
 # Add user's social accounts
 /*-----------------------------------------------------------------------------------*/
-add_action( 'show_user_profile', 'tie_show_extra_profile_fields' );
-add_action( 'edit_user_profile', 'tie_show_extra_profile_fields' );
-function tie_show_extra_profile_fields( $user ) { ?>
+add_action( 'show_user_profile', 'sp_show_extra_profile_fields' );
+add_action( 'edit_user_profile', 'sp_show_extra_profile_fields' );
+function sp_show_extra_profile_fields( $user ) { ?>
 	<h3>Custom Author widget</h3>
 	<table class="form-table">
 		<tr>
@@ -766,9 +803,9 @@ function tie_show_extra_profile_fields( $user ) { ?>
 <?php }
 
 ## Save user's social accounts
-add_action( 'personal_options_update', 'tie_save_extra_profile_fields' );
-add_action( 'edit_user_profile_update', 'tie_save_extra_profile_fields' );
-function tie_save_extra_profile_fields( $user_id ) {
+add_action( 'personal_options_update', 'sp_save_extra_profile_fields' );
+add_action( 'edit_user_profile_update', 'sp_save_extra_profile_fields' );
+function sp_save_extra_profile_fields( $user_id ) {
 	if ( !current_user_can( 'edit_user', $user_id ) ) return false;
 	update_user_meta( $user_id, 'author_widget_content', $_POST['author_widget_content'] );
 	update_user_meta( $user_id, 'google', $_POST['google'] );
@@ -835,8 +872,8 @@ function sp_og_image() {
 		$post_thumb = sp_post_image('slider') ;
 	else{
 		$get_meta = get_post_custom($post->ID);
-		if( !empty( $get_meta["tie_video_url"][0] ) ){
-			$video_url = $get_meta["tie_video_url"][0];
+		if( !empty( $get_meta["sp_video_url"][0] ) ){
+			$video_url = $get_meta["sp_video_url"][0];
 			$video_link = @parse_url($video_url);
 			if ( $video_link['host'] == 'www.youtube.com' || $video_link['host']  == 'youtube.com' ) {
 				parse_str( @parse_url( $video_url, PHP_URL_QUERY ), $my_array_of_vars );
@@ -855,4 +892,71 @@ function sp_og_image() {
 	
 	if( isset($post_thumb) )
 		echo '<meta property="og:image" content="'. $post_thumb .'" />';
+}
+
+/*-----------------------------------------------------------------------------------*/
+/* Social 
+/*-----------------------------------------------------------------------------------*/
+function sp_get_social($newtab='yes', $icon_size='32', $tooltip='ttip' , $flat = false){
+	
+	global $smof_data;
+		
+	if ($newtab == 'yes') $newtab = "target=\"_blank\"";
+	else $newtab = '';
+		
+	$icons_path =  SP_BASE_URL . 'images/socialicons';
+		
+		?>
+		<div class="social-icons icon_<?php echo $icon_size; ?>">
+		<?php
+		// RSS
+		if ( !$smof_data['rss_icon'] ){
+		if ( $smof_data['rss_url'] != '' && $smof_data['rss_url'] != ' ' ) $rss = $smof_data['rss_url'] ;
+		else $rss = get_bloginfo('rss2_url'); 
+			?><a class="<?php echo $tooltip; ?> rss-tieicon" title="Rss" href="<?php echo $rss ; ?>" <?php echo $newtab; ?>><?php if( !$flat) : ?><img src="<?php echo $icons_path; ?>/rss.png" alt="RSS"  /><?php endif; ?></a><?php 
+		}
+		// Google+
+		if ( !empty($smof_data['social_google_plus']) && $smof_data['social_google_plus'] != ' ' ) {
+			?><a class="<?php echo $tooltip; ?> google-tieicon" title="Google+" href="<?php echo $smof_data['social_google_plus']; ?>" <?php echo $newtab; ?>><?php if( !$flat) : ?><img src="<?php echo $icons_path; ?>/google_plus.png" alt="Google+"  /><?php endif; ?></a><?php 
+		}
+		// Facebook
+		if ( !empty($smof_data['social_facebook']) && $smof_data['social_facebook'] != ' ' ) {
+			?><a class="<?php echo $tooltip; ?> facebook-tieicon" title="Facebook" href="<?php echo $smof_data['social_facebook']; ?>" <?php echo $newtab; ?>><?php if( !$flat) : ?><img src="<?php echo $icons_path; ?>/facebook.png" alt="Facebook"  /><?php endif; ?></a><?php 
+		}
+		// Twitter
+		if ( !empty($smof_data['social_twitter']) && $smof_data['social_twitter'] != ' ') {
+			?><a class="<?php echo $tooltip; ?> twitter-tieicon" title="Twitter" href="<?php echo $smof_data['social_twitter']; ?>" <?php echo $newtab; ?>><?php if( !$flat) : ?><img src="<?php echo $icons_path; ?>/twitter.png" alt="Twitter"  /><?php endif; ?></a><?php
+		}		
+		// Pinterest
+		if ( !empty($smof_data['social_pinterest']) && $smof_data['social_pinterest'] != ' ') {
+			?><a class="<?php echo $tooltip; ?> pinterest-tieicon" title="Pinterest" href="<?php echo $smof_data['social_pinterest']; ?>" <?php echo $newtab; ?>><?php if( !$flat) : ?><img src="<?php echo $icons_path; ?>/pinterest.png" alt="MySpace"  /><?php endif; ?></a><?php
+		}
+		// LinkedIN
+		if ( !empty($smof_data['social_linkedin']) && $smof_data['social_linkedin'] != ' ' ) {
+			?><a class="<?php echo $tooltip; ?> linkedin-tieicon" title="LinkedIn" href="<?php echo $smof_data['social_linkedin']; ?>" <?php echo $newtab; ?>><?php if( !$flat) : ?><img  src="<?php echo $icons_path; ?>/linkedin.png" alt="LinkedIn"  /><?php endif; ?></a><?php
+		}
+		// YouTube
+		if ( !empty($smof_data['social_youtube']) && $smof_data['social_youtube'] != ' ' ) {
+			?><a class="<?php echo $tooltip; ?> youtube-tieicon" title="Youtube" href="<?php echo $smof_data['social_youtube']; ?>" <?php echo $newtab; ?>><?php if( !$flat) : ?><img  src="<?php echo $icons_path; ?>/youtube.png" alt="YouTube"  /><?php endif; ?></a><?php
+		}
+		// Skype
+		if ( !empty($smof_data['social_skype']) && $smof_data['social_skype'] != ' ' ) {
+			?><a class="<?php echo $tooltip; ?> skype-tieicon" title="Skype" href="<?php echo $smof_data['social_skype']; ?>" <?php echo $newtab; ?>><?php if( !$flat) : ?><img  src="<?php echo $icons_path; ?>/skype.png" alt="Skype"  /><?php endif; ?></a><?php
+		}
+		// Delicious 
+		if ( !empty($smof_data['social_delicious']) && $smof_data['social_delicious'] != ' ' ) {
+			?><a class="<?php echo $tooltip; ?> delicious-tieicon" title="Delicious" href="<?php echo $smof_data['social_delicious']; ?>" <?php echo $newtab; ?>><?php if( !$flat) : ?><img  src="<?php echo $icons_path; ?>/delicious.png" alt="Delicious"  /><?php endif; ?></a><?php
+		}
+		// Vimeo
+		if ( !empty($smof_data['social_vimeo']) && $smof_data['social_vimeo'] != ' ' ) {
+			?><a class="<?php echo $tooltip; ?> vimeo-tieicon" title="Vimeo" href="<?php echo $smof_data['social_vimeo']; ?>" <?php echo $newtab; ?>><?php if( !$flat) : ?><img  src="<?php echo $icons_path; ?>/vimeo.png" alt="Vimeo"  /><?php endif; ?></a><?php
+		}
+		// instagram
+		if ( !empty( $smof_data['social_instagram'] ) && $smof_data['social_instagram'] != ' ' ) {
+			?><a class="<?php echo $tooltip; ?> instagram-tieicon" title="instagram" href="<?php echo $smof_data['social_instagram']; ?>" <?php echo $newtab; ?>><?php if( !$flat) : ?><img  src="<?php echo $icons_path; ?>/instagram.png" alt="instagram"  /><?php endif; ?></a><?php
+		}
+?>
+	</div>
+
+<?php
 }

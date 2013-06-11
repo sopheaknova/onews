@@ -13,10 +13,10 @@ add_action('wp_print_scripts', 'comments_queue_js');
 /*-----------------------------------------------------------------------------------*/
 # Remove recent comments style
 /*-----------------------------------------------------------------------------------*/
-function tie_remove_recent_comments_style() {
+function sp_remove_recent_comments_style() {
 	add_filter( 'show_recent_comments_widget_style', '__return_false' );
 }
-add_action( 'widgets_init', 'tie_remove_recent_comments_style' );
+add_action( 'widgets_init', 'sp_remove_recent_comments_style' );
 
 /*-----------------------------------------------------------------------------------*/
 # Custom comments style

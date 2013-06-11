@@ -13,7 +13,6 @@ class sp_widget_tabs extends WP_Widget {
 			);
 		$control_ops = array();
 
-		//$this->WP_Widget( $id, $name, $widget_ops, $control_ops );
 		parent::__construct( $id, $name, $widget_ops, $control_ops );
 	}
 	function widget( $args, $instance ) {
@@ -29,17 +28,17 @@ class sp_widget_tabs extends WP_Widget {
 			</div>
 			<div id="tab1" class="tabs-wrap">
 				<ul>
-					<?php wp_popular_posts() ?>	
+					<?php sp_popular_posts() ?>	
 				</ul>
 			</div>
 			<div id="tab2" class="tabs-wrap">
 				<ul>
-					<?php wp_last_posts()?>	
+					<?php sp_last_posts()?>	
 				</ul>
 			</div>
 			<div id="tab3" class="tabs-wrap">
 				<ul>
-					<?php most_commented();?>
+					<?php sp_most_commented();?>
 				</ul>
 			</div>
 		</div>

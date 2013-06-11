@@ -34,6 +34,11 @@
                 <?php get_search_form(); ?>
             </div><!-- .search-block /-->
             
+            <?php 
+			if ($smof_data['topbar_social']) 
+				sp_get_social( 'yes' , 'flat' , 'tooldown' , true ); 
+			?>
+            
             <?php echo sp_top_navigation(); ?>
             
         </div><!-- end .container -->
@@ -57,7 +62,7 @@
     </header>
     
     <?php $stick = ''; ?>
-	<?php //if( $smof_data['stick_nav'] ) $stick = 'fixed-enabled' ?>
+	<?php if( $smof_data['stick_nav'] ) $stick = 'fixed-enabled' ?>
     <nav id="main-nav" class="container clearfix <?php echo $stick; ?> ">
         <?php echo sp_main_navigation(); ?>
     </nav><!-- end #main-nav .container .clearfix -->

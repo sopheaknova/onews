@@ -156,8 +156,7 @@ border-radius: 2px;
 #of_container #of-nav li.archivessettings a{ background-image:url(../images/icon-post.png);}
 #of_container #of-nav li.articlesettings a{ background-image:url(../images/icon-report.png);}
 #of_container #of-nav li.stylingoptions a{ background-image:url(../images/icon-paint.png);}
-#of_container #of-nav li.exampleoptions a{ background-image:url(../images/icon-docs.png);}
-#of_container #of-nav li.homesettings a{ background-image:url(../images/icon-home.png);}
+#of_container #of-nav li.socialnetworking a{ background-image:url(../images/icon-social.png);}
 #of_container #of-nav li.sidebarsettings a{ background-image:url(../images/icon-sidebar.png);}
 #of_container #of-nav li.backupoptions a {background: url(../images/icon-backup.png) no-repeat;}
 #of_container #of-nav li.advancedsettings a {background: url(../images/wrench16.png) no-repeat;}

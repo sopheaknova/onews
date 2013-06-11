@@ -26,6 +26,10 @@
 				<?php require_once( SP_BASE_DIR . 'includes/single-post-share.php' ); // Get Share Button template ?>
 
 			</article><!-- end .hentry -->
+            
+            <?php the_tags( '<span style="display:none">',' ', '</span>'); ?>
+            <span style="display:none" class="updated"><?php the_time( 'Y-m-d' ); ?></span>
+            <div style="display:none" class="vcard author" itemprop="author" itemscope itemtype="http://schema.org/Person"><strong class="fn" itemprop="name"><?php the_author_posts_link(); ?></strong></div>
 		
         <?php if( $smof_data[ 'post_nav' ] ): ?>				
 		<div class="post-navigation">

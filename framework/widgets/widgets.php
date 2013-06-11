@@ -50,6 +50,11 @@ function sp_widgets_init() {
 	require_once ( SP_BASE_DIR . 'framework/widgets/widget-subnav.php' );
 	require_once ( SP_BASE_DIR . 'framework/widgets/widget-tabbed.php' );
 	require_once ( SP_BASE_DIR . 'framework/widgets/widget-category.php' );
+	require_once ( SP_BASE_DIR . 'framework/widgets/widget-feedburner.php' );
+	require_once ( SP_BASE_DIR . 'framework/widgets/widget-posts-list.php' );
+	require_once ( SP_BASE_DIR . 'framework/widgets/widget-google-plus.php' );
+	require_once ( SP_BASE_DIR . 'framework/widgets/widget-soundcloud.php' );
+	require_once ( SP_BASE_DIR . 'framework/widgets/widget-social.php' );
 	
 	// Register widgets
 	register_widget( 'sp_widget_text_image' );
@@ -58,6 +63,11 @@ function sp_widgets_init() {
 	register_widget( 'sp_widget_subnav' );
 	register_widget( 'sp_widget_tabs' );
 	register_widget( 'sp_widget_categort' );
+	register_widget( 'sp_widget_feedburner' );
+	register_widget( 'sp_widget_posts_list' );
+	register_widget( 'sp_widget_google_plus' );
+	register_widget( 'sp_widget_soundcloud' );
+	register_widget( 'sp_widget_social' );
 
 }
 add_action('widgets_init', 'sp_widgets_init');

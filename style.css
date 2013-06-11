@@ -23,7 +23,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
 
 /*===============================================================================================================
-02  BASIC ELEMENTS & CLASS
+	BASIC ELEMENTS & CLASS
 ===============================================================================================================*/
 body {
 	background: #FFFFFF;
@@ -210,7 +210,7 @@ blockquote {
 	/*	Buttons
 	----------------------------------------------------------------------------------------------------*/
 	
-	.button,a.button,#main input[type="submit"], span.onsale {
+	.button,a.button,#main input[type="submit"], .widget input[type="submit"], span.onsale {
 		padding: 6px 8px;
 		display: inline-block;
 		border: 0px;
@@ -228,7 +228,7 @@ blockquote {
 		color:#FFF;
 		text-decoration:none;
 	}
-	.button:hover,a.button:hover,#main input[type="submit"]:hover{background:#444 !important; text-decoration:none !important;}
+	.button:hover,a.button:hover,#main input[type="submit"]:hover, .widget input[type="submit"]:hover{background:#444 !important; text-decoration:none !important;}
 	textarea, input[type=text], input[type=password], input[type=email], select {
 		border: 1px solid #e0e0e0;
 		padding: 8px 6px;
@@ -312,7 +312,7 @@ blockquote {
 
 
 /*===============================================================================================================
-03  NAVIGATION DROPDOWN MENU
+	NAVIGATION DROPDOWN MENU
 ===============================================================================================================*/
 #main-nav  {
 	background:#2c2c2c;
@@ -704,7 +704,7 @@ blockquote {
 		}		
 	
 /*===============================================================================================================
-05  WIDGETS
+WIDGETS
 ===============================================================================================================*/
 
 .widget { 
@@ -842,8 +842,34 @@ blockquote {
 		font-style: italic;
 	}
 
-	/*	Custom and Addon widget
-	----------------------------------------------------------------------------------------------------*/
+	/*	Login Widget
+	---------------------------------------- */
+	#login-form{padding:11px 11px 0;}
+	#login-form #log, #login-form #pwd, .sp-widget-feedburner .feedburner-email{
+		border-color: #F1F1F1;
+		border-top-color: #DDD;
+		border-left-color: #DDD;
+		background: #F9F9F9;
+		color: #515151;
+		font: 12px Tahoma;
+		padding: 4px 7px;
+		margin-bottom: 10px;
+		border-radius: 3px;-moz-border-radius: 3px;-webkit-border-radius: 3px;
+		display: block;
+		width: 250px;
+		height: 24px;
+	}
+		#login-form #log:hover, #login-form #pwd:hover, .sp-widget-feedburner .feedburner-email:hover{ color:#000;}
+		#login-form #log:focus, #login-form #pwd:focus, .sp-widget-feedburner .feedburner-email:focus{ background:#FFF; color:#000;}
+		#login-form .login-button{ margin-right:20px;}
+		#login-form p{padding-bottom:0;}
+		ul.login-links{ margin-top:15px;}
+		.content .entry #login-form p{ padding:0 }
+	
+	/* FeedBurner Widget 
+	---------------------------------------- */
+	.sp-widget-feedburner p{margin-bottom:0;}
+	.sp-widget-feedburner-counter{padding:11px;}
 	
 		
 		/*	Latest news
@@ -887,6 +913,53 @@ blockquote {
 		.author-social a {opacity: 0.7;margin-left: 2px;}
 		.author-social a:hover {opacity: 1;}
 		.author-social a img{ width:18px;}
+		
+		/* Social Icons Widget 
+		---------------------------------------- */
+		.social-icons{text-align:center;}
+			.social-icons a{position:relative;margin:0 2px 0 ; opacity:.7;}
+			.social-icons a:hover{ opacity:1;}
+			.social-icons.icon_24 img{width:24px; height:24px;}
+			.social-icons.icon_16 img{width:16px; height:16px;}
+	
+		/* Social 
+		---------------------------------------- */
+		.social-icons.icon_flat{float:right; margin:4px 5px 0 0;}
+		.social-icons.icon_flat a{background:url(images/social-icons.png) no-repeat top left; width: 20px;height: 20px; opacity:.3;}
+		.social-icons.icon_flat a:hover{ opacity:.6;}
+		.icon_flat a.google-tieicon{background-position:-38px 1px;}
+		.icon_flat a.facebook-tieicon{background-position:left 0;}
+		.icon_flat a.twitter-tieicon{background-position:-76px 1px;}
+		.icon_flat a.google-play-tieicon{background-position:-121px 1px;}
+		.icon_flat a.skype-tieicon{background-position:-163px 0px;}
+		.icon_flat a.blogger-tieicon{background-position:-202px 0px;}
+		.icon_flat a.wordpress-tieicon{background-position:left -41px;}
+		.icon_flat a.paypal-tieicon{background-position:-38px -41px;}
+		.icon_flat a.ember-tieicon{background-position:-76px -41px;}
+		.icon_flat a.deviantart-tieicon{background-position:-121px -41px;}
+		.icon_flat a.linkedin-tieicon{background-position:-163px -41px;}
+		.icon_flat a.vimeo-tieicon{background-position:-202px -41px;}
+		.icon_flat a.reddit-tieicon{background-position:left -82px;}
+		.icon_flat a.youtube-tieicon{background-position:-38px -82px;}
+		.icon_flat a.tumblr-tieicon{background-position:-76px -82px;}
+		.icon_flat a.dribbble-tieicon{background-position:-121px -82px;}
+		.icon_flat a.evernote-tieicon{background-position:-163px -82px;}
+		.icon_flat a.apple-tieicon{background-position:-202px -82px;}
+		.icon_flat a.rss-tieicon{background-position:left -123px;}
+		.icon_flat a.lastfm-tieicon{background-position:-38px -125px;}
+		.icon_flat a.pinterest-tieicon{background-position:-76px -123px;}
+		.icon_flat a.stumbleupon-tieicon{background-position:-121px -125px;}
+		.icon_flat a.pandora-tieicon{background-position:-163px -125px;}
+		.icon_flat a.behance-tieicon{background-position:-202px -123px;}
+		.icon_flat a.myspace-tieicon{background-position:left -164px;}
+		.icon_flat a.digg-tieicon{background-position:-38px -164px;}
+		.icon_flat a.forrst-tieicon{background-position:-76px -164px;}
+		.icon_flat a.delicious-tieicon{background-position:-121px -164px;}
+		.icon_flat a.sharethis-tieicon{background-position:-163px -164px;}
+		.icon_flat a.technorati-tieicon{background-position:-202px -164px;}
+		.icon_flat a.instagram-tieicon{background-position:left -209px;}
+		.icon_flat a.picasa-tieicon{background-position:-38px -209px;}
+		.icon_flat a.flickr-tieicon{background-position:-76px -209px;}
 		
 		/*	Tabbed Widget
 		---------------------------------------- */
@@ -1047,7 +1120,7 @@ blockquote {
 	}
 	
 	.single .entry-meta, .archive .entry-meta, .category .entry-meta{margin-bottom:10px;}
-	.single .entry-meta{border-bottom:1px solid #F2F2F2; padding-bottom:5px;}
+	.single #main .entry-meta{border-bottom:1px solid #F2F2F2; padding-bottom:5px;}
 	
 		h2.title{
 			text-shadow:0 2px 0px #ffffff;
@@ -1411,7 +1484,7 @@ blockquote {
 	#commentform .form-allowed-tags ,.comment-form-comment label {display: none;}
 	.comment-form-email,.comment-form-url,.comment-form-url,.comment-form-comment {clear: both;}
 	.comment-notes{ margin-bottom:10px;	}
-	.form-submit #submit , #login-form .login-button , .widget-feedburner .feedburner-subscribe{
+	.form-submit #submit , #login-form .login-button , .sp-widget-feedburner .feedburner-subscribe{
 		border: 1px solid #D9D9D9;
 		background: #FBFBFB;
 		background: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#FBFBFB),color-stop(100%,#EEE ));
@@ -1437,7 +1510,7 @@ blockquote {
 		transition: background .40s;
 		position:relative;
 	}
-	.form-submit #submit:hover, #login-form .login-button:hover , .widget-feedburner .feedburner-subscribe:hover {
+	.form-submit #submit:hover, #login-form .login-button:hover , .sp-widget-feedburner .feedburner-subscribe:hover {
 		background: -webkit-gradient(linear,50% 0,50% 100%,color-stop(0%,#FFF),color-stop(100%,#f8f8f8));
 		background: -webkit-linear-gradient(top,#FFF 0,#f8f8f8 100%);
 		background: -moz-linear-gradient(top,#FFF 0,#f8f8f8 100%);
@@ -1445,7 +1518,7 @@ blockquote {
 		background: -ms-linear-gradient(top,#FFF 0,#f8f8f8 100%);
 		background: linear-gradient(top,#FFF ,#f8f8f8 100%);
 	}
-	.form-submit #submit:active, #login-form .login-button:active , , .widget-feedburner .feedburner-subscribe:active {top:2px;}
+	.form-submit #submit:active, #login-form .login-button:active , , .sp-widget-feedburner .feedburner-subscribe:active {top:2px;}
 	input.error, textarea.error{border:1px solid #FF0000 !important;}
 
 /*===============================================================================================================
