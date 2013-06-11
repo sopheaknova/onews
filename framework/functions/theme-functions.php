@@ -626,11 +626,13 @@ function sp_last_posts($numberOfPosts = 5 , $thumb = true){
 	foreach($lastPosts as $post): setup_postdata($post);
 ?>
 <li>
+	<?php if ( $thumb && sp_post_image('sp-small') ) : ?>
 	<div class="post-thumbnail">
         <a href="<?php the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'sptheme' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
         <img src="<?php echo sp_post_image('sp-small') ?>" width="60" height="60" />
         </a>
     </div><!-- post-thumbnail /-->
+    <?php endif; ?>
     
 	<h3><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h3>
 	<?php //sp_get_score(); ?> <div class="entry-meta"><?php echo sp_posted_on(); ?></div>
@@ -650,7 +652,7 @@ function sp_random_posts($numberOfPosts = 5 , $thumb = true){
 	foreach($lastPosts as $post): setup_postdata($post);
 ?>
 <li>
-	<?php if ( $thumb ) : ?>			
+	<?php if ( $thumb && sp_post_image('sp-small') ) : ?>			
 		<div class="post-thumbnail">
 			<a href="<?php the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'sptheme' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 			<img src="<?php echo sp_post_image('sp-small') ?>" width="60" height="60" />
@@ -679,11 +681,13 @@ function sp_popular_posts($pop_posts = 5 , $thumb = true){
 		foreach($posts as $post){
 		setup_postdata($post);?>
 			<li>
+            <?php if ( $thumb && sp_post_image('sp-small') ) : ?>	
 	            <div class="post-thumbnail">
 					<a href="<?php echo get_permalink( $post->ID ) ?>" title="<?php printf( __( 'Permalink to %s', 'sptheme' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 					<img src="<?php echo sp_post_image('sp-small') ?>" width="60" height="60" />
                     </a>
 				</div><!-- post-thumbnail /-->
+            <?php endif; ?>    
                 
 				<h3><a href="<?php echo get_permalink( $post->ID ) ?>" title="<?php echo the_title(); ?>"><?php echo the_title(); ?></a></h3>
 				<?php //sp_get_score(); ?> <div class="entry-meta"><?php echo sp_posted_on(); ?></div>
@@ -723,7 +727,7 @@ function sp_last_posts_cat($numberOfPosts = 5 , $thumb = true , $cats = 1){
 	foreach($lastPosts as $post): setup_postdata($post);
 ?>
 <li>
-	<?php if ( $thumb ) : ?>			
+	<?php if ( $thumb && sp_post_image('sp-small') ) : ?>			
 		<div class="post-thumbnail">
 			<a href="<?php the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'sptheme' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 			<img src="<?php echo sp_post_image('sp-small') ?>" width="60" height="60" />
