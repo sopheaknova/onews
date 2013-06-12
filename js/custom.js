@@ -4,7 +4,7 @@
 /* ---------------------------------------------------------------------- */
 	browserWidth = document.body.clientWidth; // get body content width
 	
-	jQuery( '.no-js' ).removeClass( 'no-js' );
+	//jQuery( '.no-js' ).removeClass( 'no-js' );
 
 	//IE8 fixes
 		jQuery( '.lie8 img[height]' ).removeAttr( 'height' );

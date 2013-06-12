@@ -12,6 +12,7 @@
 		add_action('wp_print_styles', 'sp_enqueue_styles'); //print CSS
 		add_action('wp_print_scripts', 'sp_enqueue_scripts'); //print JS
 		add_action( 'wp_head', 'sp_print_css_js' );//Custom scripts
+		add_action('wp_footer', 'google_analytics_script');
 		
 	//FILTER
 		add_filter('wp_title', 'sp_filter_wp_title', 10, 2);	
@@ -277,6 +278,15 @@ function sp_print_css_js() {
 		<?php
 	}
 }
+
+/*-----------------------------------------------------------------------------------*/
+/* Embeded script in footer
+/*-----------------------------------------------------------------------------------*/
+
+function google_analytics_script() { 
+	global $smof_data;
+	if ( $smof_data['google_analytics']) echo htmlspecialchars_decode( stripslashes( $smof_data['google_analytics'] )); 
+} 
 
 
 /* ---------------------------------------------------------------------- */

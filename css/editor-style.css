@@ -14,7 +14,7 @@
 }
 
 html .mceContentBody {
-	max-width: 600px;
+	max-width: 620px;
 }
 
 body {
@@ -24,19 +24,18 @@ body {
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-	color: #4e4e4e;
-	clear: both;
-	font-weight: 400;
-	line-height: 1.25;
-	margin-bottom: 15px;
+	color: #232221;
+	font-weight:normal;
+    line-height: 1.2em;
+	margin-bottom:8px;
 }
 
-h1 { font-size: 32px; }
-h2 { font-size: 28px; }
-h3 { font-size: 17px; }
-h4 { font-size: 15px; }
-h5 { font-size: 14px; }
-h6 { font-size: 12px; }
+h1 {font-size:36px;}
+h2 {font-size:30px;}
+h3 {font-size:24px;}
+h4 {font-size:18px;}
+h5 {font-size:14px;}
+h6 {font-size:12px;}
 
 hr {
 	background-color: #efefef;
@@ -171,11 +170,11 @@ input[type=text] { padding: 3px; }
 
 /* Links */
 a, a em, a strong {
-	color: #f15a23;
+	color: #1155cc;
 	text-decoration: none;
 }
 
-a:focus, a:active, a:hover { text-decoration: underline; }
+a:focus, a:active, a:hover { text-decoration: underline; color:#232221; }
 
 /* Alignment */
 .alignleft {
@@ -300,6 +299,6 @@ img {
 		border-color: #ddd;
 	}
 
-/* ---------------------------------------------------------------------- */
-/*	Theme Styles
-/* ---------------------------------------------------------------------- */
+/*===============================================================================================================
+	Theme Styles
+===============================================================================================================*/

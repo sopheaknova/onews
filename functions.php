@@ -26,6 +26,9 @@ require_once( SP_BASE_DIR . 'framework/functions/setup-theme.php' );
 require_once( SP_BASE_DIR . 'framework/functions/theme-functions.php' );
 require_once( SP_BASE_DIR . 'framework/functions/aq_resizer.php');
 
+// Add shortcodes
+require_once( SP_BASE_DIR . 'framework/shortcode/shortcodes.php');
+
 // Add widgets
 require_once( SP_BASE_DIR . 'framework/widgets/widgets.php' );
 
