@@ -25,6 +25,8 @@ function register_shortcodes_button( $buttons ) {
 	
 	//array_push($buttons, "highlight", "notifications", "buttons", "divider", "toggle", "tabs", "contactForm", "price_table_group", 'social_link', 'social_button', 'teaser', 'testimonials','dropcaps','totop','toc');
     array_push( $buttons, "highlight", "notifications", "buttons", "divider", "toggle", "tabs", "accordian", "dropcaps" );
+	
+	array_push( $buttons, 'columns' );
     return $buttons;
 }
 
@@ -58,6 +60,17 @@ remove_filter('the_content', 'wptexturize');
 
 add_filter('the_content', 'sp_sc_formatter', 99);
 
+/* ---------------------------------------------------------------------- */
+/*	Backend Scripts and style
+/* ---------------------------------------------------------------------- */
+function sp_admin_scripts_style_sc ($hook) {
+	if( $hook == 'post.php' || $hook == 'post-new.php' ) {
+	wp_register_style( 'shortcode-style', esc_url( get_template_directory_uri() . '/framework/shortcode/css/sc-style.css' ) );
+	wp_enqueue_style( 'shortcode-style' );
+	}
+}
+add_action( 'admin_enqueue_scripts', 'sp_admin_scripts_style_sc');
+	
 /* ---------------------------------------------------------------------- */
 /*	Make shortcode buttons work with wpml
 /* ---------------------------------------------------------------------- */
@@ -215,5 +228,120 @@ function dropcaps($atts, $content = null)
 }
 
 add_shortcode('dropcaps', 'dropcaps');
+
+
+/* ---------------------------------------------------------------------- */
+/*	Columns
+/* ---------------------------------------------------------------------- */
+
+	/* -------------------------------------------------- */
+	/*	One half
+	/* -------------------------------------------------- */
+
+	function sp_one_half_sc( $atts, $content = null ) {
+
+		return '<div class="one_half">' . do_shortcode( $content ) . '</div>';
+
+	}
+	add_shortcode('one_half', 'sp_one_half_sc');
+
+	/* -------------------------------------------------- */
+	/*	One half last
+	/* -------------------------------------------------- */
+
+	function sp_one_half_last_sc( $atts, $content = null ) {
+
+		return '<div class="one_half last">' . do_shortcode( $content ) . '</div><div class="clear"></div>';
+
+	}
+	add_shortcode('one_half_last', 'sp_one_half_last_sc');
+
+	/* -------------------------------------------------- */
+	/*	One third
+	/* -------------------------------------------------- */
+
+	function sp_one_third_sc( $atts, $content = null ) {
+
+		return '<div class="one_third">' . do_shortcode( $content ) . '</div>';
+
+	}
+	add_shortcode('one_third', 'sp_one_third_sc');
+
+	/* -------------------------------------------------- */
+	/*	One third last
+	/* -------------------------------------------------- */
+
+	function sp_one_third_last_sc( $atts, $content = null ) {
+
+		return '<div class="one_third last">' . do_shortcode( $content ) . '</div><div class="clear"></div>';
+
+	}
+	add_shortcode('one_third_last', 'sp_one_third_last_sc');
+
+	/* -------------------------------------------------- */
+	/*	One fourth
+	/* -------------------------------------------------- */
+
+	function sp_one_fourth_sc( $atts, $content = null ) {
+
+		return '<div class="one_fourth">' . do_shortcode( $content ) . '</div>';
+
+	}
+	add_shortcode('one_fourth', 'sp_one_fourth_sc');
+
+	/* -------------------------------------------------- */
+	/*	One fourth last
+	/* -------------------------------------------------- */
+
+	function sp_one_fourth_last_sc( $atts, $content = null ) {
+
+		return '<div class="one_fourth last">' . do_shortcode( $content ) . '</div><div class="clear"></div>';
+
+	}
+	add_shortcode('one_fourth_last', 'sp_one_fourth_last_sc');
+
+	/* -------------------------------------------------- */
+	/*	Two third
+	/* -------------------------------------------------- */
+
+	function sp_two_third_sc( $atts, $content = null ) {
+
+		return '<div class="two_third">' . do_shortcode( $content ) . '</div>';
+
+	}
+	add_shortcode('two_third', 'sp_two_third_sc');
+
+	/* -------------------------------------------------- */
+	/*	Two third last
+	/* -------------------------------------------------- */
+
+	function sp_two_third_last_sc( $atts, $content = null ) {
+
+		return '<div class="two_third last">' . do_shortcode( $content ) . '</div><div class="clear"></div>';
+
+	}
+	add_shortcode('two_third_last', 'sp_two_third_last_sc');
+
+	/* -------------------------------------------------- */
+	/*	Three fourth
+	/* -------------------------------------------------- */
+
+	function sp_three_four_sc( $atts, $content = null ) {
+
+		return '<div class="three_fourth">' . do_shortcode( $content ) . '</div>';
+
+	}
+	add_shortcode('three_fourth', 'sp_three_four_sc');
+
+	/* -------------------------------------------------- */
+	/*	Three fourth last
+	/* -------------------------------------------------- */
+
+	function sp_three_fourth_last_sc( $atts, $content = null ) {
+
+		return '<div class="three_fourth last">' . do_shortcode( $content ) . '</div><div class="clear"></div>';
+
+	}
+	add_shortcode('three_fourth_last', 'sp_three_fourth_last_sc');
 
 ?>

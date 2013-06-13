@@ -122,10 +122,45 @@
             });
 			
         },
-		createControl:function(n, cm) {
+		createControl:function(d,e,url) {
+			
+			if(d=="columns"){
+					
+				d=e.createMenuButton( "columns",{
+					title:"Insert Columns Shortcode",							
+					icons:false							
+					});
+					
+					var a=this;d.onRenderMenu.add(function(c,b){
+						
+						
+						a.addImmediate(b,"Column 1/2", ' [one_half]  [/one_half] ');
+						a.addImmediate(b,"Column 1/2 last", ' [one_half last=last]  [/one_half] ');
+						a.addImmediate(b,"Column 1/3", ' [one_third]  [/one_third] ');
+						a.addImmediate(b,"Column 1/3 last", ' [one_third last=last]  [/one_third] ');
+						a.addImmediate(b,"Column 1/4", ' [one_fourth]  [/one_fourth] ');
+						a.addImmediate(b,"Column 1/4 last", ' [one_fourth last=last]  [/one_fourth] ');
+						a.addImmediate(b,"Column 2/3", ' [two_third]  [/two_third] ');
+						a.addImmediate(b,"Column 2/3 last", ' [two_third last=last]  [/two_third] ');
+						a.addImmediate(b,"Column 3/4", ' [three_fourth]  [/three_fourth] ');
+						a.addImmediate(b,"Column 3/4 last", ' [three_fourth last=last]  [/three_fourth] ');								
+						
+						b.addSeparator();
+						
+						a.addImmediate(b,"Clear", '[clear]');
+						
+						b.addSeparator();
+						
+						a.addImmediate(b,"Raw", ' [raw]  [/raw] ');
+					});
+				return d
+			
+			} // End IF Statement
+					
 			return null;
 		},
 		
+		addImmediate:function(d,e,a){d.add({title:e,onclick:function(){tinyMCE.activeEditor.execCommand( "mceInsertContent",false,a)}})},
 		
 		/**
 		 * Returns information about the plugin as a name/value array.
