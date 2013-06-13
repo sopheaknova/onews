@@ -63,7 +63,7 @@
 				ed.windowManager.open({
 					file : url +  '../../shortcodes/toggle.php'+sp_wpml_lang,
 					width : 350,
-					height : 350,
+					height : 320,
 					inline : 1
 				});
 			
@@ -80,7 +80,7 @@
 				ed.windowManager.open({
 					file : url +  '../../shortcodes/tabs.php'+sp_wpml_lang,
 					width : 350,
-					height : 400,
+					height : 380,
 					inline : 1
 				});
 			
@@ -90,6 +90,23 @@
             title : 'Insert Tabs',
                    cmd : 'tabs',
                image:  url +  "../../img/ed_tabs.png"
+            });
+			
+			//Accordian
+			ed.addCommand('accordian', function() {
+				ed.windowManager.open({
+					file : url +  '../../shortcodes/accordion.php'+sp_wpml_lang,
+					width : 350,
+					height : 320,
+					inline : 1
+				});
+			
+			});
+						
+			ed.addButton('accordian', {
+            title : 'Insert Accordian',
+               cmd : 'accordian',
+               image:  url +  "../../img/ed_accordian.png"
             });
 			
 			//Dropcaps

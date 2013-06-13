@@ -1751,7 +1751,7 @@ h3.trigger {
 h3.trigger a {
 	display: block;
 	border: 1px solid #eaeaea;
-	padding: 10px;
+	padding: 5px;
 	outline: 0 !important;
     font-weight: 400;
 	font-size: 15px;
@@ -1784,6 +1784,39 @@ h3.active a:hover {
     border: 1px solid #ddd;
 	border-top: 0px;
 }
+/*accordion*/
+
+.accordion{margin-bottom:3px;border: 1px solid #eaeaea;}
+.accordion h4{margin-bottom:0;}
+.acc-trigger a {
+	cursor: pointer;
+	display: block;
+	margin: 0;
+	background:#ffffff url(images/shortcodes/plus.png) no-repeat 10px center;
+	display: block;
+	color: #959393;
+	outline: medium none;
+	padding: 5px;
+	text-decoration: none;
+	text-indent:25px;
+	text-shadow: none;
+	font-size:15px;
+}
+
+	.acc-trigger a:hover, h4.active { background-color: #f8f8f8; }
+
+	.acc-trigger a:hover, h4.active a, h4.active a:hover { color: #ff6633; }
+
+	h4.active a:hover { background-color: transparent; }
+	h4.active:last-of-type {
+		border-bottom: none;
+		margin-bottom: 0;
+	}
+		.no-js .acc-trigger:last-of-type { border-bottom: none; }
+
+	h4.active a{ background:url(images/shortcodes/minus.png) no-repeat 10px center; cursor: default; }
+
+.acc-container .content { padding: 25px }
 
 /* Tabs content */
 .tabs-nav {

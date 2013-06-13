@@ -5,7 +5,7 @@ require_once('../../../../../../wp-load.php');
 <!doctype html>
 <html lang="en">
 	<head>
-	<title>Insert Toggle</title>
+	<title>Insert Accordion</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<script language="javascript" type="text/javascript" src="<?php echo includes_url();?>/js/tinymce/tiny_mce_popup.js"></script>
 	<script language="javascript" type="text/javascript" src="<?php echo includes_url();?>/js/tinymce/utils/mctabs.js"></script>
@@ -19,22 +19,18 @@ require_once('../../../../../../wp-load.php');
 	function submitData() {				
 		var shortcode;
 		var selectedContent = tinyMCE.activeEditor.selection.getContent();				
-		var toggle_title = jQuery('#toggle_title').val();	
-		var toggle_content = jQuery('#toggle_content').val();	;	
-		if (jQuery('#toggle_active').is(':checked')) {
-			toggle_active = 'active';
-		}
-		//shortcode = ' [toggle type="'+toggle_type+'" title="'+toggle_title+'" active="'+toggle_active+'"]'+selectedContent+'[/toggle] ';			
+		var accordion_title = jQuery('#accordion_title').val();	
+		var accordion_content = jQuery('#accordion_content').val();	
 		
-		shortcode = '[toggle_content';
+		shortcode = '[accordion';
 
-		shortcode += ' title="' + toggle_title + '"';
+		shortcode += ' title="' + accordion_title + '"';
 		
-		if (toggle_content) {
-		shortcode += ']' + toggle_content + '[/toggle_content]';
+		if (accordion_content) {
+		shortcode += ']' + accordion_content + '[/accordion]';
 		}
 		else {
-		shortcode += ']' + selectedContent + '[/toggle_content]';
+		shortcode += ']' + selectedContent + '[/accordion]';
 		}
 			
 		if(window.tinyMCE) {
@@ -52,24 +48,24 @@ require_once('../../../../../../wp-load.php');
 	<base target="_self" />
 	</head>
 	<body  onload="init();">
-	<form name="toggle" action="#" >
+	<form name="accordion" action="#" >
 		<div class="tabs">
 			<ul>
-				<li id="toggle_tab" class="current"><span><a href="javascript:mcTabs.displayTab('toggle_tab','toggle_panel');" onMouseDown="return false;">Toggle</a></span></li>
+				<li id="accordion_tab" class="current"><span><a href="javascript:mcTabs.displayTab('accordion_tab','accordion_panel');" onMouseDown="return false;">accordion</a></span></li>
 			</ul>
 		</div>
 		<div class="panel_wrapper">
 			
 				<fieldset style="margin-bottom:10px;padding:10px">
 					
-<label for="toggle_title">Toggle title:</label><br><br>
-                    <input type="text" name="toggle_title" id="toggle_title"   style="width:250px" />	
+<label for="toggle_title">Accordion title:</label><br><br>
+                    <input type="text" name="accordion_title" id="accordion_title"   style="width:250px" />	
 					
 						<br>
 <br><br>
 
-<label for="toggle_content">Toggle content:</label><br><br>	
-                    <textarea name="toggle_content" id="toggle_content" cols="45" rows="5"></textarea>
+<label for="toggle_content">Accordion content:</label><br><br>
+                    <textarea name="accordion_content" id="accordion_content" cols="45" rows="5"></textarea>
 				</fieldset>
                 
               

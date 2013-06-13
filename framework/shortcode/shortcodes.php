@@ -24,7 +24,7 @@ function add_shortcodes_tinymce_plugin( $plugin_array ) {
 function register_shortcodes_button( $buttons ) {
 	
 	//array_push($buttons, "highlight", "notifications", "buttons", "divider", "toggle", "tabs", "contactForm", "price_table_group", 'social_link', 'social_button', 'teaser', 'testimonials','dropcaps','totop','toc');
-    array_push( $buttons, "highlight", "notifications", "buttons", "divider", "toggle", "tabs", "dropcaps" );
+    array_push( $buttons, "highlight", "notifications", "buttons", "divider", "toggle", "tabs", "accordian", "dropcaps" );
     return $buttons;
 }
 
@@ -189,6 +189,19 @@ function content_tab_sc( $atts, $content = null ) {
 
 }
 add_shortcode('tab', 'content_tab_sc');	
+
+// Accordian
+function accordion_content_sc( $atts, $content = null ) {
+
+		extract( shortcode_atts( array(
+			'title'      => '',
+			'accordian_content' => ''
+		), $atts ) );
+
+		return '<div class="accordion"><h4 class="acc-trigger"><a href="#">' . esc_attr( $title ) . '</a></h4><div class="acc-container"><div class="content">' . $accordian_content . do_shortcode( $content ) . '</div></div></div>';
+	
+	}
+	add_shortcode('accordion', 'accordion_content_sc');
 
 ///Dropcaps
 function dropcaps($atts, $content = null)
