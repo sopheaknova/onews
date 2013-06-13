@@ -37,7 +37,7 @@
 				ed.windowManager.open({
 					file : url +  '../../shortcodes/buttons.php'+sp_wpml_lang,
 					width : 350,
-					height : 460,
+					height : 560,
 					inline : 1
 				});
 			
@@ -73,6 +73,23 @@
             title : 'Insert Toggle',
                cmd : 'toggle',
                image:  url +  "../../img/ed_toggle.png"
+            });
+			
+			//Tabs
+			ed.addCommand('tabs', function() {
+				ed.windowManager.open({
+					file : url +  '../../shortcodes/tabs.php'+sp_wpml_lang,
+					width : 350,
+					height : 400,
+					inline : 1
+				});
+			
+			});
+			
+			ed.addButton('tabs', {
+            title : 'Insert Tabs',
+                   cmd : 'tabs',
+               image:  url +  "../../img/ed_tabs.png"
             });
 			
 			//Dropcaps

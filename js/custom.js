@@ -223,26 +223,11 @@ jQuery(document).ready(function($) {
 	/*	Toggle Content
 	/* ---------------------------------------------------------------------- */
 	
-	if ( $( 'div.toggle-wrapper' ).length ) {
-
-	(function() {
-		var toggleObject = $( 'div.toggle-wrapper' );
-
-		toggleObject.each( function( item ) {
-			$( this ).find( '> .toggle-heading' ).siblings().wrapAll( '<div class="toggle-content" />' );
-		} );
-
-	})();
-
-	$( 'div.toggle-wrapper div.toggle-wrapper' ).not( '.active' ).find( '> div.toggle-content' ).hide();
-	$( 'div.toggle-wrapper' ).find( '> div.toggle-content' ).slideUp();
-	$( 'div.toggle-wrapper.active' ).find( '> div.toggle-content' ).slideDown();
-
-	$( '.toggle-heading' ).click( function() {
-		$( this ).next( 'div.toggle-content' ).slideToggle().parent().toggleClass( 'active' );
-	} );
-
-	} // /if toggle
+	$(".toggle-container").hide(); 
+		$("h3.trigger").click(function(){
+			$(this).toggleClass("active").next().slideToggle("normal");
+			return false;
+		});
 	
 	/* ---------------------------------------------------------------------- */
 	/*	Accordion Content

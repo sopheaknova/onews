@@ -24,7 +24,7 @@ function add_shortcodes_tinymce_plugin( $plugin_array ) {
 function register_shortcodes_button( $buttons ) {
 	
 	//array_push($buttons, "highlight", "notifications", "buttons", "divider", "toggle", "tabs", "contactForm", "price_table_group", 'social_link', 'social_button', 'teaser', 'testimonials','dropcaps','totop','toc');
-    array_push( $buttons, "highlight", "notifications", "buttons", "divider", "toggle", "dropcaps" );
+    array_push( $buttons, "highlight", "notifications", "buttons", "divider", "toggle", "tabs", "dropcaps" );
     return $buttons;
 }
 
@@ -108,37 +108,87 @@ add_shortcode('notification', 'notification');
 
 add_shortcode('highlight', 'highlight');
 
-//Buttons
-function button($atts, $content = null)
+//Color Buttons
+function button_shortcode( $atts, $content = null )
 {
-	extract(shortcode_atts(array(
-				'type' => '',
-				'url' => '',
-				'target' => ''
-					), $atts));
-	if ($target != '') : $target = "target='_blank'";
-	endif;
-	$out = "<a class='sp_button " . $type . "' href='" . $url . "' " . $target . "  >" . do_shortcode($content) . "</a>";
-
-	return $out;
+	extract( shortcode_atts( array(
+      'color' => 'default',
+	  'url' => '',
+	  'text' => '',
+	  'target' => 'self'
+      ), $atts ) );
+	  if($url) {
+		return '<a href="' . $url . '" class="button ' . $color . '" target="_'.$target.'"><span>' . $text . $content . '</span></a>';
+	  } else {
+		return '<div class="button ' . $color . '"><span>' . $text . $content . '</span></div>';
+	}
 }
-
-add_shortcode('button', 'button');
+add_shortcode('button', 'button_shortcode');
 
 //Toggles
-function toggle_shortcode($atts, $content = null)
-{
-	extract(shortcode_atts(
-					array(
-				'title' => '',
-				'type' => '',
-				'active' =>''
-					), $atts));
-	return '<div class="toggle toggle-' . $type . '"><h4 class="trigger '.$active.'"><span class="t_ico"></span><a href="#">' . $title . '</a></h4><div class="toggle_container '.$active.'">' . do_shortcode($content) . '</div></div>';
-	
-}
+function toggle_shortcode( $atts, $content = null ) {
 
-add_shortcode('toggle', 'toggle_shortcode');
+		extract( shortcode_atts( array(
+			'title'      => '',
+			'toggle_content' => ''
+		), $atts ) );
+		
+		$output = '<div class="toggle-wrap">';
+		$output .= '<h3 class="trigger"><a href="#">'  . esc_attr( $title ) .  '</a></h3><div class="toggle-container">';
+		$output .= $toggle_content . $content;  
+		$output .= '</div></div>';
+
+		return $output;
+	
+	}
+	add_shortcode('toggle_content', 'toggle_shortcode');
+	
+// Tabs container
+function content_tabgroup_sc( $atts, $content = null ) {
+
+	if( !$GLOBALS['tabs_groups'] )
+		$GLOBALS['tabs_groups'] = 0;
+		
+	$GLOBALS['tabs_groups']++;
+
+	$GLOBALS['tab_count'] = 0;
+
+	$tabs_count = 1;
+
+	do_shortcode( $content );
+
+	if( is_array( $GLOBALS['tabs'] ) ) {
+
+		foreach( $GLOBALS['tabs'] as $tab ) {
+
+			$tabs[] = '<li><a href="#tab-' . $GLOBALS['tabs_groups'] . '-' . $tabs_count . '">' . $tab['title'] . '</a></li>';
+			$panes[] = '<div id="tab-' . $GLOBALS['tabs_groups'] . '-' . $tabs_count++ . '" class="tab-content">' . do_shortcode( $tab['content'] ) . '</div>';
+
+		}
+
+		$return = "\n". '<ul class="tabs-nav">' . implode( "\n", $tabs ) . '</ul>' . "\n" . '<div class="tabs-container">' . implode( "\n", $panes ) . '</div>' . "\n";
+	}
+
+	return $return;
+
+}
+add_shortcode('tabgroup', 'content_tabgroup_sc');
+
+// Single tab
+function content_tab_sc( $atts, $content = null ) {
+
+	extract( shortcode_atts( array(
+		'title' => ''
+	), $atts) );
+
+	$i = $GLOBALS['tab_count'];
+
+	$GLOBALS['tabs'][$i] = array( 'title' => sprintf( $title, $GLOBALS['tab_count'] ), 'content' => $content );
+
+	$GLOBALS['tab_count']++;
+
+}
+add_shortcode('tab', 'content_tab_sc');	
 
 ///Dropcaps
 function dropcaps($atts, $content = null)

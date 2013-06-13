@@ -5,7 +5,7 @@ require_once('../../../../../../wp-load.php');
 <!doctype html>
 <html lang="en">
 	<head>
-	<title>Insert Toggle</title>
+	<title>Insert Tabs</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<script language="javascript" type="text/javascript" src="<?php echo includes_url();?>/js/tinymce/tiny_mce_popup.js"></script>
 	<script language="javascript" type="text/javascript" src="<?php echo includes_url();?>/js/tinymce/utils/mctabs.js"></script>
@@ -18,24 +18,22 @@ require_once('../../../../../../wp-load.php');
 	}
 	function submitData() {				
 		var shortcode;
-		var selectedContent = tinyMCE.activeEditor.selection.getContent();				
-		var toggle_title = jQuery('#toggle_title').val();	
-		var toggle_content = jQuery('#toggle_content').val();	;	
-		if (jQuery('#toggle_active').is(':checked')) {
-			toggle_active = 'active';
-		}
-		//shortcode = ' [toggle type="'+toggle_type+'" title="'+toggle_title+'" active="'+toggle_active+'"]'+selectedContent+'[/toggle] ';			
+		var selectedContent = tinyMCE.activeEditor.selection.getContent();
+		var contentTabsTitle   = $('#tab_title').val(),
+			contentTabsContent = $('#tab_content').val(),
+			contentTabsSingle  = $('#tab_single').is(':checked');	
 		
-		shortcode = '[toggle_content';
+		shortcode = ( !contentTabsSingle ? '[tabgroup] ' : '' );
 
-		shortcode += ' title="' + toggle_title + '"';
+		shortcode += '[tab';
+
+		shortcode += ' title="' + contentTabsTitle + '"';
+
+		shortcode += ']' + contentTabsContent + '[/tab]';
+
+		if( !contentTabsSingle )
+			shortcode += ' [/tabgroup]';
 		
-		if (toggle_content) {
-		shortcode += ']' + toggle_content + '[/toggle_content]';
-		}
-		else {
-		shortcode += ']' + selectedContent + '[/toggle_content]';
-		}
 			
 		if(window.tinyMCE) {
 			window.tinyMCE.execInstanceCommand('content', 'mceInsertContent', false, shortcode);
@@ -52,30 +50,30 @@ require_once('../../../../../../wp-load.php');
 	<base target="_self" />
 	</head>
 	<body  onload="init();">
-	<form name="toggle" action="#" >
+	<form name="tabs" action="#" >
 		<div class="tabs">
 			<ul>
-				<li id="toggle_tab" class="current"><span><a href="javascript:mcTabs.displayTab('toggle_tab','toggle_panel');" onMouseDown="return false;">Toggle</a></span></li>
+				<li id="tabs_tab" class="current"><span><a href="javascript:mcTabs.displayTab('tabs_tab','tabs_panel');" onMouseDown="return false;">Tabs</a></span></li>
 			</ul>
 		</div>
 		<div class="panel_wrapper">
 			
 				<fieldset style="margin-bottom:10px;padding:10px">
-					
-<label for="toggle_title">Toggle title:</label><br><br>
-                    <input type="text" name="toggle_title" id="toggle_title"   style="width:250px" />	
-					
-						<br>
-<br><br>
+					<legend>Type of tabs:</legend>
+					<label for="tab_single">Single tab</label><br><span>(Remove wrapping shortcode)</span>
+					<input type="checkbox" name="tab_single" id="tab_single" />		
+                    
+                    <br><br><br>
 
-<label for="toggle_content">Toggle content:</label><br><br>
-                    <input type="text" name="toggle_content" id="toggle_content"   style="width:250px" />	
-				</fieldset>
-                
-              
-			
+					<label for="tab_title">Tab title:</label><br><br>
+                    <input type="text" name="tab_title" id="tab_title" style="width:250px" />	
+                    
+                	<br><br><br>
+
+					<label for="tab_content">Tab content:</label><br><br>
+                    <textarea name="tab_content" id="tab_content" cols="45" rows="5"></textarea>    
 				
-			
+				</fieldset>	
 		</div>
 		<div class="mceActionPanel">
 			<div style="float: right">
