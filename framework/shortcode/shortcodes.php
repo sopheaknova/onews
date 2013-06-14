@@ -234,7 +234,7 @@ function video_sc( $atts, $content = null ) {
     
 	extract( shortcode_atts( array(
 			'width' => '620',
-			'height' => '300'
+			'height' => '349'
 		), $atts ) );	
 		
 	$output = sp_add_video($content, $width, $height);

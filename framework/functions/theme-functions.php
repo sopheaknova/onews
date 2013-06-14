@@ -611,25 +611,25 @@ if ( ! function_exists( 'sp_string_length' ) ) {
 /*-----------------------------------------------------------------------------------*/
 /* Embeded add video from youtube, vimeo and dailymotion
 /*-----------------------------------------------------------------------------------*/
-function sp_add_video ($url, $width = 620, $height = 300) {
+function sp_add_video ($url, $width = 620, $height = 349) {
 	
 	$video_url = @parse_url($url);
 
 	if ( $video_url['host'] == 'www.youtube.com' || $video_url['host']  == 'youtube.com' ) {
-		parse_str( @parse_url( $content, PHP_URL_QUERY ), $my_array_of_vars );
+		parse_str( @parse_url( $url, PHP_URL_QUERY ), $my_array_of_vars );
 		$video =  $my_array_of_vars['v'] ;
 		$output .='<iframe width="'.$width.'" height="'.$height.'" src="http://www.youtube.com/embed/'.$video.'?rel=0" frameborder="0" allowfullscreen></iframe>';
 	}
 	elseif( $video_url['host'] == 'www.youtu.be' || $video_url['host']  == 'youtu.be' ){
-		$video = substr(@parse_url($content, PHP_URL_PATH), 1);
+		$video = substr(@parse_url($url, PHP_URL_PATH), 1);
 		$output .='<iframe width="'.$width.'" height="'.$height.'" src="http://www.youtube.com/embed/'.$video.'?rel=0" frameborder="0" allowfullscreen></iframe>';
 	}
 	elseif( $video_url['host'] == 'www.vimeo.com' || $video_url['host']  == 'vimeo.com' ){
-		$video = (int) substr(@parse_url($content, PHP_URL_PATH), 1);
+		$video = (int) substr(@parse_url($url, PHP_URL_PATH), 1);
 		$output .='<iframe src="http://player.vimeo.com/video/'.$video.'" width="'.$width.'" height="'.$height.'" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
 	}
 	elseif( $video_url['host'] == 'www.dailymotion.com' || $video_url['host']  == 'dailymotion.com' ){
-		$video = substr(@parse_url($content, PHP_URL_PATH), 7);
+		$video = substr(@parse_url($url, PHP_URL_PATH), 7);
 		$video_id = strtok($video, '_');
 		$output .='<iframe frameborder="0" width="'.$width.'" height="'.$height.'" src="http://www.dailymotion.com/embed/video/'.$video_id.'"></iframe>';
 	}
