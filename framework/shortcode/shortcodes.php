@@ -24,7 +24,7 @@ function add_shortcodes_tinymce_plugin( $plugin_array ) {
 function register_shortcodes_button( $buttons ) {
 	
 	//array_push($buttons, "highlight", "notifications", "buttons", "divider", "toggle", "tabs", "contactForm", "price_table_group", 'social_link', 'social_button', 'teaser', 'testimonials','dropcaps','totop','toc');
-    array_push( $buttons, "highlight", "notifications", "buttons", "divider", "toggle", "tabs", "accordian", "dropcaps" );
+    array_push( $buttons, "highlight", "notifications", "buttons", "divider", "toggle", "tabs", "accordian", "dropcaps", "video", "soundcloud" );
 	
 	array_push( $buttons, 'columns' );
     return $buttons;
@@ -100,9 +100,9 @@ function highlight($atts, $content = null)
 	extract(shortcode_atts(array(
 					), $atts));
 
-	$out = "<span class='hdark' >" . do_shortcode($content) . "</span>";
+	$output = "<span class='hdark' >" . do_shortcode($content) . "</span>";
 
-	return $out;
+	return $output;
 }
 
 ///Notifications
@@ -112,9 +112,9 @@ function notification($atts, $content = null)
 				'type' => '',
 					), $atts));
 
-	$out = "<div class='sp_notification " . $type . "' >" . do_shortcode($content) . "</div>";
+	$output = "<div class='sp_notification " . $type . "' >" . do_shortcode($content) . "</div>";
 
-	return $out;
+	return $output;
 }
 
 add_shortcode('notification', 'notification');
@@ -222,12 +222,40 @@ function dropcaps($atts, $content = null)
 	extract(shortcode_atts(array(
 					), $atts));
 
-	$out = "<span class='dropcaps' >" . do_shortcode($content) . "</span>";
+	$output = "<span class='dropcaps' >" . do_shortcode($content) . "</span>";
 
-	return $out;
+	return $output;
 }
 
 add_shortcode('dropcaps', 'dropcaps');
+
+//Video
+function video_sc( $atts, $content = null ) {
+    
+	extract( shortcode_atts( array(
+			'width' => '620',
+			'height' => '300'
+		), $atts ) );	
+		
+	$output = sp_add_video($content, $width, $height);
+	
+	return $output;
+}
+add_shortcode('spvideo', 'video_sc');
+
+//Soundcloud
+function soundcloud_sc( $atts, $content = null ) {
+	
+	extract( shortcode_atts( array(
+			'url' => '',
+			'autoplay' => false
+		), $atts ) );
+	
+	$output = sp_soundcloud($content , $autoplay );
+	
+	return $output;
+}
+add_shortcode('spsoundcloud', 'soundcloud_sc');
 
 
 /* ---------------------------------------------------------------------- */

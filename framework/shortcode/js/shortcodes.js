@@ -109,6 +109,40 @@
                image:  url +  "../../img/ed_accordian.png"
             });
 			
+			//Video
+			ed.addCommand('video', function() {
+				ed.windowManager.open({
+					file : url +  '../../shortcodes/video.php'+sp_wpml_lang,
+					width : 350,
+					height : 180,
+					inline : 1
+				});
+			
+			});
+						
+			ed.addButton('video', {
+            title : 'Insert Video',
+               cmd : 'video',
+               image:  url +  "../../img/ed_video.png"
+            });
+			
+			//Soundcloud
+			ed.addCommand('soundcloud', function() {
+				ed.windowManager.open({
+					file : url +  '../../shortcodes/soundcloud.php'+sp_wpml_lang,
+					width : 350,
+					height : 250,
+					inline : 1
+				});
+			
+			});
+						
+			ed.addButton('soundcloud', {
+            title : 'Insert Soundcloud',
+               cmd : 'soundcloud',
+               image:  url +  "../../img/ed_soundcloud.png"
+            });
+			
 			//Dropcaps
 			ed.addButton('dropcaps', {
             title : 'Dropcaps',
