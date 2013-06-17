@@ -379,6 +379,7 @@ class Options_Machine {
 					
 				break;
 				
+				// Sidebar
 				case 'sidebar':
 					$_id = strip_tags( strtolower($value['id']) );
 					$int = '';

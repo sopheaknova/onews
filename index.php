@@ -1,15 +1,19 @@
 <?php get_header(); ?>
 
-<section id="content" class="clearfix">
+<div id="content" class="clearfix">
 	<div class="container">
     
-    <section id="main">
-    <h2><?php _e('Main Content', 'sptheme'); ?></h2>
-    </section><!-- end #main -->
+    <div id="main">
+    <?php 
+	$home_cat_1 = $smof_data[ 'cat_box_style' ];
+	if ( $home_cat_1 )
+		sp_get_home_cats(); 
+	?>
+    </div><!-- end #main -->
     
 	<?php get_sidebar(); ?>
 	
     </div><!-- end .container -->
-</section><!-- end #content -->
+</div><!-- end #content -->
 
 <?php get_footer(); ?>

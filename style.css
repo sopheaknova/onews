@@ -728,6 +728,20 @@ blockquote {
 			float:right;
 			width:25%;	
 		}		
+
+/*===============================================================================================================
+	HOMEPAGE - CONTENTS BLOCK
+===============================================================================================================*/
+/* Categories Box Styles */
+.cat-box{margin-top:20px;margin-bottom:20px;}	
+	h2.cat-box-title {
+		font-size: 16px;
+		padding-left:1px;
+		padding-bottom:5px;
+		margin-bottom:20px;
+		border-bottom:4px solid #333333;
+		text-transform:uppercase;
+	}
 	
 /*===============================================================================================================
 	WIDGETS

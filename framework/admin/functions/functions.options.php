@@ -28,14 +28,14 @@ if (!function_exists('of_options'))
 		$of_options_homepage_blocks = array
 		( 
 			"disabled" => array (
-				"placebo" 		=> "placebo", //REQUIRED!
-				"block_one"		=> "Block One",
-				"block_two"		=> "Block Two",
-				"block_three"	=> "Block Three",
+				"placebo" 			=> "placebo", //REQUIRED!
 			), 
 			"enabled" => array (
-				"placebo" 		=> "placebo", //REQUIRED!
-				"block_four"	=> "Block Four",
+				"placebo" 			=> "placebo", //REQUIRED!
+				"home_slider" 		=> "Slider",
+				"home_cat_tabs"		=> "Block Category Tab",
+				"home_cat_box_1"	=> "Block Category Box 1",
+				"home_cat_scroll"	=> "Block Scrolling Box",
 			),
 		);
 
@@ -127,7 +127,7 @@ $of_options[] = array( 	"name" 		=> "Main Layout",
 							'3c-fixed.css' 		=> $url . '3cm.png',
 							'3c-r-fixed.css' 	=> $url . '3cr.png'
 						)
-				);*/
+				);*/	
 
 $of_options[] = array( 	"name" 		=> "Custom Logo",
 						"desc" 		=> "Upload a Png/Gif image that will represent your website's logo.",
@@ -163,6 +163,144 @@ $of_options[] = array( 	"name" 		=> "Footer Text",
 						"std" 		=> "© 2013 NOVA CAMBODIA",
 						"type" 		=> "textarea"
 				);
+
+//Home
+$of_options[] = array( 	"name" 		=> "Homepage",
+						"type" 		=> "heading"
+				);
+
+$of_options[] = array( "name" 		=> "Homepage Layout Manager",
+						"desc" 		=> "Organize how you want the layout to appear on the homepage",
+						"id" 		=> "homepage_blocks",
+						"std" 		=> $of_options_homepage_blocks,
+						"type" 		=> "sorter"
+				);
+				
+$of_options[] = array( "name" => 'Block Category Tab 1',
+					"desc" => "",
+					"id" => "introduction",
+					"std" => "<h3>Block Category Tab 1</h3>",
+					"icon" => true,
+					"type" => "info",
+					);	
+
+$of_options[] = array( "name" 		=> "Choose Category",
+						"desc"		=> "Select category you like to show in Tab 1.",
+						"id" 		=> "cat_box_tab_1",
+						"std" 		=> "",
+						"type" 		=> "select",
+						"options" 	=> $of_categories
+				);	
+
+$of_options[] = array( "name" 		=> "Number of post",
+						"desc"		=> "Enter number of posts will be display",
+						"id" 		=> "num_cat_box_tab_1",
+						"std" 		=> "4",
+						"type" 		=> "text"
+				);
+				
+$of_options[] = array( 	"name" 		=> "Box style",
+						"desc" 		=> "Choose style of posts will be preview",
+						"id" 		=> "style_cat_box_tab_1",
+						"std" 		=> "1col-list",
+						"type" 		=> "images",
+						"options" 	=> array(
+							'1col-list' 	=> SP_BASE_URL . 'framework/assets/img/cat-box-1.gif',
+							'2col-list' 	=> SP_BASE_URL . 'framework/assets/img/cat-box-2.gif'
+						)
+				);
+
+$of_options[] = array( "name" => 'Block Category Tab 2',
+					"desc" => "",
+					"id" => "introduction",
+					"std" => "<h3>Block Category Tab 2</h3>",
+					"icon" => true,
+					"type" => "info",
+					);	
+
+$of_options[] = array( "name" 		=> "Choose Category",
+						"desc"		=> "Select category you like to show in Tab 2.",
+						"id" 		=> "cat_box_tab_2",
+						"std" 		=> "",
+						"type" 		=> "select",
+						"options" 	=> $of_categories
+				);	
+
+$of_options[] = array( "name" 		=> "Number of post",
+						"desc"		=> "Enter number of posts will be display",
+						"id" 		=> "num_cat_box_tab_2",
+						"std" 		=> "4",
+						"type" 		=> "text"
+				);
+				
+$of_options[] = array( 	"name" 		=> "Box style",
+						"desc" 		=> "Choose style of posts will be preview",
+						"id" 		=> "style_cat_box_tab_2",
+						"std" 		=> "1col-list",
+						"type" 		=> "images",
+						"options" 	=> array(
+							'1col-list' 	=> SP_BASE_URL . 'framework/assets/img/cat-box-1.gif',
+							'2col-list' 	=> SP_BASE_URL . 'framework/assets/img/cat-box-2.gif'
+						)
+				);			
+
+
+$of_options[] = array( "name" => 'Block Category Box 1',
+					"desc" => "",
+					"id" => "introduction",
+					"std" => "<h3>Block Category Box 1</h3>",
+					"icon" => true,
+					"type" => "info",
+					);				
+					
+$of_options[] = array( "name" 		=> "Choose Category",
+						"desc"		=> "Select category you like to show in this block.",
+						"id" 		=> "cat_box_1",
+						"std" 		=> "",
+						"type" 		=> "select",
+						"options" 	=> $of_categories
+				);	
+
+$of_options[] = array( "name" 		=> "Number of post",
+						"desc"		=> "Enter number of posts will be display",
+						"id" 		=> "num_cat_box_1",
+						"std" 		=> "4",
+						"type" 		=> "text"
+				);
+				
+$of_options[] = array( 	"name" 		=> "Box style",
+						"desc" 		=> "Choose style of posts will be preview",
+						"id" 		=> "style_cat_box_1",
+						"std" 		=> "1col-list",
+						"type" 		=> "images",
+						"options" 	=> array(
+							'1col-list' 	=> SP_BASE_URL . 'framework/assets/img/cat-box-1.gif',
+							'2col-list' 	=> SP_BASE_URL . 'framework/assets/img/cat-box-2.gif'
+						)
+				);	
+				
+$of_options[] = array( "name" => 'Block Scrolling Box',
+					"desc" => "",
+					"id" => "introduction",
+					"std" => "<h3>Block Scrolling Box</h3>",
+					"icon" => true,
+					"type" => "info",
+					);	
+
+$of_options[] = array( "name" 		=> "Choose Category",
+						"desc"		=> "Select category you like to show in scrolling box.",
+						"id" 		=> "cat_scroll",
+						"std" 		=> "",
+						"type" 		=> "select",
+						"options" 	=> $of_categories
+				);	
+
+$of_options[] = array( "name" 		=> "Number of post",
+						"desc"		=> "Enter number of posts will be display",
+						"id" 		=> "num_cat_box_tab_2",
+						"std" 		=> "12",
+						"type" 		=> "text"
+				);																			
 				
 //Header
 $of_options[] = array( 	"name" 		=> "Header Settings",

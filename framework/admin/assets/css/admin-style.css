@@ -152,6 +152,7 @@ border-radius: 2px;
 #of_container #of-nav li.slideroptions a{ background-image:url(../images/icon-slider.png);}
 #of_container #of-nav li.featuredslideshow a{ background-image:url(../images/icon-slideshow.png);}
 #of_container #of-nav li.generalsettings a{ background-image:url(../images/icon-settings.png);}
+#of_container #of-nav li.homepage a{ background-image:url(../images/icon-home.png);}
 #of_container #of-nav li.headersettings a{ background-image:url(../images/icon-header.png);}
 #of_container #of-nav li.archivessettings a{ background-image:url(../images/icon-post.png);}
 #of_container #of-nav li.articlesettings a{ background-image:url(../images/icon-report.png);}
