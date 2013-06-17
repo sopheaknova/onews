@@ -74,14 +74,15 @@ function sp_theme_setup() {
 	) );
 
 	if ( function_exists( 'add_image_size' ) ){
-		add_image_size( 'sp-small', 70, 70, true );
-		add_image_size( 'sp-large', 300, 160, true );
-		add_image_size( 'slider', 620, 330, true );
+		add_image_size( 'sp-small', 110, 83, true );
+		add_image_size( 'sp-medium', 200, 150, true );
+		add_image_size( 'sp-large', 282, 213, true );
+		add_image_size( 'slider', 620, 468, true );
 	}
 
 	if ( function_exists( 'add_theme_support' ) ){
 		add_theme_support( 'post-thumbnails' ); // Add theme support for post thumbnails (featured images).
-		add_theme_support( 'post-formats', array( 'audio', 'video', 'link' ) ); // aside, gallery, image, link, quote, video, audio
+		add_theme_support( 'post-formats', array( 'audio', 'video', 'audio' ) ); // aside, gallery, image, link, quote, video, audio
 		add_theme_support( 'automatic-feed-links' ); // Add theme support for automatic feed links.
 	}
 	

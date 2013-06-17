@@ -203,7 +203,7 @@ if( !function_exists('sp_post_content')) {
 						if ( function_exists("has_post_thumbnail") && has_post_thumbnail() ) :	
 						$output .= '<div class="post-thumbnail">';
 						$output .= '<a href="'.get_permalink().'" title="' . __( 'Permalink to ', 'sptheme' ) . get_the_title() . '" rel="bookmark">';
-						$output .= '<img src="' . sp_post_image('sp-large') . '" /></a>';
+						$output .= '<img src="' . sp_post_image('sp-medium') . '" width="200" height="150" /></a>';
 						//$output .= sp_get_score( true ); // show rate ui
 						$output .= '</div>';
 					endif;
@@ -415,6 +415,9 @@ if( !function_exists('sp_post_image')) {
 						  $image = 'http://www.dailymotion.com/thumbnail/video/'.$vId;
 						}
 				}
+		if($post_type == 'audio') {
+			$image = SP_BASE_URL . 'images/placeholder/sound-post-thumb.gif'; // use placeholder image or sound icon
+		}		
 						
 		if ($image) return $image;
 		//If there is still no image, get the first image from the post
@@ -658,7 +661,7 @@ function sp_last_posts($numberOfPosts = 5 , $thumb = true){
 	<?php if ( $thumb && sp_post_image('sp-small') ) : ?>
 	<div class="post-thumbnail">
         <a href="<?php the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'sptheme' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
-        <img src="<?php echo sp_post_image('sp-small') ?>" width="60" height="60" />
+        <img src="<?php echo sp_post_image('sp-small') ?>" width="110" height="83" />
         </a>
     </div><!-- post-thumbnail /-->
     <?php endif; ?>
@@ -684,7 +687,7 @@ function sp_random_posts($numberOfPosts = 5 , $thumb = true){
 	<?php if ( $thumb && sp_post_image('sp-small') ) : ?>			
 		<div class="post-thumbnail">
 			<a href="<?php the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'sptheme' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
-			<img src="<?php echo sp_post_image('sp-small') ?>" width="60" height="60" />
+			<img src="<?php echo sp_post_image('sp-small') ?>" width="110" height="83" />
             </a>
 		</div><!-- post-thumbnail /-->
 	<?php endif; ?>
@@ -713,7 +716,7 @@ function sp_popular_posts($pop_posts = 5 , $thumb = true){
             <?php if ( $thumb && sp_post_image('sp-small') ) : ?>	
 	            <div class="post-thumbnail">
 					<a href="<?php echo get_permalink( $post->ID ) ?>" title="<?php printf( __( 'Permalink to %s', 'sptheme' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
-					<img src="<?php echo sp_post_image('sp-small') ?>" width="60" height="60" />
+					<img src="<?php echo sp_post_image('sp-small') ?>" width="110" height="83" />
                     </a>
 				</div><!-- post-thumbnail /-->
             <?php endif; ?>    
@@ -759,7 +762,7 @@ function sp_last_posts_cat($numberOfPosts = 5 , $thumb = true , $cats = 1){
 	<?php if ( $thumb && sp_post_image('sp-small') ) : ?>			
 		<div class="post-thumbnail">
 			<a href="<?php the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'sptheme' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
-			<img src="<?php echo sp_post_image('sp-small') ?>" width="60" height="60" />
+			<img src="<?php echo sp_post_image('sp-small') ?>" width="110" height="83" />
             </a>
 		</div><!-- post-thumbnail /-->
 	<?php endif; ?>

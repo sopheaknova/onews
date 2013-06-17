@@ -297,7 +297,7 @@ $of_options[] = array( "name" 		=> "Choose Category",
 
 $of_options[] = array( "name" 		=> "Number of post",
 						"desc"		=> "Enter number of posts will be display",
-						"id" 		=> "num_cat_box_tab_2",
+						"id" 		=> "num_cat_scroll",
 						"std" 		=> "12",
 						"type" 		=> "text"
 				);																			

@@ -34,7 +34,7 @@ if( $smof_data[ 'related_post' ] ):
 					
 				<div class="post-thumbnail">
 					<a href="<?php the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'sptheme' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
-						<img src="<?php echo sp_post_image('sp-large') ?>" width="300" height="160" />
+						<img src="<?php echo sp_post_image('sp-medium') ?>" width="200" height="150" />
 						<?php //sp_get_score(  ); ?>
 					</a>
 				</div><!-- post-thumbnail /-->

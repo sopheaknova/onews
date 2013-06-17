@@ -12,7 +12,7 @@
     
     </div><!-- end .entry-meta -->
 
-    <?php if( sp_get_custom_field( 'sp_video_id', $post->ID ) ) { ?>
+    <?php if( sp_get_custom_field( 'sp_video_id', $post->ID && is_single() ) ) { ?>
     <div class="entry-video">
     <iframe width="600" height="338" src="http://www.youtube.com/embed/<?php echo sp_get_custom_field( 'sp_video_id', $post->ID ); ?>?rel=0" frameborder="0" allowfullscreen></iframe>		
 	</div><!-- end .entry-video -->

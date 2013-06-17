@@ -4,11 +4,22 @@
 	<div class="container">
     
     <div id="main">
-    <?php 
-	$home_cat_1 = $smof_data[ 'cat_box_style' ];
-	if ( $home_cat_1 )
-		sp_get_home_cats(); 
+    <?php
+	//get homepage module blocks
+	$layout = $smof_data['homepage_blocks']['enabled'];
+	if ($layout):
+		foreach ($layout as $key=>$value) {
+		
+			switch($key) {
+		
+			case 'home_cat_scroll':
+			require_once( SP_BASE_DIR . 'includes/custom/home-cat-scroll.php');
+			
+			}
+		}
+	endif;	
 	?>
+    
     </div><!-- end #main -->
     
 	<?php get_sidebar(); ?>
