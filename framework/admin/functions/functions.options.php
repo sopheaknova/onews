@@ -369,12 +369,16 @@ $of_options[] = array( "name" => 'Number Of Posts To Show',
 					"type" => "text",
 					);		
 
-$of_options[] = array( "name" => 'Breaking News Categories',
-					"id" => "breaking_cat",
-					"std" => "",
+/*$of_options[] = array( "name" => 'Breaking News Mode',
+					"description" => "Select mode/style for breaking news",
+					"id" => "breaking_mode",
+					"std" => "scroll",
 					"type" => "select",
-					"options" => $of_categories,
-					);																																	
+					"options" => array(
+							"scroll" => "Scroll",
+							"writer" => "Writer"	
+						),
+					);*/																																	
 				
 				
 //Feature Slide

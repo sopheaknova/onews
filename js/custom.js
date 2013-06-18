@@ -2,29 +2,6 @@
 /* ---------------------------------------------------------------------- */
 /*	DEFAULT ACTIONS
 /* ---------------------------------------------------------------------- */
-	browserWidth = document.body.clientWidth; // get body content width
-	
-	//jQuery( '.no-js' ).removeClass( 'no-js' );
-
-	//IE8 fixes
-		jQuery( '.lie8 img[height]' ).removeAttr( 'height' );
-		//jQuery( 'html.lie8 .price-spec li:nth-child(even)' ).addClass( 'even' );
-
-	//logo
-		function isHighDPI() {
-			var mediaQuery = '(-webkit-min-device-pixel-ratio: 1.5),(min--moz-device-pixel-ratio: 1.5),(-o-min-device-pixel-ratio: 3/2),(min-device-pixel-ratio: 1.5),(min-resolution: 1.5dppx)';
-			return ( window.devicePixelRatio > 1 || ( window.matchMedia && window.matchMedia(mediaQuery).matches ) );
-		} // /isHighDPI
-
-		if ( isHighDPI() && jQuery( '.logo img' ).data( 'highdpi' ) )
-			jQuery( '.logo img' ).attr( 'src', jQuery( '.logo img' ).data( 'highdpi' ) );
-
-	//posts/projects/staff image overlay
-		jQuery( '.image-container a' ).hover( function() {
-				jQuery( this ).find( '.overlay' ).stop().animate( { top : 0 }, 250 );
-			}, function() {
-				jQuery( this ).find( '.overlay' ).stop().animate( { top : '150%' }, 250 );
-			} );
 			
 	//Set content page to fit with browser height
 	wrapHeight = jQuery('.wrapper').height();

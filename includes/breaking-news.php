@@ -1,12 +1,12 @@
 <?php
 	global $smof_data;
-	$cat = $smof_data['breaking_cat'];
+	$news_mod = $smof_data['breaking_mode'];
 	$title = $smof_data['breaking_title'];
 	$number = $smof_data['breaking_number'];
 	
 	if( !$number || $number == ' ' || !is_numeric($number) )	$number = 5;
 ?>
-	
+
 	<div class="breaking-news">
 		<span><?php if( $title ) echo $title; else _e("Breaking news: " , 'sptheme') ; ?></span>
 		<?php
@@ -16,7 +16,9 @@
 		
 		<?php
 		$category_id = get_cat_ID($cat);
-		$args=array('category__in' => $category_id,'posts_per_page'=> $number);
+		
+		//$args=array('post_type' => 'breaking_news','posts_per_page'=> $number);
+		$args=array('posts_per_page'=> $number);
 		
 		$breaking_query = new wp_query( $args  );
 		
@@ -27,12 +29,16 @@
 		<?php endwhile; ?>
 		</ul>
 		<?php endif; ?>
-		
+		<div class="bg-ticker"></div>
 		
 		<?php $post = $orig_post; ?>
 		<script type="text/javascript">
-			jQuery(document).ready(function(){
+		
+			jQuery(document).ready(function($){
 				createTicker(); 
 			});
+		
 		</script>
 	</div> <!-- .breaking-news -->
+    
+    

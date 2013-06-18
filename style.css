@@ -656,9 +656,8 @@ blockquote {
 	
 	/*	Breaking News
 	----------------------------------------------------------------------------------------------------*/
-	#ticker-news{background:#ff3300;}
+	#ticker-news, .breaking-news span{background:#ff3300;}
 	.breaking-news{
-		float:left;
 		height:30px;
 		position:relative;
 		overflow:hidden;
@@ -675,9 +674,10 @@ blockquote {
 			text-transform: uppercase;
 			font-size:10pt;
 		}
-		.breaking-news ul{float:left; margin-bottom:0; background:#ffffff; margin-top:4px;}
+		.breaking-news ul{float:left; margin-bottom:0; margin-top:5px;}
 		.breaking-news ul li{display:block;}
 		.breaking-news ul a{padding:2px 10px;display:block;white-space:nowrap; font-size:11px;}
+		.breaking-news .bg-ticker {background:#ffffff; width:99.7%; height:24px; z-index:0; margin-top:3px;}
 	
 	/*	Main
 	----------------------------------------------------------------------------------------------------*/
@@ -1476,7 +1476,7 @@ blockquote {
 		padding-left:20px;
 		padding-bottom:5px;
 		margin-bottom:15px;
-		border-bottom:4px solid #333333;
+		border-bottom:4px solid #3C51A2;
 		text-transform:uppercase;
 		background: url(images/icon-widget-title.png) 0 3px no-repeat;
 	}
@@ -1511,7 +1511,8 @@ blockquote {
 .list-box{float:left; margin-right:24px; width:298px;}
 	.list-box li{
 		overflow:hidden;
-		padding: 5px 0;
+		padding: 5px 0 5px 20px;
+		background: url(images/core/narrow-dot-black.gif) no-repeat 0 10px;
 	}
 		.list-box li.first-news p.post-meta{margin:10px 0; }
 		.list-box li.first-news .post-thumbnail{margin-bottom:10px;}
