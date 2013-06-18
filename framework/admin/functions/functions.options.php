@@ -200,17 +200,6 @@ $of_options[] = array( "name" 		=> "Number of post",
 						"std" 		=> "4",
 						"type" 		=> "text"
 				);
-				
-$of_options[] = array( 	"name" 		=> "Box style",
-						"desc" 		=> "Choose style of posts will be preview",
-						"id" 		=> "style_cat_box_tab_1",
-						"std" 		=> "1col",
-						"type" 		=> "images",
-						"options" 	=> array(
-							'1col' 	=> SP_BASE_URL . 'framework/assets/img/cat-box-1.gif',
-							'2col' 	=> SP_BASE_URL . 'framework/assets/img/cat-box-2.gif'
-						)
-				);
 
 $of_options[] = array( "name" => 'Block Category Tab 2',
 					"desc" => "",
@@ -235,18 +224,6 @@ $of_options[] = array( "name" 		=> "Number of post",
 						"type" 		=> "text"
 				);
 				
-$of_options[] = array( 	"name" 		=> "Box style",
-						"desc" 		=> "Choose style of posts will be preview",
-						"id" 		=> "style_cat_box_tab_2",
-						"std" 		=> "1col",
-						"type" 		=> "images",
-						"options" 	=> array(
-							'1col' 	=> SP_BASE_URL . 'framework/assets/img/cat-box-1.gif',
-							'2col' 	=> SP_BASE_URL . 'framework/assets/img/cat-box-2.gif'
-						)
-				);			
-
-
 $of_options[] = array( "name" => 'Block Category Box 1',
 					"desc" => "",
 					"id" => "introduction",
@@ -255,7 +232,7 @@ $of_options[] = array( "name" => 'Block Category Box 1',
 					"type" => "info",
 					);				
 					
-$of_options[] = array( "name" 		=> "Choose Category",
+$of_options[] = array( "name" 		=> "Category box 1",
 						"desc"		=> "Select category you like to show in this block.",
 						"id" 		=> "cat_box_1",
 						"std" 		=> "",
@@ -266,20 +243,32 @@ $of_options[] = array( "name" 		=> "Choose Category",
 $of_options[] = array( "name" 		=> "Number of post",
 						"desc"		=> "Enter number of posts will be display",
 						"id" 		=> "num_cat_box_1",
-						"std" 		=> "4",
+						"std" 		=> "5",
 						"type" 		=> "text"
 				);
+
+$of_options[] = array( "name" => 'Block Category Box 2',
+					"desc" => "",
+					"id" => "introduction",
+					"std" => "<h3>Block Category Box2</h3>",
+					"icon" => true,
+					"type" => "info",
+					);					
 				
-$of_options[] = array( 	"name" 		=> "Box style",
-						"desc" 		=> "Choose style of posts will be preview",
-						"id" 		=> "style_cat_box_1",
-						"std" 		=> "1col",
-						"type" 		=> "images",
-						"options" 	=> array(
-							'1col' 	=> SP_BASE_URL . 'framework/assets/img/cat-box-1.gif',
-							'2col' 	=> SP_BASE_URL . 'framework/assets/img/cat-box-2.gif'
-						)
+$of_options[] = array( "name" 		=> "Category box 2",
+						"desc"		=> "Select category you like to show in this block.",
+						"id" 		=> "cat_box_2",
+						"std" 		=> "",
+						"type" 		=> "select",
+						"options" 	=> $of_categories
 				);	
+
+$of_options[] = array( "name" 		=> "Number of post",
+						"desc"		=> "Enter number of posts will be display",
+						"id" 		=> "num_cat_box_2",
+						"std" 		=> "5",
+						"type" 		=> "text"
+				);					
 				
 $of_options[] = array( "name" => 'Block Scrolling Box',
 					"desc" => "",

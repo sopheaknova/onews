@@ -1480,14 +1480,17 @@ blockquote {
 		text-transform:uppercase;
 		background: url(images/icon-widget-title.png) 0 3px no-repeat;
 	}
+	h2.post-box-title{
+		font-size:18px;	
+	}
 	h3.post-box-title{
 		font-size:13px;	
 		margin-bottom:3px;
 	}
+	.cat-box ul {margin-left:0!important;}
 	
-/* Two columns */
+/* Two columns or Tabs boxes */
 .cat-box .cat-box-tab{margin-right:20px;}
-	.cat-box-tab ul{margin-left:0!important;}
 	li.other-news{
 		overflow:auto;
 		padding: 5px 0;
@@ -1497,50 +1500,22 @@ blockquote {
 		-o-transition: all .40s;
 		transition: all .40s;
 	}
-		.cat-box-tab li h2 {font-size:18px;}
-		.cat-box-tab li h3 {font-size:13px; margin-bottom:0}
 		li.first-news p {padding:0;}
 		.cat-box-tab li.first-news{border-right:1px solid #eaeaea; padding-right:15px; float:left; width:298px; margin-right:15px;}
 		.cat-box-tab li.first-news .post-thumbnail{margin-bottom:10px;}
+		.cat-box-tab li:last-child {margin-top:10px;}
 
-/* wide-box */
-.wide-box li{
-	overflow:hidden;
-	padding: 5px 0;
-	border-bottom:1px solid #eaeaea;
-	-webkit-transition: all .40s;
-	-moz-transition: all .40s;
-	-o-transition: all .40s;
-	transition: all .40s;
-	width:292px;
-	float:left;
-	margin-right:24px;
-}
-	.wide-box ul{overflow:hidden;}
-		.wide-box li.first-news p.post-meta{margin:10px 0; }
-		.wide-box li.first-news{
-			border-bottom:1px solid #eaeaea;
-			padding:0 0 10px;
-			width:100%;
-			float:none;
-			height:auto;
-			margin:0;
-		}
-		.wide-box li.first-news .post-thumbnail{ margin-right:24px;}
 
-	.wide-cat-box li{width: 282px;float:left;margin-right:10.5px;}
 
 /* list-box */
-.list-box, .wide-box{clear:both;}
+.list-box{float:left; margin-right:24px; width:298px;}
 	.list-box li{
 		overflow:hidden;
 		padding: 5px 0;
-		width:300px;
-		float:right;
-		clear:right;
 	}
 		.list-box li.first-news p.post-meta{margin:10px 0; }
-		.list-box li.first-news{padding:0;width:300px;float:left;}
+		.list-box li.first-news .post-thumbnail{margin-bottom:10px;}
+		.list-box li.first-news{padding:0;width:298px; border-bottom:1px solid #eaeaea; margin-bottom:15px;}
 
 /* Cat-box-tab */
 .cats-tabs-nav {

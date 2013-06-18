@@ -7,10 +7,7 @@
 	$category_link_tab2 = get_category_link( $category_id_tab2 ); 
 	$num_posts_tab1 = $smof_data['num_cat_box_tab_1'];
 	$num_posts_tab2 = $smof_data['num_cat_box_tab_2'];
-	$layout_tab1 = $smof_data['style_cat_box_tab_1'];
-	$layout_tab2 = $smof_data['style_cat_box_tab_2'];
 	
-	$cat_query = new WP_Query('cat='.$category_id.'&posts_per_page='.$num_posts); 
 ?>
 
 <section class="cat-box">
@@ -19,7 +16,7 @@
         <li><a href="#sp-cat-<?php echo $category_id_tab2; ?>"><?php echo $category_name_tab2; ?></a></li>
     </ul><!-- end .cats-tabs-nav -->
     <div class="cats-tab-container">
-        <div id="sp-cat-<?php echo $category_id_tab1; ?>" class="cat-tab-content cat-box-tab sp-cat-<?php echo $category_id_tab1; ?> clearfix">
+        <div id="sp-cat-<?php echo $category_id_tab1; ?>" class="cat-tab-content cat-box-tab clearfix">
         
                 <?php
 				$count = 0;
@@ -35,7 +32,7 @@
 					<li class="first-news">
                 	<?php if ( sp_post_image('sp-large') ) : ?>			
                     <div class="post-thumbnail">
-                        <a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'tie' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+                        <a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'sptheme' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
                             <img src="<?php echo sp_post_image('sp-large') ?>" width="298" height="145" />
                             <?php //sp_get_score( true ); ?>
                         </a>
@@ -46,7 +43,7 @@
                     <div class="entry-meta">
                         <span><?php _e( 'Posted on: &mdash; ', 'sptheme' ); ?><?php echo sp_posted_on(); ?></span>
                     </div><!-- end .entry-meta -->
-                    <h2><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__('Permalink to %s', 'sptheme'), the_title_attribute('echo=0') ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+                    <h2 class="post-box-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__('Permalink to %s', 'sptheme'), the_title_attribute('echo=0') ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
                     <p>
                     <?php echo sp_excerpt_length(52); ?>
                     <a class="learn-more" href="<?php the_permalink(); ?>"><?php _e( 'Learn more »', 'sptheme' ); ?></a>
@@ -56,13 +53,13 @@
                     <li class="other-news">
                     	<?php if ( sp_post_image('sp-small') ) : ?>			
                             <div class="post-thumbnail">
-                                <a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'tie' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+                                <a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'sptheme' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
                                     <img src="<?php echo sp_post_image('sp-small') ?>" width="110" height="83" />
                                     <?php //sp_get_score( true ); ?>
                                 </a>
                             </div><!-- post-thumbnail /-->
                         <?php endif; ?>    
-                        <h3><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h3>
+                        <h3 class="post-box-title"><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h3>
                         <?php //sp_get_score(); ?> <div class="entry-meta"><?php echo sp_posted_on(); ?></div>
                     </li>
                 
@@ -78,7 +75,7 @@
             
         </div><!-- end .sp-cat-<?php echo $category_id_tab1; ?>-->
             
-        <div id="sp-cat-<?php echo $category_id_tab2; ?>" class="cat-tab-content cat-box-tab sp-cat-<?php echo $category_id_tab2; ?> clearfix">
+        <div id="sp-cat-<?php echo $category_id_tab2; ?>" class="cat-tab-content cat-box-tab clearfix">
         
                 <?php
 				$count = 0;
@@ -94,7 +91,7 @@
 					<li class="first-news">
                 	<?php if ( sp_post_image('sp-large') ) : ?>			
                     <div class="post-thumbnail">
-                        <a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'tie' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+                        <a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'sptheme' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
                             <img src="<?php echo sp_post_image('sp-large') ?>" width="298" height="145" />
                             <?php //sp_get_score( true ); ?>
                         </a>
@@ -105,7 +102,7 @@
                     <div class="entry-meta">
                         <span><?php _e( 'Posted on: &mdash; ', 'sptheme' ); ?><?php echo sp_posted_on(); ?></span>
                     </div><!-- end .entry-meta -->
-                    <h2><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__('Permalink to %s', 'sptheme'), the_title_attribute('echo=0') ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
+                    <h2 class="post-box-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__('Permalink to %s', 'sptheme'), the_title_attribute('echo=0') ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
                     <p>
                     <?php echo sp_excerpt_length(52); ?>
                     <a class="learn-more" href="<?php the_permalink(); ?>"><?php _e( 'Learn more »', 'sptheme' ); ?></a>
@@ -115,13 +112,13 @@
                     <li class="other-news">
                     	<?php if ( sp_post_image('sp-small') ) : ?>			
                             <div class="post-thumbnail">
-                                <a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'tie' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+                                <a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'sptheme' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
                                     <img src="<?php echo sp_post_image('sp-small') ?>" width="110" height="83" />
                                     <?php //sp_get_score( true ); ?>
                                 </a>
                             </div><!-- post-thumbnail /-->
                         <?php endif; ?>    
-                        <h3><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h3>
+                        <h3 class="post-box-title"><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h3>
                         <?php //sp_get_score(); ?> <div class="entry-meta"><?php echo sp_posted_on(); ?></div>
                     </li>
                 
