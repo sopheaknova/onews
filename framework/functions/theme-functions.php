@@ -752,7 +752,7 @@ foreach ($comments as $comment) { ?>
 /*-----------------------------------------------------------------------------------*/
 /* Get Most Racent posts from Category
 /*-----------------------------------------------------------------------------------*/
-function sp_last_posts_cat($numberOfPosts = 5 , $thumb = true , $cats = 1, $offset = true){
+function sp_last_posts_cat($numberOfPosts = 5 , $thumb = true , $cats = 1){
 	global $post;
 	$orig_post = $post;
 	

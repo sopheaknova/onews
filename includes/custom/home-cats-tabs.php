@@ -15,21 +15,22 @@
 
 <section class="cat-box">
     <ul class="cats-tabs-nav">
-        <li><h3><a href="#<?php echo $category_id_tab1; ?>"><?php echo $category_name_tab1; ?></a></h3></li>
-        <li><h3><a href="#<?php echo $category_id_tab2; ?>"><?php echo $category_name_tab2; ?></a></h3></li>
+        <li><a href="#sp-cat-<?php echo $category_id_tab1; ?>"><?php echo $category_name_tab1; ?></a></li>
+        <li><a href="#sp-cat-<?php echo $category_id_tab2; ?>"><?php echo $category_name_tab2; ?></a></li>
     </ul><!-- end .cats-tabs-nav -->
     <div class="cats-tab-container">
         <div id="sp-cat-<?php echo $category_id_tab1; ?>" class="cat-tab-content cat-box-tab sp-cat-<?php echo $category_id_tab1; ?> clearfix">
-            <?php if( $layout_tab1 == '2c'):  //************** 2C ****************************************************** ?>
+        
                 <?php
-                $args = array (
+				$count = 0;
+				$args = array (
                             'cat' 				=> $category_id_tab1,
-                            'posts_per_page'	=> 1
+                            'posts_per_page'	=> $num_posts_tab1
                         );
                 $media_query = new WP_Query($args);
                 if ($media_query->have_posts()) : ?>
                 <ul>
-                <?php while ( $media_query->have_posts() ) : $media_query->the_post();?>
+                <?php while ( $media_query->have_posts() ) : $media_query->the_post(); $count ++; ?>
                 <?php if($count == 1) : ?>
 					<li class="first-news">
                 	<?php if ( sp_post_image('sp-large') ) : ?>			
@@ -51,33 +52,44 @@
                     <a class="learn-more" href="<?php the_permalink(); ?>"><?php _e( 'Learn more »', 'sptheme' ); ?></a>
                     </p>
                     </li><!-- end .first-news -->
-                <?php else : ?>
-                 
-				<?php sp_last_posts_cat($num_posts_tab1 , true , $category_id_tab1, 0); ?>
+                <?php else: ?>
+                    <li class="other-news">
+                    	<?php if ( sp_post_image('sp-small') ) : ?>			
+                            <div class="post-thumbnail">
+                                <a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'tie' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+                                    <img src="<?php echo sp_post_image('sp-small') ?>" width="110" height="83" />
+                                    <?php //sp_get_score( true ); ?>
+                                </a>
+                            </div><!-- post-thumbnail /-->
+                        <?php endif; ?>    
+                        <h3><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h3>
+                        <?php //sp_get_score(); ?> <div class="entry-meta"><?php echo sp_posted_on(); ?></div>
+                    </li>
                 
 				<?php endif; ?>    
                 <?php
                 endwhile;
 				?>
+                	<li><a href="<?php echo esc_url( $category_link_tab1 ); ?>" class="learn-more"><?php _e('See more ', 'sptheme')?> <?php echo $category_name_tab1; ?> »</a></li>
                 	</ul>
 				<?php
                 endif;
                 ?>
-            <?php endif; //end layout_tab1 ?>  
             
         </div><!-- end .sp-cat-<?php echo $category_id_tab1; ?>-->
             
         <div id="sp-cat-<?php echo $category_id_tab2; ?>" class="cat-tab-content cat-box-tab sp-cat-<?php echo $category_id_tab2; ?> clearfix">
-            <?php if( $layout_tab2 == '2c'):  //************** 2C ****************************************************** ?>
+        
                 <?php
-                $args = array (
+				$count = 0;
+				$args = array (
                             'cat' 				=> $category_id_tab2,
-                            'posts_per_page'	=> 1
+                            'posts_per_page'	=> $num_posts_tab2
                         );
                 $media_query = new WP_Query($args);
                 if ($media_query->have_posts()) : ?>
                 <ul>
-                <?php while ( $media_query->have_posts() ) : $media_query->the_post(); ?>
+                <?php while ( $media_query->have_posts() ) : $media_query->the_post(); $count ++; ?>
                 <?php if($count == 1) : ?>
 					<li class="first-news">
                 	<?php if ( sp_post_image('sp-large') ) : ?>			
@@ -99,28 +111,37 @@
                     <a class="learn-more" href="<?php the_permalink(); ?>"><?php _e( 'Learn more »', 'sptheme' ); ?></a>
                     </p>
                     </li><!-- end .first-news -->
-                <?php else : ?>
-                 
-				<?php sp_last_posts_cat($num_posts_tab2 , true , $category_id_tab2, 0); ?>
+                <?php else: ?>
+                    <li class="other-news">
+                    	<?php if ( sp_post_image('sp-small') ) : ?>			
+                            <div class="post-thumbnail">
+                                <a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'tie' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
+                                    <img src="<?php echo sp_post_image('sp-small') ?>" width="110" height="83" />
+                                    <?php //sp_get_score( true ); ?>
+                                </a>
+                            </div><!-- post-thumbnail /-->
+                        <?php endif; ?>    
+                        <h3><a href="<?php the_permalink(); ?>"><?php the_title();?></a></h3>
+                        <?php //sp_get_score(); ?> <div class="entry-meta"><?php echo sp_posted_on(); ?></div>
+                    </li>
                 
 				<?php endif; ?>    
                 <?php
                 endwhile;
 				?>
+                	<li><a href="<?php echo esc_url( $category_link_tab2 ); ?>" class="learn-more"><?php _e('See more ', 'sptheme')?> <?php echo $category_name_tab2; ?> »</a></li>
                 	</ul>
 				<?php
                 endif;
                 ?>
-            <?php endif; //end layout_tab1 ?>  
             
         </div><!-- end .sp-cat-<?php echo $category_id_tab2; ?>-->
     </div><!-- end .cats-tab-container -->
     <script type="text/javascript">
     jQuery(document).ready(function($) {
         var $tabsNavCat    = $('.cats-tabs-nav'),
-        $tabsNavCatLis = $tabsNavCat.children('li'),
-        $tabContent = $('.cat-tab-content');
-    
+        $tabsNavCatLis = $tabsNavCat.children('li');
+        
         $tabsNavCat.each(function() {
             var $this = $(this);
         
@@ -137,9 +158,9 @@
             $this.siblings().removeClass('active').end()
                  .addClass('active');
             
-            $this.parent().next().children('.cat-tab-content').hide()
-                                                          .siblings( $this.find('a').attr('href') ).fadeIn()
-                                                          .css('background-color','#ffffff');
+			$this.parent().next().children('.cat-tab-content').hide()
+													  .siblings( $this.find('a').attr('href') ).fadeIn()
+													  .css('background-color','#ffffff');
         
             e.preventDefault();
         });

@@ -29,7 +29,7 @@ class sp_widget_categort extends WP_Widget {
 			echo $title ; ?>
 		<?php echo $after_title; ?>
 				<ul>
-					<?php sp_last_posts_cat($no_of_posts , $thumb , $cats_id, 0); ?>	
+					<?php sp_last_posts_cat($no_of_posts , $thumb , $cats_id); ?>	
 				</ul>
 		<div class="clear"></div>
 	<?php 
