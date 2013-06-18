@@ -321,9 +321,10 @@ if( !function_exists('sp_posted_on')) {
 	}
 	//echo '<span class="post-date">'.$since.'</span>';
 	
-	return sprintf( __( '<time datetime="%1$s" pubdate>%2$s</time>', 'sptheme' ),
+	return sprintf( __( '<time datetime="%1$s" pubdate>%2$s - %3$s</time>', 'sptheme' ),
 			esc_attr( get_the_date('c') ),
-			esc_html( $since )
+			esc_html( $since ),
+			esc_attr( get_the_time('g:i a') )
 		);
 	
 	}
@@ -751,11 +752,14 @@ foreach ($comments as $comment) { ?>
 /*-----------------------------------------------------------------------------------*/
 /* Get Most Racent posts from Category
 /*-----------------------------------------------------------------------------------*/
-function sp_last_posts_cat($numberOfPosts = 5 , $thumb = true , $cats = 1){
+function sp_last_posts_cat($numberOfPosts = 5 , $thumb = true , $cats = 1, $offset = true){
 	global $post;
 	$orig_post = $post;
 	
-	$lastPosts = get_posts('category='.$cats.'&numberposts='.$numberOfPosts);
+	if ($offset)
+		$lastPosts = get_posts('category='.$cats.'&numberposts='.$numberOfPosts.'&offset='.$offset);
+	else
+		$lastPosts = get_posts('category='.$cats.'&numberposts='.$numberOfPosts);	
 	foreach($lastPosts as $post): setup_postdata($post);
 ?>
 <li>

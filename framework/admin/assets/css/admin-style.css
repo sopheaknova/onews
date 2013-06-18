@@ -155,6 +155,7 @@ border-radius: 2px;
 #of_container #of-nav li.homepage a{ background-image:url(../images/icon-home.png);}
 #of_container #of-nav li.headersettings a{ background-image:url(../images/icon-header.png);}
 #of_container #of-nav li.archivessettings a{ background-image:url(../images/icon-post.png);}
+#of_container #of-nav li.adssettings a{ background-image:url(../images/icon-ads.png);}
 #of_container #of-nav li.articlesettings a{ background-image:url(../images/icon-report.png);}
 #of_container #of-nav li.stylingoptions a{ background-image:url(../images/icon-paint.png);}
 #of_container #of-nav li.socialnetworking a{ background-image:url(../images/icon-social.png);}

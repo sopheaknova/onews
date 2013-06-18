@@ -33,7 +33,9 @@ if (!function_exists('of_options'))
 			"enabled" => array (
 				"placebo" 			=> "placebo", //REQUIRED!
 				"home_slider" 		=> "Slider",
+				"home_ads_1"		=> "Block Ads 1",
 				"home_cat_tabs"		=> "Block Category Tab",
+				"home_ads_2"		=> "Block Ads 2",
 				"home_cat_box_1"	=> "Block Category Box 1",
 				"home_cat_scroll"	=> "Block Scrolling Box",
 			),
@@ -127,7 +129,7 @@ $of_options[] = array( 	"name" 		=> "Main Layout",
 							'3c-fixed.css' 		=> $url . '3cm.png',
 							'3c-r-fixed.css' 	=> $url . '3cr.png'
 						)
-				);*/	
+				);*/
 
 $of_options[] = array( 	"name" 		=> "Custom Logo",
 						"desc" 		=> "Upload a Png/Gif image that will represent your website's logo.",
@@ -202,11 +204,11 @@ $of_options[] = array( "name" 		=> "Number of post",
 $of_options[] = array( 	"name" 		=> "Box style",
 						"desc" 		=> "Choose style of posts will be preview",
 						"id" 		=> "style_cat_box_tab_1",
-						"std" 		=> "1col-list",
+						"std" 		=> "1col",
 						"type" 		=> "images",
 						"options" 	=> array(
-							'1col-list' 	=> SP_BASE_URL . 'framework/assets/img/cat-box-1.gif',
-							'2col-list' 	=> SP_BASE_URL . 'framework/assets/img/cat-box-2.gif'
+							'1col' 	=> SP_BASE_URL . 'framework/assets/img/cat-box-1.gif',
+							'2col' 	=> SP_BASE_URL . 'framework/assets/img/cat-box-2.gif'
 						)
 				);
 
@@ -236,11 +238,11 @@ $of_options[] = array( "name" 		=> "Number of post",
 $of_options[] = array( 	"name" 		=> "Box style",
 						"desc" 		=> "Choose style of posts will be preview",
 						"id" 		=> "style_cat_box_tab_2",
-						"std" 		=> "1col-list",
+						"std" 		=> "1col",
 						"type" 		=> "images",
 						"options" 	=> array(
-							'1col-list' 	=> SP_BASE_URL . 'framework/assets/img/cat-box-1.gif',
-							'2col-list' 	=> SP_BASE_URL . 'framework/assets/img/cat-box-2.gif'
+							'1col' 	=> SP_BASE_URL . 'framework/assets/img/cat-box-1.gif',
+							'2col' 	=> SP_BASE_URL . 'framework/assets/img/cat-box-2.gif'
 						)
 				);			
 
@@ -271,11 +273,11 @@ $of_options[] = array( "name" 		=> "Number of post",
 $of_options[] = array( 	"name" 		=> "Box style",
 						"desc" 		=> "Choose style of posts will be preview",
 						"id" 		=> "style_cat_box_1",
-						"std" 		=> "1col-list",
+						"std" 		=> "1col",
 						"type" 		=> "images",
 						"options" 	=> array(
-							'1col-list' 	=> SP_BASE_URL . 'framework/assets/img/cat-box-1.gif',
-							'2col-list' 	=> SP_BASE_URL . 'framework/assets/img/cat-box-2.gif'
+							'1col' 	=> SP_BASE_URL . 'framework/assets/img/cat-box-1.gif',
+							'2col' 	=> SP_BASE_URL . 'framework/assets/img/cat-box-2.gif'
 						)
 				);	
 				
@@ -300,7 +302,7 @@ $of_options[] = array( "name" 		=> "Number of post",
 						"id" 		=> "num_cat_scroll",
 						"std" 		=> "12",
 						"type" 		=> "text"
-				);																			
+				);
 				
 //Header
 $of_options[] = array( 	"name" 		=> "Header Settings",
@@ -400,6 +402,14 @@ $of_options[] = array( "name" => 'Animation & Effects',
 					"type" => "info",
 					);
 
+$of_options[] = array( "name" => 'Select Slideshow Category',
+					"desc" => 'Select category to show on homepage slideshow',
+					"id" => "featured_slide",
+					"std" => "",
+					"type" => "select",
+					"options" => $of_categories
+					);
+					
 $of_options[] = array( "name" => 'Effect',
 					"desc" => 'name of transition effect',
 					"id" => "cycle_effect",
@@ -520,8 +530,41 @@ $of_options[] = array( 	"name" 		=> "RSS Icon",
 						"type" 		=> "switch"
 				);				
 
-//Post Setting	
-			
+//Advertising
+$of_options[] = array( "name" => 'Ads Settings',
+						"type" => "heading",
+						"slug" => "feature"
+						);
+						
+$of_options[] = array( 	"name" 		=> "Show Top Ads",
+						"desc" 		=> "Show/Hide top advertise near logo",
+						"id" 		=> "ads_top",
+						"std" 		=> 1,
+						"type" 		=> "switch"
+				);
+				
+$of_options[] = array( 	"name" 		=> "Show Mushead Ads",
+						"desc" 		=> "Show/Hide mushead advertise under breaking news",
+						"id" 		=> "ads_mushead",
+						"std" 		=> 1,
+						"type" 		=> "switch"
+				);	
+				
+$of_options[] = array( 	"name" 		=> "Show Ads Block 1",
+						"desc" 		=> "Show/Hide advertise block #1 in main content",
+						"id" 		=> "ads_main_1",
+						"std" 		=> 1,
+						"type" 		=> "switch"
+				);								
+				
+$of_options[] = array( 	"name" 		=> "Show Ads Block 2",
+						"desc" 		=> "Show/Hide advertise block #2 in main content",
+						"id" 		=> "ads_main_2",
+						"std" 		=> 1,
+						"type" 		=> "switch"
+				);																			
+
+//Post Setting			
 $of_options[] = array( 	"name" 		=> "Article Settings",
 						"type" 		=> "heading"
 				);

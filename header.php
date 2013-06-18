@@ -19,6 +19,65 @@
     
 	<?php wp_head(); ?>
     
+    <script type="text/javascript">
+	jQuery(document).ready(function($) {
+		
+		//mushead roat ads
+		$('.mushead-roate-ads').cycle({
+			fx:       'fade',
+			slideExpr: 'img',
+			next:   '.next-ads', 
+    		prev:   '.prev-ads',
+			timeout:   7000,
+			speed: 500,
+			pause: true
+		});
+		
+		//featured news slideshow
+		$('#featured-slideshow').cycle({
+			fx:       '<?php echo $smof_data['cycle_effect']; ?>',
+			slideExpr: '.cat-slide-items',
+			timeout:   <?php echo $smof_data['cycle_timeout']; ?>,
+			speed: <?php echo $smof_data['cycle_speed']; ?>,
+			slideResize: 0,
+			after: feature_slide_after,
+			before: feature_slide_before,
+			pager: 'ul.slider-nav',
+			pause: true,
+			pagerAnchorBuilder: function(idx, slide) { 
+				// return selector string for existing anchor 
+				return 'ul.slider-nav li:eq(' + idx + ') a'; 
+			} 
+		});
+		
+		function feature_slide_after() {
+			$('#featured-slideshow .caption').stop().animate({opacity:1, bottom:0},{queue:false,duration:300 });
+		}
+		   
+		function feature_slide_before() {
+			$('#featured-slideshow .caption').stop().animate({opacity:1, bottom:'-120px'},{queue:false,duration:300});
+		}
+		
+		//slider nav
+		$('.slider-nav li:not(.activeSlide) a').click( 
+				function () {
+					$('.slider-nav li a').css('opacity', 0.7);
+					$(this).css('opacity', 1);
+				}
+			);
+			
+		
+		$('.slider-nav li:not(.slider-nav) a').hover( 
+				function () {
+					$(this).stop(true, true).animate({opacity: 1}, 300);
+				}, function () {
+					$(this).stop(true, true).animate({opacity: 0.7}, 300);
+				}
+			);
+		
+	});
+	</script>
+    
 </head>
 
 <body <?php body_class(); ?>>
@@ -28,8 +87,8 @@
 <div class="wrapper layout-2c">
 	
     <?php if($smof_data['show_topbar']): ?>
-    <div class="top-nav head_menu">
-        <div class="container">
+    <section class="top-nav head_menu">
+        <div class="container clearfix">
             <div class="search-block">
                 <?php get_search_form(); ?>
             </div><!-- .search-block /-->
@@ -40,12 +99,12 @@
 			?>
             
             <?php echo sp_top_navigation(); ?>
-            
         </div><!-- end .container -->
-    </div><!-- end .top-menu -->
+    </section><!-- end .top-menu -->
     <?php endif; ?>
     
-	<header id="header" class="clearfix">
+	<header id="header">
+    	<div class="container clearfix">
     	<div class="logo">
         	<?php if( !is_singular() ) echo '<h1>'; else echo '<h2>'; ?>
             
@@ -59,17 +118,37 @@
             
             <?php if( !is_singular() ) echo '</h1>'; else echo '</h2>'; ?>
         </div><!-- end .logo -->
+        
+        <?php if ( $smof_data['ads_top'] ) : ?>
+        <div class="widget ads-widget ads-top">
+        	<a href="#"><img src="<?php echo SP_BASE_URL; ?>images/ads/ads-top-728x90.gif" width="728" height="90" /></a>
+        </div><!-- end .widget .ads-widget .top-ads -->
+        <?php endif; ?>
+        
+        </div><!-- end .container -->
     </header>
     
     <?php $stick = ''; ?>
 	<?php if( $smof_data['stick_nav'] ) $stick = 'fixed-enabled' ?>
-    <nav id="main-nav" class="container clearfix <?php echo $stick; ?> ">
+    <nav id="main-nav" class="clearfix <?php echo $stick; ?> ">
         <?php echo sp_main_navigation(); ?>
     </nav><!-- end #main-nav .container .clearfix -->
     
     <?php if ( $smof_data[ 'breaking_news' ] ) : ?>
-    <section id="ticker-news" class="container clearfix">
+    <section id="ticker-news" class="clearfix">
     <?php require_once( SP_BASE_DIR . 'includes/breaking-news.php' ); ?>
+    </section>
+    <?php endif; ?>
+    
+    <?php if ( $smof_data['ads_mushead'] ) : ?>
+    <section id="mushead">
+    	<div class="widget ads-widget mushead-roate-ads">
+        	<a href="#"><img src="<?php echo SP_BASE_URL; ?>images/ads/mushead-ads-sample-01.jpg" width="728" height="90" /></a>
+            <a href="#"><img src="<?php echo SP_BASE_URL; ?>images/ads/mushead-ads-sample-02.jpg" width="728" height="90" /></a>
+            <a href="#"><img src="<?php echo SP_BASE_URL; ?>images/ads/mushead-ads-sample-03.jpg" width="728" height="90" /></a>
+        </div><!-- end .widget .ads-widget .mushead-roate-ads-->
+        <a class="prev-ads" href="#"><?php _e( 'Previous', 'sptheme' ); ?></a>
+        <a class="next-ads" href="#"><?php _e( 'Next', 'sptheme' ); ?></a>
     </section>
     <?php endif; ?>
 

@@ -1,7 +1,5 @@
 
 <?php
-	global $smof_data;
-	
 	$category_name = $smof_data['cat_scroll'];
 	$category_id = get_cat_ID($category_name);
 	$category_link = get_category_link( $category_id ); 
