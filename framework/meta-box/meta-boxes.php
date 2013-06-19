@@ -89,6 +89,32 @@ $meta_boxes[] = array(
 	)
 );
 
+/* ---------------------------------------------------------------------- */
+/*	Custom Post Type: Ticker News
+/* ---------------------------------------------------------------------- */
+
+$meta_boxes[] = array(
+	'id'       => 'ticker-news-settings',
+	'title'    => __('Ticker News', 'sptheme_admin'),
+	'pages'    => array('sp_tickernews'),
+	'context'  => 'normal',
+	'priority' => 'high',
+	'fields'   => array(
+		array(
+			'name' => __('Title Text', 'sptheme_admin'),
+			'id'   => $prefix . 'ticker_news_text',
+			'type' => 'wysiwyg',
+			'std'  => '',
+			'desc' => '',
+			'options' => array(
+				'textarea_rows' => 2,
+				'teeny'         => true,
+				'media_buttons' => false,
+			),
+		)
+	)
+);
+
 /********************* META BOX REGISTERING ***********************/
 
 /**

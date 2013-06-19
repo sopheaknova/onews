@@ -19,10 +19,16 @@ if (!function_exists('of_options'))
 		foreach ($of_pages_obj as $of_page) {
 		    $of_pages[$of_page->ID] = $of_page->post_name; }
 		$of_pages_tmp 		= array_unshift($of_pages, "Select a page:");       
+		
+		$sliders = array();
+		$custom_slider = new WP_Query( array( 'post_type' => 'sp_slideshow', 'posts_per_page' => -1 ) );
+		while ( $custom_slider->have_posts() ) {
+			$custom_slider->the_post();
+			$sliders[get_the_ID()] = get_the_title();
+		}
 	
-		//Testing 
-		$of_options_select 	= array("one","two","three","four","five"); 
-		$of_options_radio 	= array("one" => "One","two" => "Two","three" => "Three","four" => "Four","five" => "Five");
+		//Option array select 
+		$featured_slide_options 	= array("custom" => "Custom","category" => "Category");
 		
 		//Sample Homepage blocks for the layout manager (sorter)
 		$of_options_homepage_blocks = array
@@ -394,8 +400,24 @@ $of_options[] = array( "name" => 'Animation & Effects',
 					"icon" => true,
 					"type" => "info",
 					);
+					
+/*$of_options[] = array( "name" => "Slideshow option",
+					"desc" => "Choose type of slideshow from Custom slideshow or Category",
+					"id" => "slider_query",
+					"std" => "custom",
+					"type" => "radio",
+					"options" => $featured_slide_options
+					);	
 
-$of_options[] = array( "name" => 'Select Slideshow Category',
+$of_options[] = array( "name" => 'Custom Slideshow',
+					"desc" => 'Select custom slide to show on homepage slideshow',
+					"id" => "custom_slide",
+					"std" => "",
+					"type" => "select",
+					"options" => $sliders
+					);									
+*/
+$of_options[] = array( "name" => 'Category Slideshow',
 					"desc" => 'Select category to show on homepage slideshow',
 					"id" => "featured_slide",
 					"std" => "",

@@ -15,17 +15,15 @@
 		?>
 		
 		<?php
-		$category_id = get_cat_ID($cat);
-		
-		//$args=array('post_type' => 'breaking_news','posts_per_page'=> $number);
-		$args=array('posts_per_page'=> $number);
+		$args=array('post_type' => 'sp_tickernews', 'posts_per_page'=> $number);
 		
 		$breaking_query = new wp_query( $args  );
 		
-		if( $breaking_query->have_posts() ) : $count=0; ?>
+		if( $breaking_query->have_posts() ) : ?>
 		<ul>
-		<?php while( $breaking_query->have_posts() ) : $breaking_query->the_post();	$count++;?>
-			<li><a href="<?php the_permalink()?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></li>
+		<?php while( $breaking_query->have_posts() ) : $breaking_query->the_post();?>
+        
+			<li><?php echo get_post_meta( $post->ID, 'sp_ticker_news_text', true ); ?></li>
 		<?php endwhile; ?>
 		</ul>
 		<?php endif; ?>

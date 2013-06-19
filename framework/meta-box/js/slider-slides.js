@@ -14,6 +14,8 @@ jQuery( document ).ready( function($)  {
 	// Add tabs
 	function enableTabs() {
 
+		$('.slider-slide-tabs').children().children('li').removeClass('ui-tabs-active')
+												.first().addClass('ui-tabs-active');
 		$('.slider-slide-tabs').tabs({
 			selected : 0,
 			show     : function( event, ui ) {
@@ -39,6 +41,7 @@ jQuery( document ).ready( function($)  {
 				  .find('select').val('').end()
 				  .find('input[type=text]').val('').end()
 				  .find('textarea').val('').end()
+				  .find('img').attr('src', '').end()
 				  .insertAfter( $slider.children('.slide').last() );
 
 		enableTabs();
@@ -161,7 +164,7 @@ jQuery( document ).ready( function($)  {
 			postId  = data[0],
 			fieldId = data[1],
 			tbframeInterval;
-
+		
 		// Open Thickbox
 		tb_show('', 'media-upload.php?post_id=' + postId + '&field_id=' + fieldId + '&type=image&TB_iframe=true&width=670&height=600');
 
@@ -180,7 +183,8 @@ jQuery( document ).ready( function($)  {
 			var imgUrl = $('img', html).attr('src');
 
 			$this.siblings('input[type="text"]').val( imgUrl );
-
+			//$thumb.attr("src", imgUrl);
+		
 			tb_remove();
 
 		};

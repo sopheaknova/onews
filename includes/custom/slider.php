@@ -1,15 +1,15 @@
 <section id="featured-slideshow">
-	<?php 
-    $category_name = $smof_data['featured_slide'];
-    $category_id = get_cat_ID($category_name);
+	<?php
+	$category_slide_name = $smof_data['featured_slide'];
+    $category_id = get_cat_ID($category_slide_name);
     $category_link = get_category_link( $category_id ); 
     ?>
-        <h3 class="featured-title"><a href="<?php echo esc_url( $category_link ); ?>"><?php echo $category_name; ?></a></h3>
-    <?php
-    $args = array (
-                'cat' 	=> $category_id,
-                'posts_per_page'	=> 5
-            );
+    
+	<h3 class="featured-title"><a href="<?php echo esc_url( $category_link ); ?>"><?php echo $category_slide_name; ?></a></h3>
+    
+	<?php
+	$args = array ( 'cat' => $category_id, 'posts_per_page' => 5 );
+		
     $media_query = new WP_Query($args);
     if ($media_query->have_posts()) :
     while ( $media_query->have_posts() ) : $media_query->the_post();

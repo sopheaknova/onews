@@ -1,11 +1,6 @@
 <?php
-// Prevent loading this file directly - Busted!
-if( ! class_exists('WP') ) 
-{
-	header( 'Status: 403 Forbidden' );
-	header( 'HTTP/1.1 403 Forbidden' );
-	exit;
-}
+// Prevent loading this file directly
+defined( 'ABSPATH' ) || exit;
 
 if ( ! class_exists( 'RWMB_Slider_Slides_Field' ) ) 
 {
@@ -86,13 +81,9 @@ if ( ! class_exists( 'RWMB_Slider_Slides_Field' ) )
 					foreach ( $slider_slides as $i => $slide ) {
 
 						$slide_img_src            = isset( $slide['slide-img-src'] )            ? $slide['slide-img-src']            : null;
-						$slide_button_type        = isset( $slide['slide-button-type'] )        ? $slide['slide-button-type']        : null;
-						$slide_button_dropcap     = isset( $slide['slide-button-dropcap'] )     ? $slide['slide-button-dropcap']     : null;
 						$slide_button_title       = isset( $slide['slide-button-title'] )       ? $slide['slide-button-title']       : null;
-						$slide_button_description = isset( $slide['slide-button-description'] ) ? $slide['slide-button-description'] : null;
-						$slide_button_img_src     = isset( $slide['slide-button-img-src'] )     ? $slide['slide-button-img-src']     : null;
+						$slide_title_story		  = isset( $slide['slide-title-story'] )		? $slide['slide-title-story']		 : null;
 						$slide_content            = isset( $slide['slide-content'] )            ? $slide['slide-content']            : null;
-						$slide_link_lightbox      = isset( $slide['slide-link-lightbox'] )      ? $slide['slide-link-lightbox']      : null;
 						$slide_link_url           = isset( $slide['slide-link-url'] )           ? $slide['slide-link-url']           : null;
 
 						$html .= '<li class="slide postbox">
@@ -107,7 +98,6 @@ if ( ! class_exists( 'RWMB_Slider_Slides_Field' ) )
 
 											<ul>
 												<li><a href="#slide-image">' . __('Image', 'sptheme_admin') . '</a></li>
-												<li><a href="#slide-button">' . __('Button', 'sptheme_admin') . '</a></li>
 												<li><a href="#slide-content">' . __('Content', 'sptheme_admin') . '</a></li>
 												<li><a href="#slide-link">' . __('Link', 'sptheme_admin') . '</a></li>
 											</ul>
@@ -122,126 +112,16 @@ if ( ! class_exists( 'RWMB_Slider_Slides_Field' ) )
 
 													<div class="rwmb-input">
 														<input type="text" name="slide-img-src[]" class="rwmb-text" size="30" value="' . $slide_img_src . '">
-														<input type="button" name="upload-image" class="upload-image" value="' . __('Upload Image', 'sptheme_admin') . '">
+														<input type="button" name="upload-image" class="upload-image button" value="' . __('Upload Image', 'sptheme_admin') . '">
+														<img src="' . $slide_img_src . '" class="thumb-view" width="200" height="150" />
 													</div><!-- end .rwmb-input -->
 
 												</div><!-- end .rwmb-field -->											
 
 											</div><!-- end #slide-image -->
-
-											<div id="slide-button" class="tabs-content">
-												
-												<div class="rwmb-field">
-
-													<div class="rwmb-label">
-														<label>' . __('Button Type', 'sptheme_admin') . '</label>
-													</div><!-- end .rwmb-label -->
-
-													<div class="rwmb-input">
-														<select name="slide-button-type[]" class="rwmb-select">
-															<option value="" ' . selected( $slide_button_type, "", false ) . '>' . __('Text', 'sptheme_admin') . '</option>
-															<option value="image" ' . selected( $slide_button_type, "image", false ) . '>' . __('Image', 'sptheme_admin') . '</option>
-														</select>
-													</div><!-- end .rwmb-input -->
-
-												</div><!-- end .rwmb-field -->
-
-												<div class="button-type text">
-													
-													<div class="rwmb-field">
-
-														<div class="rwmb-label">
-															<label>' . __('Dropcap', 'sptheme_admin') . '</label>
-														</div><!-- end .rwmb-label -->
-
-														<div class="rwmb-input">
-															<input type="text" name="slide-button-dropcap[]" class="rwmb-text" size="30" value="' . $slide_button_dropcap . '">
-															<p class="description">' . __('(optional)', 'sptheme_admin') . '</p>
-														</div><!-- end .rwmb-input -->
-
-													</div><!-- end .rwmb-field -->
-													
-													<div class="rwmb-field">
-
-														<div class="rwmb-label">
-															<label>' . __('Title', 'sptheme_admin') . '</label>
-														</div><!-- end .rwmb-label -->
-
-														<div class="rwmb-input">
-															<input type="text" name="slide-button-title[]" class="rwmb-text" size="30" value="' . $slide_button_title . '">
-														</div><!-- end .rwmb-input -->
-
-													</div><!-- end .rwmb-field -->
-													
-													<div class="rwmb-field">
-
-														<div class="rwmb-label">
-															<label>' . __('Description', 'sptheme_admin') . '</label>
-														</div><!-- end .rwmb-label -->
-
-														<div class="rwmb-input">
-															<input type="text" name="slide-button-description[]" class="rwmb-text" size="30" value="' . $slide_button_description . '">
-															<p class="description">' . __('(optional)', 'sptheme_admin') . '</p>
-														</div><!-- end .rwmb-input -->
-
-													</div><!-- end .rwmb-field -->
-													
-												</div><!-- end .button-type.text -->
-
-												<div class="button-type image">
-													
-													<div class="rwmb-field">
-
-														<div class="rwmb-label">
-															<label>' . __('Image URL', 'sptheme_admin') . '</label>
-														</div><!-- end .rwmb-label -->
-
-														<div class="rwmb-input">
-															<input type="text" name="slide-button-img-src[]" class="rwmb-text" size="30" value="' . $slide_button_img_src . '">
-															<input type="button" name="upload-image" class="upload-image" value="' . __('Upload Image', 'sptheme_admin') . '">
-														</div><!-- end .rwmb-input -->
-
-													</div><!-- end .rwmb-field -->
-													
-												</div><!-- end .button-type.image -->
-
-											</div><!-- end #slide-button -->
-
-											<div id="slide-content" class="tabs-content">
-												
-												<div class="rwmb-field">
-
-													<div class="rwmb-label">
-														<label>' . __('Slide Content', 'sptheme_admin') . '</label>
-													</div><!-- end .rwmb-label -->
-
-													<div class="rwmb-input">
-														<textarea name="slide-content[]" class="rwmb-textarea large-text" cols="60" rows="5">' . $slide_content . '</textarea>
-														<p class="description">' . __('(optional) HTML tags and WordPress shortcodes are allowed.', 'sptheme_admin') . '</p>
-													</div><!-- end .rwmb-input -->
-
-												</div><!-- end .rwmb-field -->
-
-											</div><!-- end #slide-content -->
-
+											
 											<div id="slide-link" class="tabs-content">
-												
-												<div class="rwmb-field">
-
-													<div class="rwmb-label">
-														<label>' . __('Lightbox', 'sptheme_admin') . '</label>
-													</div><!-- end .rwmb-label -->
-
-													<div class="rwmb-input">
-														<select name="slide-link-lightbox[]" class="rwmb-select">
-															<option value="" ' . selected( $slide_link_lightbox, "", false ) . '>' . __('Disabled', 'sptheme_admin') . '</option>
-															<option value="single-image" ' . selected( $slide_link_lightbox, "image", false ) . '>' . __('Image', 'sptheme_admin') . '</option>
-															<option value="iframe" ' . selected( $slide_link_lightbox, "iframe", false ) . '>' . __('Iframe', 'sptheme_admin') . '</option>
-														</select>
-													</div><!-- end .rwmb-input -->
-
-												</div><!-- end .rwmb-field -->
-												
+													
 												<div class="rwmb-field">
 
 													<div class="rwmb-label">
@@ -250,13 +130,42 @@ if ( ! class_exists( 'RWMB_Slider_Slides_Field' ) )
 
 													<div class="rwmb-input">
 														<input type="text" name="slide-link-url[]" class="rwmb-text" size="30" value="' . $slide_link_url . '">
-														<input type="button" name="upload-image" class="upload-image slide-link-lightbox" value="' . __('Upload Image', 'sptheme_admin') . '">
-														<p class="description">' . __('(optional) Any valid URL is allowed, doesn\'t have to be an image', 'sptheme_admin') . '.</p>
+														<p class="description">' . __('(optional) Any valid URL is allowed (e.g: http//www.google.com), doesn\'t have to be an image', 'sptheme_admin') . '.</p>
 													</div><!-- end .rwmb-input -->
 
 												</div><!-- end .rwmb-field -->
 
 											</div><!-- end #slide-link -->
+											
+											<div id="slide-content" class="tabs-content">
+												
+												<div class="rwmb-field">
+
+													<div class="rwmb-label">
+														<label>' . __('Title', 'sptheme_admin') . '</label>
+													</div><!-- end .rwmb-label -->
+
+													<div class="rwmb-input">
+														<input type="text" name="slide-title-story[]" class="rwmb-text" size="70" value="' . $slide_title_story . '">
+														<p class="description">e.g: Title of this slide item</p>
+													</div><!-- end .rwmb-input -->
+
+												</div><!-- end .rwmb-field -->
+												
+												<div class="rwmb-field">
+
+													<div class="rwmb-label">
+														<label>' . __('Slide Content', 'sptheme_admin') . '</label>
+													</div><!-- end .rwmb-label -->
+
+													<div class="rwmb-input">
+														<textarea name="slide-content[]" class="rwmb-textarea large-text" cols="60" rows="2">' . $slide_content . '</textarea>
+														<p class="description">' . __('(optional) Max 255 characters are allowed.', 'sptheme_admin') . '</p>
+													</div><!-- end .rwmb-input -->
+
+												</div><!-- end .rwmb-field -->
+
+											</div><!-- end #slide-content -->
 
 										</div><!-- end .slider-slide-tabs -->
 
@@ -285,7 +194,6 @@ if ( ! class_exists( 'RWMB_Slider_Slides_Field' ) )
 
 											<ul>
 												<li><a href="#slide-image">' . __('Image', 'sptheme_admin') . '</a></li>
-												<li><a href="#slide-button">' . __('Button', 'sptheme_admin') . '</a></li>
 												<li><a href="#slide-content">' . __('Content', 'sptheme_admin') . '</a></li>
 												<li><a href="#slide-link">' . __('Link', 'sptheme_admin') . '</a></li>
 											</ul>
@@ -300,126 +208,16 @@ if ( ! class_exists( 'RWMB_Slider_Slides_Field' ) )
 
 													<div class="rwmb-input">
 														<input type="text" name="slide-img-src[]" class="rwmb-text" size="30" value="">
-														<input type="button" name="upload-image" class="upload-image" value="' . __('Upload Image', 'sptheme_admin') . '">
+														<input type="button" name="upload-image" class="upload-image button" value="' . __('Upload Image', 'sptheme_admin') . '">
+														<img src="" class="thumb-view" width="200" height="150" />
 													</div><!-- end .rwmb-input -->
 
 												</div><!-- end .rwmb-field -->											
 
 											</div><!-- end #slide-image -->
 
-											<div id="slide-button" class="tabs-content">
-												
-												<div class="rwmb-field">
-
-													<div class="rwmb-label">
-														<label>' . __('Button Type', 'sptheme_admin') . '</label>
-													</div><!-- end .rwmb-label -->
-
-													<div class="rwmb-input">
-														<select name="slide-button-type[]" class="rwmb-select">
-															<option value="" selected>' . __('Text', 'sptheme_admin') . '</option>
-															<option value="image">' . __('Image', 'sptheme_admin') . '</option>
-														</select>
-													</div><!-- end .rwmb-input -->
-
-												</div><!-- end .rwmb-field -->
-
-												<div class="button-type text">
-													
-													<div class="rwmb-field">
-
-														<div class="rwmb-label">
-															<label>' . __('Dropcap', 'sptheme_admin') . '</label>
-														</div><!-- end .rwmb-label -->
-
-														<div class="rwmb-input">
-															<input type="text" name="slide-button-dropcap[]" class="rwmb-text" size="30" value="">
-															<p class="description">' . __('(optional)', 'sptheme_admin') . '</p>
-														</div><!-- end .rwmb-input -->
-
-													</div><!-- end .rwmb-field -->
-													
-													<div class="rwmb-field">
-
-														<div class="rwmb-label">
-															<label>' . __('Title', 'sptheme_admin') . '</label>
-														</div><!-- end .rwmb-label -->
-
-														<div class="rwmb-input">
-															<input type="text" name="slide-button-title[]" class="rwmb-text" size="30" value="">
-														</div><!-- end .rwmb-input -->
-
-													</div><!-- end .rwmb-field -->
-													
-													<div class="rwmb-field">
-
-														<div class="rwmb-label">
-															<label>' . __('Description', 'sptheme_admin') . '</label>
-														</div><!-- end .rwmb-label -->
-
-														<div class="rwmb-input">
-															<input type="text" name="slide-button-description[]" class="rwmb-text" size="30" value="">
-															<p class="description">' . __('(optional)', 'sptheme_admin') . '</p>
-														</div><!-- end .rwmb-input -->
-
-													</div><!-- end .rwmb-field -->
-													
-												</div><!-- end .button-type.text -->
-
-												<div class="button-type image">
-													
-													<div class="rwmb-field">
-
-														<div class="rwmb-label">
-															<label>' . __('Image URL', 'sptheme_admin') . '</label>
-														</div><!-- end .rwmb-label -->
-
-														<div class="rwmb-input">
-															<input type="text" name="slide-button-img-src[]" class="rwmb-text" size="30" value="">
-															<input type="button" name="upload-image" class="upload-image" value="' . __('Upload Image', 'sptheme_admin') . '">
-														</div><!-- end .rwmb-input -->
-
-													</div><!-- end .rwmb-field -->
-													
-												</div><!-- end .button-type.image -->
-
-											</div><!-- end #slide-button -->
-
-											<div id="slide-content" class="tabs-content">
-												
-												<div class="rwmb-field">
-
-													<div class="rwmb-label">
-														<label>' . __('Slide Content', 'sptheme_admin') . '</label>
-													</div><!-- end .rwmb-label -->
-
-													<div class="rwmb-input">
-														<textarea name="slide-content[]" class="rwmb-textarea large-text" cols="60" rows="5"></textarea>
-														<p class="description">' . __('(optional) HTML tags and WordPress shortcodes are allowed.', 'sptheme_admin') . '</p>
-													</div><!-- end .rwmb-input -->
-
-												</div><!-- end .rwmb-field -->
-
-											</div><!-- end #slide-content -->
-
 											<div id="slide-link" class="tabs-content">
-												
-												<div class="rwmb-field">
-
-													<div class="rwmb-label">
-														<label>' . __('Lightbox', 'sptheme_admin') . '</label>
-													</div><!-- end .rwmb-label -->
-
-													<div class="rwmb-input">
-														<select name="slide-link-lightbox[]" class="rwmb-select">
-															<option value=""  selected>' . __('Disabled', 'sptheme_admin') . '</option>
-															<option value="single-image">' . __('Image', 'sptheme_admin') . '</option>
-															<option value="iframe">' . __('Iframe', 'sptheme_admin') . '</option>
-														</select>
-													</div><!-- end .rwmb-input -->
-
-												</div><!-- end .rwmb-field -->
-												
+											
 												<div class="rwmb-field">
 
 													<div class="rwmb-label">
@@ -428,13 +226,42 @@ if ( ! class_exists( 'RWMB_Slider_Slides_Field' ) )
 
 													<div class="rwmb-input">
 														<input type="text" name="slide-link-url[]" class="rwmb-text" size="30" value="">
-														<input type="button" name="upload-image" class="upload-image slide-link-lightbox" value="' . __('Upload Image', 'sptheme_admin') . '">
-														<p class="description">' . __('(optional) Any valid URL is allowed, doesn\'t have to be an image', 'sptheme_admin') . '.</p>
+														<p class="description">' . __('(optional) Any valid URL is allowed (e.g: http//www.google.com), doesn\'t have to be an image', 'sptheme_admin') . '.</p>
+													</div><!-- end .rwmb-input -->
+
+												</div><!-- end .rwmb-field -->
+													
+											</div><!-- end #slide-link -->
+
+											<div id="slide-content" class="tabs-content">
+												
+												<div class="rwmb-field">
+
+													<div class="rwmb-label">
+														<label>' . __('Title', 'sptheme_admin') . '</label>
+													</div><!-- end .rwmb-label -->
+
+													<div class="rwmb-input">
+														<input type="text" name="slide-title-story[]" class="rwmb-text" size="70" value="">
+														<p class="description">e.g: Title of this slide item</p>
+													</div><!-- end .rwmb-input -->
+
+												</div><!-- end .rwmb-field -->
+												
+												<div class="rwmb-field">
+
+													<div class="rwmb-label">
+														<label>' . __('Slide Content', 'sptheme_admin') . '</label>
+													</div><!-- end .rwmb-label -->
+
+													<div class="rwmb-input">
+														<textarea name="slide-content[]" class="rwmb-textarea large-text" cols="60" rows="2"></textarea>
+														<p class="description">' . __('(optional) Max 255 characters are allowed.', 'sptheme_admin') . '</p>
 													</div><!-- end .rwmb-input -->
 
 												</div><!-- end .rwmb-field -->
 
-											</div><!-- end #slide-link -->
+											</div><!-- end #slide-content -->
 
 										</div><!-- end .slider-slide-tabs -->
 
@@ -478,13 +305,9 @@ if ( ! class_exists( 'RWMB_Slider_Slides_Field' ) )
 
 				$slider_slides[] = array(
 					'slide-img-src'            => $_POST['slide-img-src'][$k],
-					'slide-button-type'        => $_POST['slide-button-type'][$k],
-					'slide-button-dropcap'     => $_POST['slide-button-dropcap'][$k],
 					'slide-button-title'       => $_POST['slide-button-title'][$k],
-					'slide-button-description' => $_POST['slide-button-description'][$k],
-					'slide-button-img-src'     => $_POST['slide-button-img-src'][$k],
+					'slide-title-story'		   => $_POST['slide-title-story'][$k],
 					'slide-content'            => $_POST['slide-content'][$k],
-					'slide-link-lightbox'      => $_POST['slide-link-lightbox'][$k],
 					'slide-link-url'           => $_POST['slide-link-url'][$k]
 				);
 

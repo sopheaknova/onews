@@ -23,10 +23,11 @@ function add_shortcodes_tinymce_plugin( $plugin_array ) {
 
 function register_shortcodes_button( $buttons ) {
 	
-	//array_push($buttons, "highlight", "notifications", "buttons", "divider", "toggle", "tabs", "contactForm", "price_table_group", 'social_link', 'social_button', 'teaser', 'testimonials','dropcaps','totop','toc');
-    array_push( $buttons, "highlight", "notifications", "buttons", "divider", "toggle", "tabs", "accordian", "dropcaps", "video", "soundcloud" );
-	
-	array_push( $buttons, 'columns' );
+	//array_push( $buttons, "highlight", "notifications", "buttons", "divider", "toggle", "tabs", "accordian", "dropcaps", "video", "soundcloud", "columns" );
+	if ( (get_post_type() == 'page') || (get_post_type() == 'post') )
+	{
+		array_push( $buttons, "highlight", "notifications", "buttons", "divider", "toggle", "tabs", "accordian", "dropcaps", "video", "soundcloud", "columns" );	
+	}
     return $buttons;
 }
 
