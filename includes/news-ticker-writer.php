@@ -7,7 +7,7 @@
 	if( !$number || $number == ' ' || !is_numeric($number) )	$number = 5;
 ?>
 
-	<div class="breaking-news">
+	<div class="news-ticker">
 		<span><?php if( $title ) echo $title; else _e("Breaking news: " , 'sptheme') ; ?></span>
 		<?php
 			global $post;

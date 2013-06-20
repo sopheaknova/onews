@@ -136,7 +136,7 @@
     
     <?php if ( $smof_data[ 'breaking_news' ] ) : ?>
     <section id="ticker-news" class="clearfix">
-    <?php require_once( SP_BASE_DIR . 'includes/breaking-news.php' ); ?>
+    <?php require_once( SP_BASE_DIR . 'includes/news-ticker-scroll.php' ); ?>
     </section>
     <?php endif; ?>
     

@@ -94,15 +94,15 @@ $meta_boxes[] = array(
 /* ---------------------------------------------------------------------- */
 
 $meta_boxes[] = array(
-	'id'       => 'ticker-news-settings',
-	'title'    => __('Ticker News', 'sptheme_admin'),
-	'pages'    => array('sp_tickernews'),
+	'id'       => 'news-ticker-settings',
+	'title'    => __('News Ticker', 'sptheme_admin'),
+	'pages'    => array('sp_newsticker'),
 	'context'  => 'normal',
 	'priority' => 'high',
 	'fields'   => array(
 		array(
 			'name' => __('Title Text', 'sptheme_admin'),
-			'id'   => $prefix . 'ticker_news_text',
+			'id'   => $prefix . 'news_ticker_text',
 			'type' => 'wysiwyg',
 			'std'  => '',
 			'desc' => '',

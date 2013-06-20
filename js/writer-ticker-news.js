@@ -1,5 +1,5 @@
 function createTicker(){    	
-	var tickerLIs = jQuery(".breaking-news ul").children();          
+	var tickerLIs = jQuery(".news-ticker ul").children();          
 	tickerItems = new Array();                                
 	tickerLIs.each(function(el) {                             
 		tickerItems.push( jQuery(this).html() );                
@@ -18,11 +18,11 @@ function rotateTicker(){
 	i++;                                                      
 }                                                           
 var isInTag = false;                                        
-function typetext() {	                                      
+function typetext() {
 	var thisChar = tickerText.substr(c, 1);                   
 	if( thisChar == '<' ){ isInTag = true; }                  
 	if( thisChar == '>' ){ isInTag = false; }                 
-	jQuery('.breaking-news ul').html(tickerText.substr(0, c++));   
+	jQuery('.news-ticker ul').html(tickerText.substr(0, c++));   
 	if(c < tickerText.length+1)                                     
 		if( isInTag ){                                                
 			typetext();                                                 
