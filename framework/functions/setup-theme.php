@@ -511,3 +511,18 @@ function sp_unregister_default_wp_widgets() {
 	unregister_widget('WP_Widget_RSS');
 	unregister_widget('WP_Widget_Meta');
 }
+
+/* ---------------------------------------------------------------------- */
+/*	Add SMOF Framework links to WordPress admin bar
+/* ---------------------------------------------------------------------- */
+function smof_admin_bar_render() {
+	global $wp_admin_bar;
+	$wp_admin_bar->add_menu( array(
+		'parent' => false, // use 'false' for a root menu, or pass the ID of the parent menu
+		'id' => 'smof_options', // link ID, defaults to a sanitized title value
+		'title' => __('Theme Options'), // link title
+		'href' => admin_url( 'themes.php?page=optionsframework'), // name of file
+		'meta' => false // array of any of the following options: array( 'html' => '', 'class' => '', 'onclick' => '', target => '', title => '' );
+	));
+}
+add_action( 'wp_before_admin_bar_render', 'smof_admin_bar_render' );
