@@ -13,7 +13,7 @@ $themeVersion  = $themeData->Version;
 define( 'SP_BASE_DIR', TEMPLATEPATH . '/' );
 define( 'SP_BASE_URL', get_template_directory_uri() . '/' );
 define( 'THEME_VERSION', $themeData->Version);
-define( 'THEME_NAME', 'KPT'); // should be $themeName but it's too long
+define( 'THEME_NAME', 'ONews'); // should be $themeName but it's too long
 define( 'SP_SCRIPTS_VERSION', 20130605 );
 define( 'SP_ADMIN_LIST_THUMB', '64x64' ); //thumbnail size (width x height) on post/page/custom post listings
 

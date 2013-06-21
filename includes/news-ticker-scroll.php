@@ -9,27 +9,21 @@
 
 	<div class="news-ticker">
 		<span class="ticker-title"><?php if( $title ) echo $title; else _e("Breaking news: " , 'sptheme') ; ?></span>
-		<?php
-			global $post;
-			$orig_post = $post;
-		?>
 		
 		<?php
-		$args=array('post_type' => 'sp_tickernews', 'posts_per_page'=> $number);
+		$args=array('post_type' => 'sp_newsticker', 'posts_per_page'=> $number);
 		
 		$breaking_query = new wp_query( $args  );
 		
 		if( $breaking_query->have_posts() ) : ?>
-		<marquee truespeed>
+		<marquee  onmouseout="this.setAttribute('scrollamount',3, 0);" onmouseover="this.setAttribute('scrollamount', 0, 0);" scrollamount="3">
 		<?php while( $breaking_query->have_posts() ) : $breaking_query->the_post();?>
         
-			<span class="tick"><?php echo get_post_meta( $post->ID, 'sp_ticker_news_text', true ); ?></span>
+			<span class="tick"><?php echo strip_tags(get_post_meta( $post->ID, 'sp_news_ticker_text', true ), '<span><a>'); ?></span>
 		<?php endwhile; ?>
 		</marquee>
 		<?php endif; ?>
 		<div class="bg-ticker"></div>
-		
-		<?php $post = $orig_post; ?>
 	</div> <!-- .breaking-news -->
     
     

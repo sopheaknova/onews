@@ -1,0 +1,1167 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ONews WP Theme\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-06-21 17:10+0700\n"
+"PO-Revision-Date: 2013-06-21 17:16+0700\n"
+"Last-Translator: Dara <dara@fhi.org.kh>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _e;__;esc_attr__;esc_attr_e;esc_html__;esc_html_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../404.php:10
+msgid "Apologies, but the page you requested could not be found."
+msgstr "សុំទោសប៉ុន្តែទំព័រដែលអ្នកបានស្នើមិនអាចត្រូវបានរកឃើញ។"
+
+#: ../404.php:14
+#, php-format
+msgid "<strong>Start over again</strong> with the %1$sHomepage%2$s."
+msgstr "<strong>ចាប់ផ្តើមម្តងទៀត</strong> ជាមួយ %1$sនឹងគេហទំព័រនេះ%2$s."
+
+#: ../archive.php:18
+#, php-format
+msgid "Daily Archives: %s"
+msgstr ""
+
+#: ../archive.php:20
+#, php-format
+msgid "Monthly Archives: %s"
+msgstr ""
+
+#: ../archive.php:22
+#, php-format
+msgid "Yearly Archives: %s"
+msgstr ""
+
+#: ../archive.php:24
+msgid "Archives"
+msgstr ""
+
+#: ../archive.php:33
+#: ../author.php:19
+#: ../category.php:19
+msgid "Nothing Found"
+msgstr ""
+
+#: ../archive.php:63
+#: ../author.php:92
+#: ../category.php:61
+#: ../search.php:37
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for..."
+msgstr ""
+
+#: ../author.php:15
+#, php-format
+msgid "Author Archives: %s"
+msgstr ""
+
+#: ../author.php:24
+#: ../category.php:24
+msgid "Feed Subscription"
+msgstr ""
+
+#: ../author.php:43
+msgid " 's site"
+msgstr ""
+
+#: ../author.php:46
+msgid "  on Twitter"
+msgstr ""
+
+#: ../author.php:49
+msgid "  on Facebook"
+msgstr ""
+
+#: ../author.php:52
+msgid "  on Google+"
+msgstr ""
+
+#: ../author.php:55
+msgid "  on Linkedin"
+msgstr ""
+
+#: ../author.php:58
+msgid "  on Flickr"
+msgstr ""
+
+#: ../author.php:61
+msgid "  on YouTube"
+msgstr ""
+
+#: ../author.php:64
+msgid "  on Pinterest"
+msgstr ""
+
+#: ../category.php:15
+#, php-format
+msgid "Category Archives: %s"
+msgstr ""
+
+#: ../comments.php:3
+msgid "This post is password protected. Enter the password to view any comments."
+msgstr ""
+
+#: ../comments.php:12
+msgid "No comments"
+msgstr ""
+
+#: ../comments.php:12
+msgid "One comment"
+msgstr ""
+
+#: ../comments.php:12
+msgid "comments"
+msgstr ""
+
+#: ../comments.php:17
+msgid "<span class=\"meta-nav\">&larr;</span> Older Comments"
+msgstr ""
+
+#: ../comments.php:18
+msgid "Newer Comments <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: ../comments.php:34
+msgid "Comments are closed."
+msgstr ""
+
+#: ../comments.php:46
+msgid "Name"
+msgstr ""
+
+#: ../comments.php:48
+msgid "Email"
+msgstr ""
+
+#: ../comments.php:50
+msgid "Website"
+msgstr ""
+
+#: ../comments.php:53
+msgid " Required fields are marked"
+msgstr ""
+
+#: ../comments.php:57
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr ""
+
+#: ../comments.php:58
+#, php-format
+msgid "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of this account\">Log out?</a>"
+msgstr ""
+
+#: ../comments.php:59
+msgid "Your email address will not be published."
+msgstr ""
+
+#: ../comments.php:60
+msgid "Leave a Reply"
+msgstr ""
+
+#: ../comments.php:61
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: ../comments.php:62
+msgid "Cancel reply"
+msgstr ""
+
+#: ../comments.php:63
+msgid "Post Comment"
+msgstr ""
+
+#: ../content-audio.php:5
+#: ../content-video.php:5
+#: ../content.php:5
+#, php-format
+msgid "Permalink to %s"
+msgstr ""
+
+#: ../header.php:150
+msgid "Previous"
+msgstr ""
+
+#: ../header.php:151
+msgid "Next"
+msgstr ""
+
+#: ../page.php:22
+msgid "Edit"
+msgstr ""
+
+#: ../search.php:11
+#, php-format
+msgid "Search result for: %s"
+msgstr ""
+
+#: ../searchform.php:2
+msgid "Search term"
+msgstr ""
+
+#: ../searchform.php:3
+msgid "Search..."
+msgstr ""
+
+#: ../sidebar.php:11
+msgid "About This Sidebar"
+msgstr ""
+
+#: ../sidebar.php:12
+msgid "To edit this sidebar, go to admin backend's <strong><em>Appearance -&gt; Widgets</em></strong> and place widgets into the <strong><em>"
+msgstr ""
+
+#: ../single.php:25
+msgid "Tagged with: "
+msgstr ""
+
+#: ../single.php:36
+msgid "Previous:"
+msgstr ""
+
+#: ../single.php:37
+msgid "Next:"
+msgstr ""
+
+#: ../single.php:44
+msgid "About"
+msgstr ""
+
+#: ../tag.php:17
+msgid "Tag"
+msgstr ""
+
+#: ../framework/admin/classes/class.options_machine.php:479
+msgid "Last Backup : "
+msgstr ""
+
+#: ../framework/admin/classes/class.options_machine.php:638
+msgid "Upload"
+msgstr ""
+
+#: ../framework/admin/front-end/options.php:43
+#: ../framework/admin/front-end/options.php:67
+msgid "Save All Changes"
+msgstr ""
+
+#: ../framework/admin/front-end/options.php:68
+msgid "Options Reset"
+msgstr ""
+
+#: ../framework/admin/functions/functions.mediauploader.php:20
+msgid "Options"
+msgstr ""
+
+#: ../framework/admin/functions/functions.mediauploader.php:210
+msgid "Gallery"
+msgstr ""
+
+#: ../framework/admin/functions/functions.mediauploader.php:210
+msgid "Previously Uploaded"
+msgstr ""
+
+#: ../framework/custom-posts/cp-news-ticker.php:67
+#: ../framework/custom-posts/cp-news-ticker.php:68
+msgid "News Ticker"
+msgstr ""
+
+#: ../framework/custom-posts/cp-news-ticker.php:69
+#: ../framework/custom-posts/cp-news-ticker.php:70
+#: ../framework/custom-posts/cp-news-ticker.php:71
+msgid "Add new ticker news"
+msgstr ""
+
+#: ../framework/custom-posts/cp-news-ticker.php:72
+msgid "Edit ticker news"
+msgstr ""
+
+#: ../framework/custom-posts/cp-news-ticker.php:73
+msgid "View ticker news"
+msgstr ""
+
+#: ../framework/custom-posts/cp-news-ticker.php:74
+msgid "Search ticker news"
+msgstr ""
+
+#: ../framework/custom-posts/cp-news-ticker.php:75
+msgid "No ticker news found"
+msgstr ""
+
+#: ../framework/custom-posts/cp-news-ticker.php:76
+msgid "No ticker news found in trash"
+msgstr ""
+
+#: ../framework/custom-posts/cp-news-ticker.php:105
+msgid "Text"
+msgstr ""
+
+#: ../framework/custom-posts/cp-news-ticker.php:106
+msgid "Date"
+msgstr ""
+
+#: ../framework/custom-posts/cp-news-ticker.php:107
+msgid "Created by"
+msgstr ""
+
+#: ../framework/custom-posts/cp-news-ticker.php:154
+msgid "Restore this item"
+msgstr ""
+
+#: ../framework/custom-posts/cp-news-ticker.php:154
+msgid "Restore"
+msgstr ""
+
+#: ../framework/custom-posts/cp-news-ticker.php:155
+msgid "Delete this item permanently"
+msgstr ""
+
+#: ../framework/custom-posts/cp-news-ticker.php:155
+msgid "Delete Permanently"
+msgstr ""
+
+#: ../framework/custom-posts/cp-news-ticker.php:158
+msgid "Edit this item"
+msgstr ""
+
+#: ../framework/custom-posts/cp-news-ticker.php:160
+msgid "Move this item to the Trash"
+msgstr ""
+
+#: ../framework/custom-posts/custom-posts.php:23
+msgid "Slide title"
+msgstr ""
+
+#: ../framework/functions/setup-theme.php:72
+msgid "Top Navigation"
+msgstr ""
+
+#: ../framework/functions/setup-theme.php:73
+msgid "Primary Navigation"
+msgstr ""
+
+#: ../framework/functions/setup-theme.php:74
+msgid "Footer Navigation"
+msgstr ""
+
+#: ../framework/functions/setup-theme.php:462
+#, php-format
+msgid "Search results for %s"
+msgstr ""
+
+#: ../framework/functions/setup-theme.php:465
+#: ../framework/functions/setup-theme.php:479
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: ../framework/functions/setup-theme.php:529
+msgid "Theme Options"
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:27
+#: ../framework/functions/theme-functions.php:57
+msgid "Add Main menu"
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:88
+msgid "Add Footer menu"
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:205
+msgid "Permalink to "
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:212
+msgid "Read more »"
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:235
+msgid "Posted by:"
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:235
+#, php-format
+msgid "View all posts by %s"
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:241
+msgid " in: "
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:245
+msgid "Leave a comment"
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:245
+msgid "1 Comment"
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:245
+msgid "% Comments"
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:253
+msgid "Edit Post"
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:297
+#: ../framework/functions/theme-functions.php:304
+#: ../framework/functions/theme-functions.php:310
+#: ../framework/functions/theme-functions.php:316
+msgid "ago"
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:324
+#, php-format
+msgid "<time datetime=\"%1$s\" pubdate>%2$s - %3$s</time>"
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:350
+msgid "Monday"
+msgstr "ថ្ងៃច័ន្ទ"
+
+#: ../framework/functions/theme-functions.php:354
+#, fuzzy
+msgid "Tuesday"
+msgstr "ថ្ងៃអង្គារ"
+
+#: ../framework/functions/theme-functions.php:358
+msgid "Wednesday"
+msgstr "ថ្ងៃពុធ"
+
+#: ../framework/functions/theme-functions.php:362
+#, fuzzy
+msgid "Thursday"
+msgstr "ថ្ងៃព្រហស្បតិ៍"
+
+#: ../framework/functions/theme-functions.php:366
+msgid "Friday"
+msgstr "ថ្ងៃសុក្រ"
+
+#: ../framework/functions/theme-functions.php:370
+msgid "Saturday"
+msgstr "ថ្ងៃសៅរ៍"
+
+#: ../framework/functions/theme-functions.php:374
+msgid "Sunday"
+msgstr "ថ្ងៃអាទិត្យ"
+
+#: ../framework/functions/theme-functions.php:388
+msgid "January"
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:392
+msgid "February"
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:396
+msgid "March"
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:400
+msgid "April"
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:404
+msgid "May"
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:408
+msgid "June"
+msgstr "ខែមិថុនា"
+
+#: ../framework/functions/theme-functions.php:412
+msgid "July"
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:416
+msgid "August"
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:420
+msgid "September"
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:424
+msgid "October"
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:428
+msgid "November"
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:432
+msgid "December"
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:463
+#: ../framework/functions/theme-functions.php:490
+msgid "Views"
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:649
+msgid "All posts"
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:698
+msgid "- Select page -"
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:908
+msgid "Social Networking"
+msgstr ""
+
+#: ../framework/meta-box/meta-boxes.php:29
+msgid "General Settings"
+msgstr ""
+
+#: ../framework/meta-box/meta-boxes.php:35
+msgid "Page Layout"
+msgstr ""
+
+#: ../framework/meta-box/meta-boxes.php:40
+msgid "Fullwidth - No sidebar"
+msgstr ""
+
+#: ../framework/meta-box/meta-boxes.php:40
+msgid "Fullwidth - No sidebar\""
+msgstr ""
+
+#: ../framework/meta-box/meta-boxes.php:42
+msgid "Sidebar on the right"
+msgstr ""
+
+#: ../framework/meta-box/meta-boxes.php:46
+msgid "select the layout structure for this page."
+msgstr ""
+
+#: ../framework/meta-box/meta-boxes.php:49
+msgid "Choose a sidebar to display"
+msgstr ""
+
+#: ../framework/meta-box/meta-boxes.php:65
+msgid "External Video Settings"
+msgstr ""
+
+#: ../framework/meta-box/meta-boxes.php:71
+msgid "Video type"
+msgstr ""
+
+#: ../framework/meta-box/meta-boxes.php:83
+msgid "Video id"
+msgstr ""
+
+#: ../framework/meta-box/meta-boxes.php:87
+msgid "ex: http://www.youtube.com/watch?v=sdUUx5FdySs the id is \"sdUUx5FdySs\"."
+msgstr ""
+
+#: ../framework/meta-box/meta-boxes.php:104
+msgid "Title Text"
+msgstr ""
+
+#: ../framework/meta-box/inc/classes/meta-box.php:285
+msgid "Please correct the errors highlighted below and try again."
+msgstr ""
+
+#: ../framework/meta-box/inc/classes/meta-box.php:343
+msgid "+"
+msgstr ""
+
+#: ../framework/meta-box/inc/classes/meta-box.php:365
+msgid "&#8211;"
+msgstr ""
+
+#: ../framework/meta-box/inc/fields/file.php:64
+msgid "Error: Cannot delete file"
+msgstr ""
+
+#: ../framework/meta-box/inc/fields/image.php:64
+msgid "Order saved"
+msgstr ""
+
+#: ../framework/meta-box/inc/fields/map.php:46
+msgid "Find Address"
+msgstr ""
+
+#: ../framework/meta-box/inc/fields/slider-slides.php:91
+#: ../framework/meta-box/inc/fields/slider-slides.php:187
+msgid "Click to toggle"
+msgstr ""
+
+#: ../framework/meta-box/inc/fields/slider-slides.php:93
+#: ../framework/meta-box/inc/fields/slider-slides.php:189
+msgid "Slide"
+msgstr ""
+
+#: ../framework/meta-box/inc/fields/slider-slides.php:100
+#: ../framework/meta-box/inc/fields/slider-slides.php:196
+msgid "Image"
+msgstr ""
+
+#: ../framework/meta-box/inc/fields/slider-slides.php:101
+#: ../framework/meta-box/inc/fields/slider-slides.php:197
+msgid "Content"
+msgstr ""
+
+#: ../framework/meta-box/inc/fields/slider-slides.php:102
+#: ../framework/meta-box/inc/fields/slider-slides.php:198
+msgid "Link"
+msgstr ""
+
+#: ../framework/meta-box/inc/fields/slider-slides.php:110
+#: ../framework/meta-box/inc/fields/slider-slides.php:206
+msgid "Image URL"
+msgstr ""
+
+#: ../framework/meta-box/inc/fields/slider-slides.php:115
+#: ../framework/meta-box/inc/fields/slider-slides.php:211
+msgid "Upload Image"
+msgstr ""
+
+#: ../framework/meta-box/inc/fields/slider-slides.php:128
+#: ../framework/meta-box/inc/fields/slider-slides.php:224
+msgid "URL"
+msgstr ""
+
+#: ../framework/meta-box/inc/fields/slider-slides.php:133
+#: ../framework/meta-box/inc/fields/slider-slides.php:229
+msgid "(optional) Any valid URL is allowed (e.g: http//www.google.com), doesn't have to be an image"
+msgstr ""
+
+#: ../framework/meta-box/inc/fields/slider-slides.php:145
+#: ../framework/meta-box/inc/fields/slider-slides.php:241
+msgid "Title"
+msgstr ""
+
+#: ../framework/meta-box/inc/fields/slider-slides.php:158
+#: ../framework/meta-box/inc/fields/slider-slides.php:254
+msgid "Slide Content"
+msgstr ""
+
+#: ../framework/meta-box/inc/fields/slider-slides.php:163
+#: ../framework/meta-box/inc/fields/slider-slides.php:259
+msgid "(optional) Max 255 characters are allowed."
+msgstr ""
+
+#: ../framework/meta-box/inc/fields/slider-slides.php:172
+#: ../framework/meta-box/inc/fields/slider-slides.php:268
+msgid "Remove Slide"
+msgstr ""
+
+#: ../framework/meta-box/inc/fields/slider-slides.php:280
+msgid "Add New Slide"
+msgstr ""
+
+#: ../framework/meta-box/js/slider-slides.php:105
+#: ../framework/meta-box/js/slider-slides.php:283
+msgid "Button"
+msgstr ""
+
+#: ../framework/meta-box/js/slider-slides.php:132
+#: ../framework/meta-box/js/slider-slides.php:310
+msgid "Button Type"
+msgstr ""
+
+#: ../framework/meta-box/js/slider-slides.php:149
+#: ../framework/meta-box/js/slider-slides.php:327
+msgid "Dropcap"
+msgstr ""
+
+#: ../framework/meta-box/js/slider-slides.php:154
+#: ../framework/meta-box/js/slider-slides.php:179
+#: ../framework/meta-box/js/slider-slides.php:332
+#: ../framework/meta-box/js/slider-slides.php:357
+msgid "(optional)"
+msgstr ""
+
+#: ../framework/meta-box/js/slider-slides.php:174
+#: ../framework/meta-box/js/slider-slides.php:352
+msgid "Description"
+msgstr ""
+
+#: ../framework/meta-box/js/slider-slides.php:215
+#: ../framework/meta-box/js/slider-slides.php:393
+msgid "(optional) HTML tags and WordPress shortcodes are allowed."
+msgstr ""
+
+#: ../framework/meta-box/js/slider-slides.php:227
+#: ../framework/meta-box/js/slider-slides.php:405
+msgid "Lightbox"
+msgstr ""
+
+#: ../framework/meta-box/js/slider-slides.php:232
+#: ../framework/meta-box/js/slider-slides.php:410
+msgid "Disabled"
+msgstr ""
+
+#: ../framework/meta-box/js/slider-slides.php:234
+#: ../framework/meta-box/js/slider-slides.php:412
+msgid "Iframe"
+msgstr ""
+
+#: ../framework/meta-box/js/slider-slides.php:249
+#: ../framework/meta-box/js/slider-slides.php:427
+msgid "(optional) Any valid URL is allowed, doesn't have to be an image"
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:178
+#: ../framework/plugins/plugin-activation/plugins.php:58
+msgid "Install Required Plugins"
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:179
+#: ../framework/plugins/plugin-activation/plugins.php:59
+msgid "Install Plugins"
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:180
+#: ../framework/plugins/plugin-activation/plugins.php:60
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:181
+msgid "Something went wrong."
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:192
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:527
+#: ../framework/plugins/plugin-activation/plugins.php:72
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:193
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:1884
+#: ../framework/plugins/plugin-activation/plugins.php:73
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:194
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:554
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:2096
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:582
+#, php-format
+msgid "The following plugin was activated successfully: %s."
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:742
+msgid "Dismiss this notice"
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:1129
+msgid "External Link"
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:1134
+msgid "Private Repository"
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:1137
+msgid "Pre-Packaged"
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:1141
+msgid "WordPress Repository"
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:1144
+msgid "Required"
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:1144
+msgid "Recommended"
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:1147
+msgid "Not Installed"
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:1149
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:1319
+#, php-format
+msgid "No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the Dashboard\">Return to the Dashboard</a>"
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:1335
+msgid "Plugin"
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:1336
+msgid "Source"
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:1337
+msgid "Type"
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:1338
+msgid "Status"
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:1356
+msgid "Install"
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:1357
+msgid "Activate"
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:1867
+msgid "Install package not available."
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:1868
+#, php-format
+msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:1869
+msgid "Unpacking the package&#8230;"
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:1870
+msgid "Installing the plugin&#8230;"
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:1871
+msgid "Plugin install failed."
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:1872
+msgid "Plugin installed successfully."
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:1883
+msgid "Plugin activation failed."
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:1993
+msgid "The installation and activation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:1994
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:1994
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:2003
+msgid "Show Details"
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:1994
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:2003
+msgid "Hide Details"
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:1995
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:1996
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:2000
+msgid "The installation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:2001
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:2002
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:2003
+#, php-format
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:2004
+msgid "All installations have been completed."
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/class-tgm-plugin-activation.php:2005
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/plugins.php:61
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: ../framework/plugins/plugin-activation/plugins.php:74
+#, php-format
+msgid "All plugins installed and activated successfully. %s"
+msgstr ""
+
+#: ../framework/widgets/widget-category.php:9
+#: ../framework/widgets/widget-category.php:51
+msgid "Category Posts"
+msgstr ""
+
+#: ../framework/widgets/widget-category.php:12
+msgid "A widget show posts by category"
+msgstr ""
+
+#: ../framework/widgets/widget-fb-likebox.php:19
+msgid "Facebook Like Box"
+msgstr ""
+
+#: ../framework/widgets/widget-fb-likebox.php:22
+msgid "Facebook Likebox"
+msgstr ""
+
+#: ../framework/widgets/widget-fb-likebox.php:79
+msgid "Facebook"
+msgstr ""
+
+#: ../framework/widgets/widget-fb-likebox.php:89
+#: ../framework/widgets/widget-video.php:76
+msgid "Title:"
+msgstr ""
+
+#: ../framework/widgets/widget-fb-likebox.php:94
+msgid "Width:"
+msgstr ""
+
+#: ../framework/widgets/widget-fb-likebox.php:99
+msgid "Height:"
+msgstr ""
+
+#: ../framework/widgets/widget-fb-likebox.php:104
+msgid "Background Color: (color code without #)"
+msgstr ""
+
+#: ../framework/widgets/widget-fb-likebox.php:108
+msgid "Box border Color: (color code without #)"
+msgstr ""
+
+#: ../framework/widgets/widget-fb-likebox.php:113
+msgid "Facebook Page URL:"
+msgstr ""
+
+#: ../framework/widgets/widget-feedburner.php:8
+msgid "Feedburner Widget"
+msgstr ""
+
+#: ../framework/widgets/widget-feedburner.php:11
+msgid "Subscribe to feedburner via email"
+msgstr ""
+
+#: ../framework/widgets/widget-feedburner.php:32
+msgid "Enter your e-mail address"
+msgstr ""
+
+#: ../framework/widgets/widget-feedburner.php:35
+msgid "Subscribe"
+msgstr ""
+
+#: ../framework/widgets/widget-feedburner.php:51
+msgid "FeedBurner Widget"
+msgstr ""
+
+#: ../framework/widgets/widget-feedburner.php:51
+msgid "Subscribe to our email newsletter."
+msgstr ""
+
+#: ../framework/widgets/widget-google-plus.php:9
+msgid "Google + page"
+msgstr ""
+
+#: ../framework/widgets/widget-google-plus.php:12
+msgid "Show Google+ button for people to follow"
+msgstr ""
+
+#: ../framework/widgets/widget-google-plus.php:57
+msgid "Follow us on Google+"
+msgstr ""
+
+#: ../framework/widgets/widget-posts-list.php:9
+msgid "Posts list"
+msgstr ""
+
+#: ../framework/widgets/widget-posts-list.php:12
+msgid "Show popular, Most recent or Random posts"
+msgstr ""
+
+#: ../framework/widgets/widget-posts-list.php:57
+msgid "Recent Posts"
+msgstr ""
+
+#: ../framework/widgets/widget-social.php:9
+msgid "Social Icons"
+msgstr ""
+
+#: ../framework/widgets/widget-social.php:12
+msgid "For people easy to connect our social network"
+msgstr ""
+
+#: ../framework/widgets/widget-social.php:53
+msgid "Social"
+msgstr ""
+
+#: ../framework/widgets/widget-soundcloud.php:8
+msgid "SoundCloud"
+msgstr ""
+
+#: ../framework/widgets/widget-soundcloud.php:11
+msgid "Embeded audio/sound from Soundcloud.com"
+msgstr ""
+
+#: ../framework/widgets/widget-subnav.php:19
+msgid "Sub Navigation"
+msgstr ""
+
+#: ../framework/widgets/widget-subnav.php:22
+msgid "Show Page Sub Navigation"
+msgstr ""
+
+#: ../framework/widgets/widget-subnav.php:43
+msgid "Show Page Name:"
+msgstr ""
+
+#: ../framework/widgets/widget-subnav.php:50
+msgid "Level:"
+msgstr ""
+
+#: ../framework/widgets/widget-tabbed.php:9
+msgid "Most Popular, Recent, Comments, Tags"
+msgstr ""
+
+#: ../framework/widgets/widget-tabbed.php:12
+msgid "A widget show most popular, recent acomment in tabs"
+msgstr ""
+
+#: ../framework/widgets/widget-tabbed.php:24
+msgid "Popular"
+msgstr ""
+
+#: ../framework/widgets/widget-tabbed.php:25
+msgid "Recent"
+msgstr ""
+
+#: ../framework/widgets/widget-tabbed.php:26
+msgid "Comments"
+msgstr ""
+
+#: ../framework/widgets/widget-text-image.php:18
+msgid "Text and Image"
+msgstr ""
+
+#: ../framework/widgets/widget-text-image.php:21
+msgid "Arbitrary link with a simple image"
+msgstr ""
+
+#: ../framework/widgets/widget-video.php:19
+msgid "Video"
+msgstr ""
+
+#: ../framework/widgets/widget-video.php:22
+msgid "A widget that allows to view video to be added to a sidebar"
+msgstr ""
+
+#: ../framework/widgets/widget-video.php:81
+msgid "Video URL:"
+msgstr ""
+
+#: ../framework/widgets/widgets.php:21
+msgid "Main Sidebar"
+msgstr ""
+
+#: ../includes/breadcrumbs.php:18
+msgid "Home"
+msgstr ""
+
+#: ../includes/breadcrumbs.php:85
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: ../includes/breadcrumbs.php:90
+#, php-format
+msgid "Tag Archives: %s"
+msgstr ""
+
+#: ../includes/breadcrumbs.php:102
+msgid "Not Found"
+msgstr ""
+
+#: ../includes/breadcrumbs.php:108
+msgid "page "
+msgstr ""
+
+#: ../includes/news-ticker-scroll.php:11
+#: ../includes/news-ticker-writer.php:11
+msgid "Breaking news: "
+msgstr "អត្ថបទខ្លីថ្មីៗ: "
+
+#: ../includes/post-related.php:29
+msgid "Related Articles"
+msgstr ""
+
+#: ../includes/wp-list-comments.php:31
+#, php-format
+msgid "%s "
+msgstr ""
+
+#: ../includes/wp-list-comments.php:32
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: ../includes/wp-list-comments.php:32
+#: ../includes/wp-list-comments.php:52
+msgid "(Edit)"
+msgstr ""
+
+#: ../includes/wp-list-comments.php:37
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: ../includes/wp-list-comments.php:52
+msgid "Pingback:"
+msgstr ""
+
+#: ../includes/custom/home-cats-tabs.php:44
+#: ../includes/custom/home-cats-tabs.php:103
+#: ../includes/custom/home-cats.php:35
+#: ../includes/custom/home-cats.php:94
+msgid "Posted on: &mdash; "
+msgstr ""
+
+#: ../includes/custom/home-cats-tabs.php:49
+#: ../includes/custom/home-cats-tabs.php:108
+#: ../includes/custom/home-cats.php:40
+#: ../includes/custom/home-cats.php:99
+msgid "Learn more »"
+msgstr ""
+
+#: ../includes/custom/home-cats-tabs.php:70
+#: ../includes/custom/home-cats-tabs.php:129
+#: ../includes/custom/home-cats.php:53
+#: ../includes/custom/home-cats.php:112
+msgid "See more "
+msgstr ""
+

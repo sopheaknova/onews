@@ -317,7 +317,7 @@ if( !function_exists('sp_posted_on')) {
 			}
 		}
 	}else{
-		$since = get_the_time(get_option('date_format'));
+		$since = translate_metadate_to_string(); //get_the_time('l d - M, Y');
 	}
 	//echo '<span class="post-date">'.$since.'</span>';
 	
@@ -329,6 +329,117 @@ if( !function_exists('sp_posted_on')) {
 	
 	}
 
+}
+
+/*-----------------------------------------------------------------------------------*/
+/* Translate Date of post to string 
+/*-----------------------------------------------------------------------------------*/
+function translate_metadate_to_string() {
+	
+	global $post;
+	
+	$output = '';
+	$meta_day 	= get_the_time('D');
+	$meta_date	= get_the_time('d');
+	$meta_month	= get_the_time('M');
+	$meta_year	= get_the_time('Y');
+	switch ($meta_day) {
+		
+		//Translate Weekday
+		case 'Mon':
+			$output .= __( 'Monday' , 'sptheme' );
+			break;
+		
+		case 'Tue':
+			$output .= __( 'Tuesday' , 'sptheme' );
+			break;
+		
+		case 'Wed':
+			$output .= __( 'Wednesday' , 'sptheme' );
+			break;
+		
+		case 'Thu':
+			$output .= __( 'Thursday' , 'sptheme' );
+			break;
+		
+		case 'Fri':
+			$output .= __( 'Friday' , 'sptheme' );
+			break;
+		
+		case 'Sat':
+			$output .= __( 'Saturday' , 'sptheme' );
+			break;
+		
+		case 'Sun':
+			$output .= __( 'Sunday' , 'sptheme' );
+			break;
+		
+		default:
+			break;
+		
+	}
+	
+	$output .= ' ' . $meta_date . ' ';
+	
+	//Translate Month
+	switch ($meta_month) {
+		
+		case 'Jan':
+			$output .= __( 'January' , 'sptheme' );
+			break;
+		
+		case 'Feb':
+			$output .= __( 'February' , 'sptheme' );
+			break;
+		
+		case 'Mar':
+			$output .= __( 'March' , 'sptheme' );
+			break;
+		
+		case 'Apr':
+			$output .= __( 'April' , 'sptheme' );
+			break;
+		
+		case 'May':
+			$output .= __( 'May' , 'sptheme' );
+			break;
+		
+		case 'Jun':
+			$output .= __( 'June' , 'sptheme' );
+			break;
+		
+		case 'Jul':
+			$output .= __( 'July' , 'sptheme' );
+			break;
+			
+		case 'Aug':
+			$output .= __( 'August' , 'sptheme' );
+			break;
+			
+		case 'Sep':
+			$output .= __( 'September' , 'sptheme' );
+			break;
+			
+		case 'Oct':
+			$output .= __( 'October' , 'sptheme' );
+			break;
+			
+		case 'Nov':
+			$output .= __( 'November' , 'sptheme' );
+			break;
+			
+		case 'Dec':
+			$output .= __( 'December' , 'sptheme' );
+			break;					
+		
+		default:
+			break;
+		
+	}
+	
+	$output .= ' ' . $meta_year;
+		
+	return $output;	
 }
 
 /*-----------------------------------------------------------------------------------*/

@@ -168,7 +168,7 @@ $of_options[] = array( 	"name" 		=> "Tracking Code",
 $of_options[] = array( 	"name" 		=> "Footer Text",
 						"desc" 		=> "Enter your footer text",
 						"id" 		=> "footer_text",
-						"std" 		=> "© 2013 NOVA CAMBODIA",
+						"std" 		=> "© 2013 Company Name",
 						"type" 		=> "textarea"
 				);
 
