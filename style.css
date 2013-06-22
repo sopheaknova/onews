@@ -736,7 +736,8 @@ blockquote {
 #featured-slideshow{
 	width:620px;
 	height:427px;
-	overflow:hidden;	
+	overflow:hidden;
+	position:relative;	
 }
 #featured-slideshow .caption{
 	position:absolute;
@@ -744,6 +745,7 @@ blockquote {
 	left:0;
 	background:url(images/core/slide_cap_black.png);	
 	width:100%;
+	position:relative;
 }
 	#featured-slideshow .caption a{
 		color:#fcfcfc!important;
