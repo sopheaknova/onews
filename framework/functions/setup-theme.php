@@ -6,7 +6,8 @@
 *****************************************************
 */
 
-	//ACTION
+	//ACTION & FILTER
+		add_filter( 'locale', 'set_sp_locale' ); // Setup default theme language
 		add_action('after_setup_theme', 'sp_theme_setup');//Theme support after activate
 		add_action('init', 'sp_register_assets');//Register and print CSS and JS
 		add_action('wp_print_styles', 'sp_enqueue_styles'); //print CSS
@@ -14,7 +15,6 @@
 		add_action( 'wp_head', 'sp_print_css_js' );//Custom scripts
 		add_action('wp_footer', 'google_analytics_script');
 		
-	//FILTER
 		add_filter('wp_title', 'sp_filter_wp_title', 10, 2);	
 		//TinyMCE customization
 		if ( is_admin() ) {
@@ -47,6 +47,16 @@
 		add_filter('login_headerurl', 'sp_remove_link_on_admin_login_info');//  Remove wordpress link on admin login logo
 		add_filter('login_headertitle', 'sp_change_loging_logo_title');// Change login logo title
 		add_filter('admin_footer_text', 'sp_modify_footer_admin'); // Customising footer text	
+
+/*-----------------------------------------------------------------------------------*/
+/*	setup one language for admin and the other for theme
+/*	must be called before load_theme_textdomain()
+/*-----------------------------------------------------------------------------------*/
+function set_sp_locale($locale) {
+	  $locale = ( is_admin() ) ? "en_US" : "kh_KH";
+	  setlocale(LC_ALL, $local );
+	  return $locale;
+}
 
 /*-----------------------------------------------------------------------------------*/
 /*	theme set up
