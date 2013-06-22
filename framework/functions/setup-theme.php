@@ -185,11 +185,13 @@ function sp_enqueue_styles() {
 
 	if( !is_admin() ) {
 		wp_enqueue_style('g_droidsans');
-		wp_enqueue_style('g_suwannaphum');
-		
 		wp_enqueue_style('sp-theme-styles');
-		wp_enqueue_style('khcss');
 		
+		if (get_bloginfo('language') == 'kh-KH') {
+			wp_enqueue_style('g_suwannaphum');
+			wp_enqueue_style('khcss');
+		}
+			
 		wp_enqueue_style('video');
 		wp_enqueue_style('audioplayerv1');
 		//wp_enqueue_style('shortcodes');
