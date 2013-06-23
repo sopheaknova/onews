@@ -110,7 +110,7 @@
             
             <a  href="<?php echo home_url() ?>/"  title="<?php echo esc_attr( get_bloginfo('name', 'display') ); ?>">
             	<?php if($smof_data['theme_logo'] !== '') : ?>
-                <img src="<?php echo $smof_data['theme_logo']; ?>" alt="<?php echo esc_attr( get_bloginfo('name', 'display') ); ?>">
+                <img src="<?php echo $smof_data['theme_logo']; ?>" alt="<?php echo esc_attr( get_bloginfo('name', 'display') ); ?>" />
                 <?php else: ?>
                 <span><?php bloginfo( 'description' ); ?></span>
                 <?php endif; ?>

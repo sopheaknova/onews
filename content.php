@@ -1,3 +1,4 @@
+<?php global $smof_data; ?>
 <div class="entry-body">
 	<?php if(is_single()) { ?>
 		<h1 class="title"><?php the_title(); ?></h1>
@@ -14,7 +15,7 @@
     
     </div><!-- end .entry-meta -->
 
-	<div class="entry-content">
+	<div class="entry-content<?php echo ($smof_data[ 'blog_display' ] == 'thumbnail') ? ' cat-thumb' : '' ;?>">
 	<?php echo sp_post_content(); ?>
     </div><!-- end .entry-content -->
 

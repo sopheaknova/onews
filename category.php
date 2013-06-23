@@ -1,7 +1,5 @@
 <?php get_header(); ?>
 
-<?php $has_sidebar = sp_check_page_layout(); ?>
-
 <section id="content" class="clearfix sidebar-right">
 
 	<div class="container">

@@ -24,14 +24,18 @@ if( $smof_data[ 'related_post' ] ):
 	}		
 	$related_query = new wp_query( $args );
 	if( $related_query->have_posts() ) : $count=0;?>
-	<section id="related_posts">
+    
+	<?php $related_style = $smof_data['blog_display'] ; ?>
+    
+    <section id="related_posts">
 		<div class="block-head">
 			<h3><?php _e( 'Related Articles' , 'sptheme' ); ?></h3><div class="stripe-line"></div>
 		</div>
+        
 		<div class="post-listing">
 			<?php while ( $related_query->have_posts() ) : $related_query->the_post()?>
 			<div class="related-item">
-			<?php if ( sp_post_image('sp-medium') ) : ?>		
+			<?php if ( sp_post_image('sp-medium') && ($related_style == 'thumbnail') ) : ?>		
 				<div class="post-thumbnail">
 					<a href="<?php the_permalink(); ?>" title="<?php printf( __( 'Permalink to %s', 'sptheme' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 						<img src="<?php echo sp_post_image('sp-medium') ?>" width="200" height="150" />
@@ -46,8 +50,9 @@ if( $smof_data[ 'related_post' ] ):
 			<?php endwhile;?>
 			<div class="clear"></div>
 		</div>
+        
 	</section>
-	<?php	endif;
+	<?php	endif; // related_query 
 	$post = $orig_post;
 	wp_reset_query();
 endif; ?>

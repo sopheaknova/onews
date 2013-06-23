@@ -27,7 +27,14 @@
         <div class="caption">
             <h4><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__('Permalink to %s', 'sptheme'), the_title_attribute('echo=0') ); ?>" rel="bookmark"><?php the_title(); ?></a></h4>
             <p>
-            <?php echo sp_posted_on(); ?>
+            <?php 
+			$since = translate_metadate_to_string();
+			echo sprintf( __( '<time datetime="%1$s" pubdate>%2$s - Time: %3$s</time>', 'sptheme' ),
+				esc_attr( get_the_date('c') ),
+				esc_html( $since ),
+				esc_attr( get_the_time('H:i') )
+				); 
+			?>
             </p>
         </div>
         </div><!-- end .cat-slide-items -->

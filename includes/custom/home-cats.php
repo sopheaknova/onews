@@ -31,14 +31,14 @@
             <?php else: ?>
             <div class="empty-space"></div>
             <?php endif; ?>
-            <div class="entry-meta">
-                <span><?php _e( 'Posted on: &mdash; ', 'sptheme' ); ?><?php echo sp_posted_on(); ?></span>
-            </div><!-- end .entry-meta -->
             <h2 class="post-box-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__('Permalink to %s', 'sptheme'), the_title_attribute('echo=0') ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-            <p>
-            <?php echo sp_excerpt_length(52); ?>
-            <a class="learn-more" href="<?php the_permalink(); ?>"><?php _e( 'Learn more »', 'sptheme' ); ?></a>
-            </p>
+            <div class="entry-meta">
+                <span><?php echo sp_posted_on(); ?></span>
+            </div><!-- end .entry-meta -->
+           
+            <?php echo sp_excerpt_string_length(460); ?>
+            <a class="learn-more" href="<?php the_permalink(); ?>"><?php _e( 'Learn more', 'sptheme' ); ?></a>
+           
             </li><!-- end .first-news -->
         <?php else: ?>
             <li class="other-news">
@@ -50,7 +50,7 @@
         <?php
         endwhile;
         ?>
-            <li><a href="<?php echo esc_url( $category_link ); ?>" class="learn-more"><?php _e('See more ', 'sptheme')?> <?php echo $category_name; ?> »</a></li>
+            <li><a href="<?php echo esc_url( $category_link ); ?>" class="learn-more"><?php _e('Show more ', 'sptheme')?> <?php echo $category_name; ?></a></li>
             </ul>
         <?php
         endif;
@@ -90,14 +90,16 @@
             <?php else: ?>
             <div class="empty-space"></div>
             <?php endif; ?>
-            <div class="entry-meta">
-                <span><?php _e( 'Posted on: &mdash; ', 'sptheme' ); ?><?php echo sp_posted_on(); ?></span>
-            </div><!-- end .entry-meta -->
+            
             <h2 class="post-box-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__('Permalink to %s', 'sptheme'), the_title_attribute('echo=0') ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-            <p>
-            <?php echo sp_excerpt_length(52); ?>
-            <a class="learn-more" href="<?php the_permalink(); ?>"><?php _e( 'Learn more »', 'sptheme' ); ?></a>
-            </p>
+            <div class="entry-meta">
+                <span><?php echo sp_posted_on(); ?></span>
+            </div><!-- end .entry-meta -->
+            
+           
+            <?php echo sp_excerpt_string_length(410); ?>
+            <a class="learn-more" href="<?php the_permalink(); ?>"><?php _e( 'Learn more', 'sptheme' ); ?></a>
+           
             </li><!-- end .first-news -->
         <?php else: ?>
             <li class="other-news">
@@ -109,7 +111,7 @@
         <?php
         endwhile;
         ?>
-            <li><a href="<?php echo esc_url( $category_link ); ?>" class="learn-more"><?php _e('See more ', 'sptheme')?> <?php echo $category_name; ?> »</a></li>
+            <li><a href="<?php echo esc_url( $category_link ); ?>" class="learn-more"><?php _e('Show more ', 'sptheme')?> <?php echo $category_name; ?></a></li>
             </ul>
         <?php
         endif;

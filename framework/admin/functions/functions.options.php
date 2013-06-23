@@ -137,12 +137,19 @@ $of_options[] = array( 	"name" 		=> "Main Layout",
 						)
 				);*/
 
-$of_options[] = array( 	"name" 		=> "Custom Logo",
+$of_options[] = array( 	"name" 		=> "Main Custom Logo",
 						"desc" 		=> "Upload a Png/Gif image that will represent your website's logo.",
 						"id" 		=> "theme_logo",
 						"std" 		=> SP_BASE_URL . "images/logo.png",
 						"type" 		=> "upload"
 				);
+				
+$of_options[] = array( 	"name" 		=> "Footer Custom Logo",
+						"desc" 		=> "Upload a Png/Gif image that will show this logo on footer site",
+						"id" 		=> "footer_logo",
+						"std" 		=> SP_BASE_URL . "images/logo-bw.gif",
+						"type" 		=> "upload"
+				);				
 				
 $of_options[] = array( 	"name" 		=> "Custom Favicon",
 						"desc" 		=> "Upload a 16px x 16px Png/Gif image that will represent your website's favicon.",
@@ -157,18 +164,24 @@ $of_options[] = array( 	"name" 		=> "Show Topbar",
 						"std" 		=> 1,
 						"type" 		=> "switch"
 				);
+
+$of_options[] = array( "name" => 'Footer Scoial Title',
+					"id" => "footer_social_title",
+					"std" => "Join with us on: ",
+					"type" => "text",
+					);
+
+$of_options[] = array( 	"name" 		=> "Footer Text",
+						"desc" 		=> "Enter your footer text",
+						"id" 		=> "footer_text",
+						"std" 		=> "© 2013 Company Name",
+						"type" 		=> "textarea"
+				);
 								
 $of_options[] = array( 	"name" 		=> "Tracking Code",
 						"desc" 		=> "Paste your Google Analytics (or other) tracking code here. This will be added into the footer template of your theme.",
 						"id" 		=> "google_analytics",
 						"std" 		=> "",
-						"type" 		=> "textarea"
-				);
-				
-$of_options[] = array( 	"name" 		=> "Footer Text",
-						"desc" 		=> "Enter your footer text",
-						"id" 		=> "footer_text",
-						"std" 		=> "© 2013 Company Name",
 						"type" 		=> "textarea"
 				);
 
@@ -466,8 +479,8 @@ $of_options[] = array( 	"name" 		=> "Display format",
 						"std" 		=> "excerpt",
 						"type" 		=> "radio",
 						"options" 	=> array(
-										"thumbnail"	=>	"Featured image with Excerpt",
-										"excerpt"		=>	"With Excerpt",
+										"thumbnail"	=>	"Title, Thumbnail with Excerpt",
+										"excerpt"		=>	"Title with Excerpt",
 										"none"	=>	"Title only"
 									)
 				);					
@@ -793,7 +806,7 @@ $of_options[] = array( "name" => 'Related Posts Settings',
 										"tag"		=>	"Tag",
 										"author"	=>	"Author"
 									)
-					);										
+					);														
 
 
 //Social Networking

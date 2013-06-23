@@ -93,7 +93,7 @@ function sp_theme_setup() {
 
 	if ( function_exists( 'add_theme_support' ) ){
 		add_theme_support( 'post-thumbnails' ); // Add theme support for post thumbnails (featured images).
-		add_theme_support( 'post-formats', array( 'audio', 'video', 'audio' ) ); // aside, gallery, image, link, quote, video, audio
+		add_theme_support( 'post-formats', array( 'audio', 'video' ) ); // aside, gallery, image, link, quote, video, audio
 		add_theme_support( 'automatic-feed-links' ); // Add theme support for automatic feed links.
 	}
 	
@@ -450,11 +450,13 @@ function sp_excerpt_length( $length ) {
 // Sets the post excerpt length by string length
 function sp_excerpt_string_length( $str_length = 130 ) {
 	global $post;
+		//$excerpt = ( $str_decode ) ? utf8_decode($post->post_excerpt) : $post->post_excerpt;
 		$excerpt = $post->post_excerpt;
 		if($excerpt==''){
-		$excerpt = get_the_content('');
+		$excerpt = get_the_content();
 		}
-		echo wp_html_excerpt($excerpt,$str_length) . '...';
+		
+		echo '<p>' . wp_html_excerpt($excerpt,$str_length) . '...</p>';
 }
 
 if ( ! function_exists( 'sp_auto_excerpt_more' ) ) {

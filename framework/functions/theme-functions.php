@@ -182,12 +182,13 @@ if( !function_exists('sp_post_content')) {
 		global $smof_data, $post, $user_ID;
 
 		get_currentuserinfo();
-
+		
 		$output = '';
 		
 		if ( is_singular() ) {
 
 			$content = get_the_content();
+			//$content = preg_replace('/(<)([img])(\w+)([^>]*>)/', '', $content);
 			$content = apply_filters( 'the_content', $content );
 			$content = str_replace( ']]>', ']]&gt;', $content );
 
@@ -208,8 +209,8 @@ if( !function_exists('sp_post_content')) {
 						$output .= '</div>';
 					endif;
 				}
-				$output .= '<p>' . sp_excerpt_string_length($smof_data[ 'archive_char_length' ]) . '</p>';
-				$output .= '<a href="'.get_permalink().'" class="learn-more button">' . __( 'Read more »', 'sptheme' ) . '</a>';
+				$output .= sp_excerpt_string_length($smof_data[ 'archive_char_length' ]);
+				$output .= '<a href="'.get_permalink().'" class="learn-more">' . __( 'Learn more', 'sptheme' ) . '</a>';
 				//$output .= '</article>';
 			}
 		}
@@ -232,7 +233,7 @@ if( !function_exists('sp_post_meta')) {
 		
 		if ($smof_data[ 'post_meta' ]) :
 		if( $smof_data[ 'posted_by' ] )
-			$output = '<span>' . __('Posted by:', 'sptheme_admin') . '</span><span class="title"><a href="' . get_author_posts_url( get_the_author_meta( 'ID' ) ) . '" title="' . sprintf( esc_attr__( 'View all posts by %s', 'sptheme' ), get_the_author() . '">' . get_the_author()) . '</a></span><span>&mdash;</span>';
+			$output = '<span>' . __('Posted by:', 'sptheme') . '</span><span class="title"><a href="' . get_author_posts_url( get_the_author_meta( 'ID' ) ) . '" title="' . sprintf( esc_attr__( 'View all posts by %s', 'sptheme' ), get_the_author() . '">' . get_the_author()) . '</a></span><span>&mdash;</span>';
 			
 		if( $smof_data[ 'post_date' ] )
 			$output .=  sp_posted_on() . '<span>&mdash;</span>';
@@ -294,26 +295,26 @@ if( !function_exists('sp_posted_on')) {
 			if ($mins <= 1) {
 				$mins = 1;
 			}
-			$since = sprintf(_n('%s min', '%s mins', $mins), $mins) .' '. __( 'ago' , 'sptheme' );
+			$since = sprintf( __('%s min', '%s mins', $mins), $mins) .' '. __( 'ago' , 'sptheme' );
 		}
 		else if (($diff <= 86400) && ($diff > 3600)) {
 			$hours = round($diff / 3600);
 			if ($hours <= 1) {
 				$hours = 1;
 			}
-			$since = sprintf(_n('%s hour', '%s hours', $hours), $hours) .' '. __( 'ago' , 'sptheme' );
+			$since = sprintf( __('%s hour', '%s hours', $hours), $hours) .' '. __( 'ago' , 'sptheme' );
 		}
 		elseif ($diff >= 86400) {
 			$days = round($diff / 86400);
 			if ($days <= 1) {
 				$days = 1;
-				$since = sprintf(_n('%s day', '%s days', $days), $days) .' '. __( 'ago' , 'sptheme' );
+				$since = sprintf( __('%s day', '%s days', $days), $days) .' '. __( 'ago' , 'sptheme' );
 			}
 			elseif( $days > 29){
 				$since = get_the_time(get_option('date_format'));
 			}
 			else{
-				$since = sprintf(_n('%s day', '%s days', $days), $days) .' '. __( 'ago' , 'sptheme' );
+				$since = sprintf( __('%s day', '%s days', $days), $days) .' '. __( 'ago' , 'sptheme' );
 			}
 		}
 	}else{
@@ -321,11 +322,18 @@ if( !function_exists('sp_posted_on')) {
 	}
 	//echo '<span class="post-date">'.$since.'</span>';
 	
-	return sprintf( __( '<time datetime="%1$s" pubdate>%2$s - %3$s</time>', 'sptheme' ),
-			esc_attr( get_the_date('c') ),
-			esc_html( $since ),
-			esc_attr( get_the_time('g:i a') )
-		);
+		if ( is_single() ) {
+			return sprintf( __( '<time datetime="%1$s" pubdate>%2$s - Time: %3$s</time>', 'sptheme' ),
+					esc_attr( get_the_date('c') ),
+					esc_html( $since ),
+					esc_attr( get_the_time('H:i') )
+			);
+		} else {
+			return sprintf( __( '<time datetime="%1$s" pubdate>%2$s</time>', 'sptheme' ),
+				esc_attr( get_the_date('c') ),
+				esc_html( $since )
+			);	
+		}
 	
 	}
 
@@ -334,7 +342,7 @@ if( !function_exists('sp_posted_on')) {
 /*-----------------------------------------------------------------------------------*/
 /* Translate Date of post to string 
 /*-----------------------------------------------------------------------------------*/
-function translate_metadate_to_string() {
+function translate_metadate_to_string( $short_date = false ) {
 	
 	global $post;
 	
@@ -343,40 +351,43 @@ function translate_metadate_to_string() {
 	$meta_date	= get_the_time('d');
 	$meta_month	= get_the_time('M');
 	$meta_year	= get_the_time('Y');
-	switch ($meta_day) {
-		
-		//Translate Weekday
-		case 'Mon':
-			$output .= __( 'Monday' , 'sptheme' );
-			break;
-		
-		case 'Tue':
-			$output .= __( 'Tuesday' , 'sptheme' );
-			break;
-		
-		case 'Wed':
-			$output .= __( 'Wednesday' , 'sptheme' );
-			break;
-		
-		case 'Thu':
-			$output .= __( 'Thursday' , 'sptheme' );
-			break;
-		
-		case 'Fri':
-			$output .= __( 'Friday' , 'sptheme' );
-			break;
-		
-		case 'Sat':
-			$output .= __( 'Saturday' , 'sptheme' );
-			break;
-		
-		case 'Sun':
-			$output .= __( 'Sunday' , 'sptheme' );
-			break;
-		
-		default:
-			break;
-		
+	
+	if ($short_date) {
+		switch ($meta_day) {
+			
+			//Translate Weekday
+			case 'Mon':
+				$output .= __( 'Monday' , 'sptheme' );
+				break;
+			
+			case 'Tue':
+				$output .= __( 'Tuesday' , 'sptheme' );
+				break;
+			
+			case 'Wed':
+				$output .= __( 'Wednesday' , 'sptheme' );
+				break;
+			
+			case 'Thu':
+				$output .= __( 'Thursday' , 'sptheme' );
+				break;
+			
+			case 'Fri':
+				$output .= __( 'Friday' , 'sptheme' );
+				break;
+			
+			case 'Sat':
+				$output .= __( 'Saturday' , 'sptheme' );
+				break;
+			
+			case 'Sun':
+				$output .= __( 'Sunday' , 'sptheme' );
+				break;
+			
+			default:
+				break;
+			
+		}
 	}
 	
 	$output .= ' ' . $meta_date . ' ';
@@ -437,7 +448,7 @@ function translate_metadate_to_string() {
 		
 	}
 	
-	$output .= ' ' . $meta_year;
+	$output .= ', ' . $meta_year;
 		
 	return $output;	
 }

@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ONews WP Theme\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-21 17:11+0700\n"
-"PO-Revision-Date: 2013-06-21 17:11+0700\n"
-"Last-Translator: Dara <dara@fhi.org.kh>\n"
+"POT-Creation-Date: 2013-06-23 17:20+0700\n"
+"PO-Revision-Date: 2013-06-23 17:20+0700\n"
+"Last-Translator: sopheak <sopheak.peas@novacambodia.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,13 +46,13 @@ msgstr ""
 
 #: ../archive.php:33
 #: ../author.php:19
-#: ../category.php:19
+#: ../category.php:17
 msgid "Nothing Found"
 msgstr ""
 
 #: ../archive.php:63
 #: ../author.php:92
-#: ../category.php:61
+#: ../category.php:59
 #: ../search.php:37
 msgid "It seems we can&rsquo;t find what you&rsquo;re looking for..."
 msgstr ""
@@ -63,7 +63,7 @@ msgid "Author Archives: %s"
 msgstr ""
 
 #: ../author.php:24
-#: ../category.php:24
+#: ../category.php:22
 msgid "Feed Subscription"
 msgstr ""
 
@@ -99,7 +99,7 @@ msgstr ""
 msgid "  on Pinterest"
 msgstr ""
 
-#: ../category.php:15
+#: ../category.php:13
 #, php-format
 msgid "Category Archives: %s"
 msgstr ""
@@ -181,9 +181,13 @@ msgstr ""
 
 #: ../content-audio.php:5
 #: ../content-video.php:5
-#: ../content.php:5
+#: ../content.php:6
 #, php-format
 msgid "Permalink to %s"
+msgstr ""
+
+#: ../footer.php:14
+msgid "Join with us on: "
 msgstr ""
 
 #: ../header.php:150
@@ -339,30 +343,30 @@ msgstr ""
 msgid "Slide title"
 msgstr ""
 
-#: ../framework/functions/setup-theme.php:72
+#: ../framework/functions/setup-theme.php:82
 msgid "Top Navigation"
 msgstr ""
 
-#: ../framework/functions/setup-theme.php:73
+#: ../framework/functions/setup-theme.php:83
 msgid "Primary Navigation"
 msgstr ""
 
-#: ../framework/functions/setup-theme.php:74
+#: ../framework/functions/setup-theme.php:84
 msgid "Footer Navigation"
 msgstr ""
 
-#: ../framework/functions/setup-theme.php:462
+#: ../framework/functions/setup-theme.php:476
 #, php-format
 msgid "Search results for %s"
 msgstr ""
 
-#: ../framework/functions/setup-theme.php:465
 #: ../framework/functions/setup-theme.php:479
+#: ../framework/functions/setup-theme.php:493
 #, php-format
 msgid "Page %s"
 msgstr ""
 
-#: ../framework/functions/setup-theme.php:529
+#: ../framework/functions/setup-theme.php:543
 msgid "Theme Options"
 msgstr ""
 
@@ -375,145 +379,166 @@ msgstr ""
 msgid "Add Footer menu"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:205
+#: ../framework/functions/theme-functions.php:206
 msgid "Permalink to "
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:212
-msgid "Read more »"
+#: ../framework/functions/theme-functions.php:213
+msgid "Learn more"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:235
+#: ../framework/functions/theme-functions.php:236
 msgid "Posted by:"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:235
+#: ../framework/functions/theme-functions.php:236
 #, php-format
 msgid "View all posts by %s"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:241
+#: ../framework/functions/theme-functions.php:242
 msgid " in: "
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:245
+#: ../framework/functions/theme-functions.php:246
 msgid "Leave a comment"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:245
+#: ../framework/functions/theme-functions.php:246
 msgid "1 Comment"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:245
+#: ../framework/functions/theme-functions.php:246
 msgid "% Comments"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:253
+#: ../framework/functions/theme-functions.php:254
 msgid "Edit Post"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:297
-#: ../framework/functions/theme-functions.php:304
-#: ../framework/functions/theme-functions.php:310
-#: ../framework/functions/theme-functions.php:316
+#: ../framework/functions/theme-functions.php:298
+#, php-format
+msgid "%s min"
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:298
+#: ../framework/functions/theme-functions.php:305
+#: ../framework/functions/theme-functions.php:311
+#: ../framework/functions/theme-functions.php:317
 msgid "ago"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:324
+#: ../framework/functions/theme-functions.php:305
 #, php-format
-msgid "<time datetime=\"%1$s\" pubdate>%2$s - %3$s</time>"
+msgid "%s hour"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:350
+#: ../framework/functions/theme-functions.php:311
+#: ../framework/functions/theme-functions.php:317
+#, php-format
+msgid "%s day"
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:326
+#, php-format
+msgid "<time datetime=\"%1$s\" pubdate>%2$s - Time: %3$s</time>"
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:332
+#, php-format
+msgid "<time datetime=\"%1$s\" pubdate>%2$s</time>"
+msgstr ""
+
+#: ../framework/functions/theme-functions.php:360
 msgid "Monday"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:354
+#: ../framework/functions/theme-functions.php:364
 msgid "Tuesday"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:358
+#: ../framework/functions/theme-functions.php:368
 msgid "Wednesday"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:362
+#: ../framework/functions/theme-functions.php:372
 msgid "Thursday"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:366
+#: ../framework/functions/theme-functions.php:376
 msgid "Friday"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:370
+#: ../framework/functions/theme-functions.php:380
 msgid "Saturday"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:374
+#: ../framework/functions/theme-functions.php:384
 msgid "Sunday"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:388
+#: ../framework/functions/theme-functions.php:399
 msgid "January"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:392
+#: ../framework/functions/theme-functions.php:403
 msgid "February"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:396
+#: ../framework/functions/theme-functions.php:407
 msgid "March"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:400
+#: ../framework/functions/theme-functions.php:411
 msgid "April"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:404
+#: ../framework/functions/theme-functions.php:415
 msgid "May"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:408
+#: ../framework/functions/theme-functions.php:419
 msgid "June"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:412
+#: ../framework/functions/theme-functions.php:423
 msgid "July"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:416
+#: ../framework/functions/theme-functions.php:427
 msgid "August"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:420
+#: ../framework/functions/theme-functions.php:431
 msgid "September"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:424
+#: ../framework/functions/theme-functions.php:435
 msgid "October"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:428
+#: ../framework/functions/theme-functions.php:439
 msgid "November"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:432
+#: ../framework/functions/theme-functions.php:443
 msgid "December"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:463
-#: ../framework/functions/theme-functions.php:490
+#: ../framework/functions/theme-functions.php:474
+#: ../framework/functions/theme-functions.php:501
 msgid "Views"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:649
+#: ../framework/functions/theme-functions.php:660
 msgid "All posts"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:698
+#: ../framework/functions/theme-functions.php:709
 msgid "- Select page -"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:908
+#: ../framework/functions/theme-functions.php:919
 msgid "Social Networking"
 msgstr ""
 
@@ -1117,7 +1142,7 @@ msgstr ""
 msgid "Breaking news: "
 msgstr ""
 
-#: ../includes/post-related.php:29
+#: ../includes/post-related.php:32
 msgid "Related Articles"
 msgstr ""
 
@@ -1144,24 +1169,10 @@ msgstr ""
 msgid "Pingback:"
 msgstr ""
 
-#: ../includes/custom/home-cats-tabs.php:44
-#: ../includes/custom/home-cats-tabs.php:103
-#: ../includes/custom/home-cats.php:35
-#: ../includes/custom/home-cats.php:94
-msgid "Posted on: &mdash; "
-msgstr ""
-
-#: ../includes/custom/home-cats-tabs.php:49
-#: ../includes/custom/home-cats-tabs.php:108
-#: ../includes/custom/home-cats.php:40
-#: ../includes/custom/home-cats.php:99
-msgid "Learn more »"
-msgstr ""
-
-#: ../includes/custom/home-cats-tabs.php:70
-#: ../includes/custom/home-cats-tabs.php:129
+#: ../includes/custom/home-cats-tabs.php:75
+#: ../includes/custom/home-cats-tabs.php:134
 #: ../includes/custom/home-cats.php:53
-#: ../includes/custom/home-cats.php:112
-msgid "See more "
+#: ../includes/custom/home-cats.php:114
+msgid "Show more "
 msgstr ""
 

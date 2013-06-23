@@ -24,7 +24,7 @@
                 
                 <?php if( $smof_data[ 'post_tags' ] ) the_tags( '<p class="post-tag">'.__( 'Tagged with: ', 'sptheme' )  ,' ', '</p>'); ?>
 				<?php require_once( SP_BASE_DIR . 'includes/single-post-share.php' ); // Get Share Button template ?>
-
+				<?php require_once( SP_BASE_DIR . 'includes/custom/home-ads-1.php' ); ?>
 			</article><!-- end .hentry -->
             
             <?php the_tags( '<span style="display:none">',' ', '</span>'); ?>
@@ -47,14 +47,13 @@
 				<?php sp_author_box() ?>
 			</div>
 		</section><!-- #author-box -->
+		<?php endif; ?>
         
         <?php require_once( SP_BASE_DIR . 'includes/post-related.php' ); ?>
         
-		<?php endif; ?>
-        
 		<?php endwhile; ?>
         
-       <?php if ( comments_open() || '0' != get_comments_number() ) comments_template( '', true ); ?>
+       <?php // if ( comments_open() || '0' != get_comments_number() ) comments_template( '', true ); ?>
         
 		<?php if( $has_sidebar ): ?>
 
