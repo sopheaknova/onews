@@ -23,6 +23,7 @@
 		<?php endwhile; ?>
 		</marquee>
 		<?php endif; ?>
+        <?php wp_reset_postdata(); ?>
 		<div class="bg-ticker"></div>
 	</div> <!-- .breaking-news -->
     

@@ -229,7 +229,7 @@ if( !function_exists('sp_post_meta')) {
 
 	function sp_post_meta() {
 
-		global $smof_data, $post, $user_ID;;
+		global $smof_data, $post, $user_ID;
 		
 		if ($smof_data[ 'post_meta' ]) :
 		if( $smof_data[ 'posted_by' ] )
@@ -248,7 +248,7 @@ if( !function_exists('sp_post_meta')) {
 			
 			
 		if( $smof_data[ 'post_views' ] )	
-			$output .= sp_post_views();
+			$output .= sp_post_read();
 			
 		if( user_can( $user_ID, 'edit_posts' ) )
 			$output .= '<span>&mdash;</span><span class="edit-link"><a title="' . __('Edit Post', 'sptheme') . '" href="' . get_edit_post_link( $post->ID ) . '">' . __('Edit', 'sptheme') . '</a></span>';	
@@ -457,11 +457,12 @@ function translate_metadate_to_string( $short_date = false ) {
 /* Amount of Post viewed 
 /*-----------------------------------------------------------------------------------*/
 // function to display number of posts.
-function sp_post_views( $postID = '' ){
+function sp_post_read( $postID = '' ){
+
 	global $smof_data, $post;
 	
 	if( !$smof_data[ 'post_views' ] ) return false;
-
+	
 	if( empty($postID) ) $postID = $post->ID ;
 	
     $count_key = 'sp_post_views';
@@ -475,9 +476,10 @@ function sp_post_views( $postID = '' ){
 }
 
 // function to count views.
-function sp_set_post_views() {
-	global $smof_data, $post;
+function sp_set_post_read() {
 	
+	global $smof_data, $post;
+		
 	if( !$smof_data[ 'post_views' ] ) return false;
 
 	$postID = $post->ID ;
@@ -487,8 +489,9 @@ function sp_set_post_views() {
         $count = 0;
         delete_post_meta($postID, $count_key);
         add_post_meta($postID, $count_key, '0');
+		echo $count;
     }else{
-        $count++;
+		$count++;
         update_post_meta($postID, $count_key, $count);
     }
 }

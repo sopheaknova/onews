@@ -357,7 +357,6 @@ blockquote {
 	#top-menu-mob , #main-menu-mob{ display:none; }
 	#main-nav  ul li {
 		text-transform: uppercase;
-		font-family: Oswald,arial,Georgia, serif;
 		font-size:16px;
 		position: relative;
 		display: inline-block;
@@ -828,7 +827,7 @@ blockquote {
 	
 	.widget-container ul { margin-bottom:0; }
 		.widget-container li {
-			background: url(images/core/arrow-right-grey.png) no-repeat 0 11px;
+			/*background: url(images/core/arrow-right-grey.png) no-repeat 0 11px;*/
 			padding: 10px 0;
 			line-height: 18px;
 			overflow: hidden;
@@ -1476,6 +1475,8 @@ blockquote {
 				#related_posts .related-item .post-thumbnail{ margin:0 0 10px 0;}
 				.related-item .post-thumbnail img {width: 100%;height: auto;	}
 	.learn-more{ background:url(images/core/narrow-read-more.png) 100% 7px no-repeat; padding-right:10px; }
+	.show-more{background:#666666 url(images/core/narrow-read-more.png) 96% 13px no-repeat; padding:7px 20px 7px 7px; color:#ffffff; font-size:12px;}
+	a.show-more:hover{background-color:#4A65C9; color:#ffffff; }
 	
 /*===============================================================================================================
 	HOMEPAGE - CONTENTS BLOCK
@@ -1516,7 +1517,6 @@ blockquote {
 		li.first-news p {padding:0;}
 		.cat-box-tab li.first-news{border-right:1px solid #eaeaea; padding-right:15px; float:left; width:298px; margin-right:15px;}
 		.cat-box-tab li.first-news .post-thumbnail{margin-bottom:10px;}
-		.cat-box-tab li:last-child {margin-top:10px;}
 
 
 
@@ -1528,9 +1528,9 @@ blockquote {
 		background: url(images/core/narrow-dot-black.gif) no-repeat 0 10px;
 	}
 	.list-box li:first-child {background-image: none;}
-		.list-box li.first-news p.post-meta{margin:10px 0; }
-		.list-box li.first-news .post-thumbnail{margin-bottom:10px;}
-		.list-box li.first-news{padding:0;width:298px; border-bottom:1px solid #eaeaea; margin-bottom:15px;}
+		.list-box li.first-news p.post-meta{margin:10px 0;}
+		.list-box li.first-news .post-thumbnail{margin-bottom:10px; margin-right:0;}
+		.list-box li.first-news{padding:0;width:298px; border-bottom:1px solid #eaeaea; margin-bottom:15px;  padding-bottom:10px;}
 
 /* Cat-box-tab */
 .cats-tabs-nav {

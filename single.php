@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<?php sp_set_post_views() ?>
+<?php sp_set_post_read(); ?>
 <?php $has_sidebar = sp_check_page_layout(); ?>
 
 <div class="container clearfix"><?php sp_breadcrumbs() ?></div>

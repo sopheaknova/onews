@@ -45,7 +45,7 @@
                         <span><?php echo sp_posted_on(); ?></span>
                     </div><!-- end .entry-meta -->
                     
-                    <?php echo sp_excerpt_string_length(920); ?>
+                    <?php echo sp_excerpt_string_length(820); ?>
                     <a class="learn-more" href="<?php the_permalink(); ?>"><?php _e( 'Learn more', 'sptheme' ); ?></a>
                     
                     </li><!-- end .first-news -->
@@ -72,8 +72,8 @@
                 <?php
                 endwhile;
 				?>
-                	<li><a href="<?php echo esc_url( $category_link_tab1 ); ?>" class="learn-more"><?php _e('Show more ', 'sptheme')?> <?php echo $category_name_tab1; ?></a></li>
                 	</ul>
+                    <a href="<?php echo esc_url( $category_link_tab1 ); ?>" class="show-more"><?php _e('Show more ', 'sptheme')?> <?php echo $category_name_tab1; ?></a>
 				<?php
                 endif;
                 ?>
@@ -109,7 +109,7 @@
                         <span><?php echo sp_posted_on(); ?></span>
                     </div><!-- end .entry-meta -->
                     
-                    <?php echo sp_excerpt_string_length(860); ?>
+                    <?php echo sp_excerpt_string_length(960); ?>
                     <a class="learn-more" href="<?php the_permalink(); ?>"><?php _e( 'Learn more', 'sptheme' ); ?></a>
                     
                     </li><!-- end .first-news -->
@@ -131,8 +131,8 @@
                 <?php
                 endwhile;
 				?>
-                	<li><a href="<?php echo esc_url( $category_link_tab2 ); ?>" class="learn-more"><?php _e('Show more ', 'sptheme')?> <?php echo $category_name_tab2; ?></a></li>
                 	</ul>
+                    <a href="<?php echo esc_url( $category_link_tab2 ); ?>" class="show-more"><?php _e('Show more ', 'sptheme')?> <?php echo $category_name_tab2; ?></a>
 				<?php
                 endif;
                 ?>

@@ -50,8 +50,8 @@
         <?php
         endwhile;
         ?>
-            <li><a href="<?php echo esc_url( $category_link ); ?>" class="learn-more"><?php _e('Show more ', 'sptheme')?> <?php echo $category_name; ?></a></li>
             </ul>
+            <a href="<?php echo esc_url( $category_link ); ?>" class="show-more"><?php _e('Show more ', 'sptheme')?> <?php echo $category_name; ?></a>
         <?php
         endif;
         ?>
@@ -111,8 +111,8 @@
         <?php
         endwhile;
         ?>
-            <li><a href="<?php echo esc_url( $category_link ); ?>" class="learn-more"><?php _e('Show more ', 'sptheme')?> <?php echo $category_name; ?></a></li>
             </ul>
+            <a href="<?php echo esc_url( $category_link ); ?>" class="show-more"><?php _e('Show more ', 'sptheme')?> <?php echo $category_name; ?></a>
         <?php
         endif;
         ?>
