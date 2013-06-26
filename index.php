@@ -41,7 +41,11 @@
     <!--END CONTENTS SECTION BLOCK-->
     </div><!-- end #main -->
     
-	<?php get_sidebar(); ?>
+    <aside id="sidebar">
+	<?php dynamic_sidebar('Home sidebar'); ?>
+    </aside>			
+    
+     
 	
     </div><!-- end .container -->
 </div><!-- end #content -->

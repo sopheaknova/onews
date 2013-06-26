@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ONews WP Theme\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-23 17:24+0700\n"
-"PO-Revision-Date: 2013-06-23 17:43+0700\n"
+"POT-Creation-Date: 2013-06-26 21:22+0700\n"
+"PO-Revision-Date: 2013-06-26 21:25+0700\n"
 "Last-Translator: sopheak <sopheak.peas@novacambodia.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -525,20 +525,28 @@ msgstr "ខែវិច្ឆិកា"
 msgid "December"
 msgstr "ខែធ្នូ"
 
-#: ../framework/functions/theme-functions.php:474
-#: ../framework/functions/theme-functions.php:501
+#: ../framework/functions/theme-functions.php:476
+msgid "Read"
+msgstr "បានអាន"
+
+#: ../framework/functions/theme-functions.php:476
+msgid "times"
+msgstr "ដង"
+
+#: ../framework/functions/theme-functions.php:478
+#: ../framework/functions/theme-functions.php:508
 msgid "Views"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:660
+#: ../framework/functions/theme-functions.php:667
 msgid "All posts"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:709
+#: ../framework/functions/theme-functions.php:716
 msgid "- Select page -"
 msgstr ""
 
-#: ../framework/functions/theme-functions.php:919
+#: ../framework/functions/theme-functions.php:926
 msgid "Social Networking"
 msgstr ""
 
@@ -1169,10 +1177,10 @@ msgstr ""
 msgid "Pingback:"
 msgstr ""
 
-#: ../includes/custom/home-cats-tabs.php:75
-#: ../includes/custom/home-cats-tabs.php:134
-#: ../includes/custom/home-cats.php:53
-#: ../includes/custom/home-cats.php:114
+#: ../includes/custom/home-cats-tabs.php:76
+#: ../includes/custom/home-cats-tabs.php:135
+#: ../includes/custom/home-cats.php:54
+#: ../includes/custom/home-cats.php:115
 msgid "Show more "
 msgstr "បង្ហាញបន្ថែម"
 

@@ -472,7 +472,11 @@ function sp_post_read( $postID = '' ){
         add_post_meta($postID, $count_key, '0');
         $count = "0";
     }
-    return '<span class="post-views">'.$count.' '.__( 'Views' , 'sptheme' ).'</span> ';
+	if (get_bloginfo('language') == 'kh-KH') {
+    	return '<span class="post-views">'.__( 'Read' , 'sptheme' ). ' ' .$count.' '.__( 'times' , 'sptheme' ).'</span> ';
+	} else {
+		return '<span class="post-views">'.$count.' '.__( 'Views' , 'sptheme' ).'</span> ';
+	}
 }
 
 // function to count views.

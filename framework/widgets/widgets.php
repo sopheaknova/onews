@@ -26,6 +26,16 @@ function sp_widgets_init() {
 		'after_title'   => '</h4>',
 	));
 	
+	// Home Widget Area
+	register_sidebar(array(
+		'name'          => __('Home Sidebar', 'sptheme_admin'),
+		'id' => 'home-sidebar',
+		'before_widget' => '<div class="widget %2$s"><div class="widget-container">',
+		'after_widget'  => '</div></div>',
+		'before_title'  => '<h4 class="widget-title">',
+		'after_title'   => '</h4>',
+	));
+	
 	// Dynamic sidebar generate
 	$generate_sidebars = $smof_data['sidebar_options']; 
 	if($generate_sidebars){
