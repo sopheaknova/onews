@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: ONews WP Theme\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-26 21:22+0700\n"
-"PO-Revision-Date: 2013-06-26 21:25+0700\n"
+"PO-Revision-Date: 2013-06-27 22:52+0700\n"
 "Last-Translator: sopheak <sopheak.peas@novacambodia.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -527,7 +527,7 @@ msgstr "ខែធ្នូ"
 
 #: ../framework/functions/theme-functions.php:476
 msgid "Read"
-msgstr "បានអាន"
+msgstr "បានទស្សនា"
 
 #: ../framework/functions/theme-functions.php:476
 msgid "times"
