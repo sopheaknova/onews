@@ -210,7 +210,9 @@ if( !function_exists('sp_post_content')) {
 					endif;
 				}
 				$output .= sp_excerpt_string_length($smof_data[ 'archive_char_length' ]);
-				$output .= '<a href="'.get_permalink().'" class="learn-more">' . __( 'Learn more', 'sptheme' ) . '</a>';
+				if (get_post_format($post->ID) !== 'video')
+					$output .= '<a href="'.get_permalink().'" class="learn-more">' . __( 'Learn more', 'sptheme' ) . '</a>';
+				
 				//$output .= '</article>';
 			}
 		}
@@ -493,7 +495,6 @@ function sp_set_post_read() {
         $count = 0;
         delete_post_meta($postID, $count_key);
         add_post_meta($postID, $count_key, '0');
-		echo $count;
     }else{
 		$count++;
         update_post_meta($postID, $count_key, $count);
